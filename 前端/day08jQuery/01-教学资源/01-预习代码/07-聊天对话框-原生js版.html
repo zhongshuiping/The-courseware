@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-聊天对话框</title>
+    <style type="text/css">
+        .talk_con{
+            width:600px;
+            height:500px;
+            border:1px solid #666;
+            margin:50px auto 0;
+            background:#f9f9f9;
+        }
+        .talk_show{
+            width:580px;
+            height:420px;
+            border:1px solid #666;
+            background:#fff;
+            margin:10px auto 0;
+            overflow:auto;
+        }
+        .talk_input{
+            width:580px;
+            margin:10px auto 0;
+        }
+        .whotalk{
+            width:80px;
+            height:30px;
+            float:left;
+            outline:none;
+        }
+        .talk_word{
+            width:420px;
+            height:26px;
+            padding:0px;
+            float:left;
+            margin-left:10px;
+            outline:none;
+            text-indent:10px;
+        }        
+        .talk_sub{
+            width:56px;
+            height:30px;
+            float:left;
+            margin-left:10px;
+        }
+        .atalk{
+           margin:10px; 
+        }
+        .atalk span{
+            display:inline-block;
+            background:#0181cc;
+            border-radius:10px;
+            color:#fff;
+            padding:5px 10px;
+        }
+        .btalk{
+            margin:10px;
+            text-align:right;
+        }
+        .btalk span{
+            display:inline-block;
+            background:#ef8201;
+            border-radius:10px;
+            color:#fff;
+            padding:5px 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oWordsDiv = document.getElementById('words'), // 消息内容框
+            oWhoSel = document.getElementById('who'),          // 消息类型选项
+            oTalkWords = document.getElementById('talkwords'),// 消息输入框
+            oBtn = document.getElementById('talksub'); // 发送按钮
+
+            oBtn.onclick = function () { // 发送按钮点击事件
+                var sOption = oWhoSel.value; // 获取消息类型 是A 还是B
+                var sTalkValue = oTalkWords.value; // 获取消息输框中的文字
+
+                if (sTalkValue == '') {  // 如果消息输入框没有输入 弹出提示 并结束函数运行
+                    alert('请输入内容!');
+                    return;
+                }
+
+                var sContent = ''; // 用来保存消息内容
+                if (sOption == '0') { //如果是A发的消息
+                    sContent = '<div class="atalk"><span>A说：'+ sTalkValue +'</span></div>'
+                } else { // B发的消息
+                    sContent = '<div class="btalk"><span>B说：'+ sTalkValue +'</span></div>'
+                }
+
+                // 设置消息框中的内容 注意加上之前的消息
+                oWordsDiv.innerHTML = oWordsDiv.innerHTML + sContent;
+                // 消息发送后清空文本输入框中的文字
+                oTalkWords.value = '';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="talk_con">
+        <div class="talk_show" id="words">
+            <div class="atalk"><span>A说：吃饭了吗？</span></div>
+            <div class="btalk"><span>B说：还没呢，你呢？</span></div>
+        </div>
+        <div class="talk_input">
+            <select class="whotalk" id="who">
+                <option value="0">A说：</option>
+                <option value="1">B说：</option>
+            </select>
+            <input type="text" class="talk_word" id="talkwords">
+            <input type="button" value="发送" class="talk_sub" id="talksub">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>todolist</title>
+   <link rel="stylesheet" href="css/main.css">
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+         var iNow = 0;
+
+			$('#btn1').click(function(){
+				var sVal = $('#txt1').val();
+				if(sVal=='')
+				{
+					alert('请输入内容');
+					return;
+				}
+				$('#txt1').val('');
+
+				var $li = $('<li><span>'+ sVal +'</span><a href="javascript:;" class="edit">编辑</a><a href="javascript:;" class="up"> ↑ </a><a href="javascript:;" class="down"> ↓ </a><a href="javascript:;" class="del">删除</a></li>');
+				$li.appendTo( $('#list') );
+
+			})
+
+
+			$('#list').delegate('a','click',function(){
+				var sHandler = $(this).prop('class');
+
+				if(sHandler=='del')
+				{
+					$(this).parent().remove();
+				}
+
+				if(sHandler=='up')
+				{
+					if($(this).parent().prev().length==0)
+					{
+						alert('到顶了');
+						return;
+					}
+					
+					$(this).parent().insertBefore( $(this).parent().prev() );
+				}
+
+				if(sHandler=='down')
+				{
+					if($(this).parent().next().length==0)
+					{
+						alert('到底了');
+						return;
+					}
+					$(this).parent().insertAfter( $(this).parent().next() );
+				}
+
+            if(sHandler=='edit')
+				{
+					iNow = $(this).parent().index();
+               $('.pop_main').show();
+               $('.edit_text').val( $(this).prev().html() );
+				}
+			})
+
+         $('.shutoff').click(function(){
+             $('.pop_main').hide();
+         })
+
+         $('.cancel').click(function(){
+             $('.pop_main').hide();
+         })
+
+
+         $('.confirm').click(function(){
+             var sVal = $('.edit_text').val();
+             if(sVal=='')
+             {
+                return;
+             }             
+             $('#list li').eq(iNow).children('span').html( sVal );
+             $('.pop_main').hide();
+
+         })
+
+
+
+
+
+		})
+
+	</script>	
+</head>
+<body>
+
+	<div class="list_con">
+	<h2>To do list</h2>
+		<input type="text" name="" id="txt1" class="inputtxt">
+		<input type="button" name="" value="增加" id="btn1" class="inputbtn">
+		
+		<ul id="list" class="list">
+
+			<li><span>学习html</span><a href="javascript:;" class="edit">编辑</a><a href="javascript:;" class="up"> ↑ </a><a href="javascript:;" class="down"> ↓ </a><a href="javascript:;" class="del">删除</a></li>
+			<li><span>学习css</span><a href="javascript:;" class="edit">编辑</a><a href="javascript:;" class="up"> ↑ </a><a href="javascript:;" class="down"> ↓ </a><a href="javascript:;" class="del">删除</a></li>
+			<li><span>学习javascript</span><a href="javascript:;" class="edit">编辑</a><a href="javascript:;" class="up"> ↑ </a><a href="javascript:;" class="down"> ↓ </a><a href="javascript:;" class="del">删除</a></li>
+
+		</ul>
+
+	</div>
+
+
+   <div class="pop_main">
+        <div class="pop_con">
+            <div class="pop_title">
+                <h3>修改内容</h3>
+                <a href="javascript:;" class="shutoff">×</a>
+            </div>
+            <div class="pop_detail">
+                <label>修改为：</label>
+                <input type="text" class="edit_text">
+            </div>
+            <div class="pop_footer">
+                <input type="button" value="取 消" class="cancel">
+                <input type="button" value="确 定" class="confirm">                
+            </div>
+        </div>
+        <div class="mask"></div>
+    </div>
+
+</body>
+</html>

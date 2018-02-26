@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-行内元素的特点</title>
+    <!-- 行内元素的特点: 
+        1.多个行内元素会排列在一行,当遇到父元素的边界就会自动换行
+        2.宽度默认由里面的内容决定,设置宽高无效
+        3.行内元素代码如果换行/空格时,之间会有小间隙问题
+        4.行内元素不支持margin上下 padding上下设置也会有问题
+        5.行内元素直接设置文字水平对齐无效,但可以设置它们的父元素的text-align属性来让行内元素在父元素中实现水平对齐
+
+
+    
+    -->
+
+    <style>
+        a,span{
+            background-color: gold;
+            /* width: 200px;
+            height: 300px; */
+            /* margin: 10px 30px; */
+            /* padding: 100px 30px; */
+
+            /* text-align: center; */
+        }
+
+        div{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+            <a href="#">a标签</a>
+            <span>span标签</span>
+    </div>
+   
+</body>
+</html>

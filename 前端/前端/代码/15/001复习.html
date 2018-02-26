@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复习</title>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+			/*
+
+			$('.list').click(function(){
+				alert('点击！');
+			});
+
+			*/
+
+			/*
+			阻止li上的click事件冒泡
+			$('.list li').click(function(){
+				return false;
+			})
+
+			*/
+
+			
+			//分别绑定事件
+
+			/*
+			$('.list li').click(function(){
+				$(this).css({color:'#fff',fontSize:'20px'});				
+			})
+			*/
+			
+
+			$('#btn').click(function(){
+
+				var val = $('#txt01').val();
+
+				var $li = $('<li>'+ val +'<span class="del">删除</span></li>');
+
+				$li.appendTo('.list');
+			})
+
+
+
+			$('.list').delegate('li,span', 'click', function() {
+
+				if($(this).attr('class')=='del')
+				{
+					$(this).parent().remove();
+					return;
+				}
+
+
+				$(this).css({color:'#fff',fontSize:'20px'});
+
+			});
+
+
+		})
+
+
+	</script>
+	<style type="text/css">
+		ul{
+			list-style:none;
+			background-color: gold;
+		}
+		
+		li{
+			height:30px;
+			background-color:green;
+			margin-bottom:10px;
+		}
+
+	</style>
+</head>
+<body>
+	<input type="text" id="txt01">
+	<input type="button" name="" value="增加" id="btn">
+	<ul class="list">
+		<li>1<span class="del">删除</span></li>
+		<li>2<span class="del">删除</span></li>
+		<li>3<span class="del">删除</span></li>
+		<li>4<span class="del">删除</span></li>
+		<li>5<span class="del">删除</span></li>
+		<li>6<span class="del">删除</span></li>
+		<li>7<span class="del">删除</span></li>
+		<li>8<span class="del">删除</span></li>
+	</ul>
+</body>
+</html>

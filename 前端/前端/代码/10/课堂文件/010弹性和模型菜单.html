@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body,ul{
+			margin:0;
+			padding:0;
+		}
+
+		ul{
+			list-style:none;
+		}
+
+
+		.menu_con{
+			width:960px;
+			height:80px;
+			background-color:#ddd;
+			margin:50px auto 0;
+			display:flex;
+		}
+
+		.logo{
+			width:80px;
+			height:80px;
+			background-color:gold;
+		}
+
+		.menu{
+			
+			flex-grow:1;
+			display: flex;
+			align-items:center;
+			overflow:hidden;
+		}
+
+		.menu li{
+			flex-grow:1;
+
+			text-align:center;
+			border-right:1px solid #333;
+			margin-right:-1px;
+
+		}
+
+		.menu li a{
+			text-decoration:none;
+			color:#666;
+		}
+
+		@media (max-width:960px){
+			.menu_con{
+				width:100%;
+			}
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+	<div class="menu_con">
+		<div class="logo"></div>
+		<ul class="menu">
+			<li><a href="#">首页</a></li>
+			<li><a href="#">公司简介</a></li>
+			<li><a href="#">公司新闻</a></li>
+			<li><a href="#">行业动态</a></li>
+			<li><a href="#">联系我们</a></li>
+		</ul>
+	</div>
+</body>
+</html>

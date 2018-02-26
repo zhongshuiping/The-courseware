@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10-js操作标签自带属性</title>
+    <script>
+    
+    // 1.文档准备
+    window.onload = function () {
+        // 1.1 获取标签对象
+        var oDiv = document.getElementById('div1');
+        // 在js中操作标签自带的属性时,标签中这个属性是什么名字在js中还是一样的,除了这个class属性在js中变成了className
+        oDiv.className = 'box1'; // 修改属性的值
+
+        var oImg = document.getElementById('img');
+        oImg.src = './images/003.jpg';
+    }
+    </script>
+
+    <style>
+    
+        .box{
+            color: rebeccapurple;
+            background-color: gold;
+        }
+
+        .box1{
+            color: red;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="box">div元素</div>
+
+    <img src="./images/goods001.jpg" alt="吃的" id="img">
+
+</body>
+</html>

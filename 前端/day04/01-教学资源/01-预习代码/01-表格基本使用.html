@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-表格基本使用</title>
+
+    <style>
+        .table{
+            width: 500px;
+            height: 200px;
+            /* border: 1px solid black; */
+
+            /* 表格边框合并 */
+            border-collapse: collapse;
+            text-align: center;
+
+            margin: 0px auto;
+
+        }
+
+        .table td{
+            font-family: "Microsoft Yahei";
+            border: 1px solid black;
+        }
+
+        .table th{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>1</th>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td colspan="3">1</td>
+           
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td colspan="2" rowspan="3">3</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>5</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-jQuery中常用的选择器</title>
+
+    <script src="./js/jquery-1.12.4.min.js"></script>
+
+    <script>
+    $(function () {
+        
+        // 1.标签选择器
+        // var $Div = $('div');
+
+
+        // 2.类选择器
+        // var $Div = $('.box1');
+
+
+        // 3.id选择器
+        // var $Div = $('#box1');
+
+        // 4.层级/后代选择器
+        // var $Div = $('.con #box1');
+
+        // 5.组/并集选择器
+        // var $Div = $('.box1,.box2');
+
+        // 6.属性选择器
+        // var $Div = $('div[class=box4]');
+        var $Div = $('div[class$=3]');    // *= class名字中中包裹此字符   ^=class是以b开头   $=class以3结尾的
+
+
+
+        $Div.css({'color': 'red'});
+
+        // alert($Div.length);
+    })
+    </script>
+
+</head>
+<body>
+    <div class="con">
+        <div class="bo1" id="box1">div元素1</div>
+        <div class="o2">div元素2</div>
+        <div class="o3">div元素3</div>
+        <div class="box3">div元素4</div>
+        <div class="box5">div元素5</div>
+        <a href="#">a标签</a>
+    </div>
+</body>
+</html>

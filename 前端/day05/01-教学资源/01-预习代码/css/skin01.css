@@ -1,0 +1,13 @@
+body{
+    background-color: green;
+}
+
+input{
+    width: 200px;
+    height: 50px;
+    background-color: red;
+    outline: none;
+    border: 0px;
+    font-size: 20px;
+    
+}

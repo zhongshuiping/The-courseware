@@ -1,0 +1,188 @@
+CREATE TABLE ih_area_info (
+    ai_area_id bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '区域id',
+    ai_name varchar(32) NOT NULL COMMENT '区域名称',
+    ai_ctime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    PRIMARY KEY (ai_area_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='房源区域表';
+
+
+CREATE TABLE ih_house_info (
+    hi_house_id bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '房屋id',
+    hi_user_id bigint unsigned NOT NULL COMMENT '用户ID',
+    hi_title varchar(64) NOT NULL COMMENT '房屋名称',
+    hi_price int unsigned NOT NULL DEFAULT '0' COMMENT '房屋价格，单位分',
+    hi_area_id bigint unsigned NOT NULL COMMENT '房屋区域ID',
+    hi_address varchar(512) NOT NULL DEFAULT '' COMMENT '地址',
+    hi_room_count tinyint unsigned NOT NULL DEFAULT '1' COMMENT '房间数',
+    hi_acreage int unsigned unsigned NOT NULL DEFAULT '0' COMMENT '房屋面积',
+    hi_house_unit varchar(32) NOT NULL DEFAULT '' COMMENT '房屋户型',
+    hi_capacity int unsigned NOT NULL DEFAULT '1' COMMENT '容纳人数',
+    hi_beds varchar(64) NOT NULL DEFAULT '' COMMENT '床的配置',
+    hi_deposit int unsigned NOT NULL DEFAULT '0' COMMENT '押金，单位分',
+    hi_min_days int unsigned NOT NULL DEFAULT '1' COMMENT '最短入住时间',
+    hi_max_days int unsigned NOT NULL DEFAULT '0' COMMENT '最长入住时间，0-不限制',
+    hi_order_count int unsigned NOT NULL DEFAULT '0' COMMENT '下单数量',
+    hi_verify_status tinyint NOT NULL DEFAULT '0' COMMENT '审核状态，0-待审核，1-审核未通过，2-审核通过',
+    hi_online_status tinyint NOT NULL DEFAULT '1' COMMENT '0-下线，1-上线',
+    hi_index_image_url varchar(256) NULL COMMENT '房屋主图片url',
+    hi_utime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
+    hi_ctime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    PRIMARY KEY (hi_house_id),
+    KEY `hi_status` (hi_verify_status, hi_online_status),
+    CONSTRAINT FOREIGN KEY (`hi_user_id`) REFERENCES `ih_user_profile` (`up_user_id`),
+    CONSTRAINT FOREIGN KEY (`hi_area_id`) REFERENCES `ih_area_info` (`ai_area_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='房屋信息表';
+
+
+ih_area_info
+ai_area_id  ai_name
+1           西城区
+2           东城区
+3           海淀区
+4           朝阳区
+
+
+ih_house_info
+hi_house_id   hi_area_id   hi_title
+1               1          房A
+2               1          房B
+3               3          房C
+4               5          房D
+
+ih_house_image
+
+
+ih_house_facility
+
+
+
+笛卡尔积
+ai_area_id  ai_name  hi_house_id  hi_area_id  hi_title
+1           西城区    1            1              房A           *
+1           西城区    2            1              房B           *
+1           西城区    3            3              房C
+1           西城区    4            5              房D
+2           东城区    1            1              房A
+2           东城区    2            1              房B
+2           东城区    3            3              房C
+2           东城区    4            5              房D
+3           海淀区    1            1              房A
+3           海淀区    2            1              房B
+3           海淀区    3            3              房C           *
+3           海淀区    4            5              房D
+4           朝阳区    1            1              房A
+4           朝阳区    2            1              房B
+4           朝阳区    3            3              房C
+4           朝阳区    4            5              房D
+
+
+
+
+
+# 内连接查询
+select * from ih_area_info a INNER JOIN ih_house_info b on a.ai_area_id=b.hi_house_id
+
+ai_area_id  ai_name  hi_house_id  hi_area_id  hi_title
+1           西城区     1               1           房A
+1           西城区     2               1           房B
+3           海淀区     3               3           房C
+
+
+# 左外连接查询
+ih_area_info a LEFT JOIN ih_house_info b
+
+ai_area_id  ai_name  hi_house_id  hi_area_id  hi_title
+1           西城区     1               1           房A
+1           西城区     2               1           房B
+2           东城区     NULL            NULL        NULL
+3           海淀区     3               3           房C
+4           朝阳区     NULL            NULL        NULL
+
+# 右外连接查询
+ih_area_info a RIGHT JOIN ih_house_info b
+
+ai_area_id  ai_name  hi_house_id  hi_area_id  hi_title
+1           西城区     1               1           房A
+1           西城区     2               1           房B
+3           海淀区     3               3           房C
+NULL        NULL      4               5           房D
+
+
+计算机原理（微机原理）
+计算机架构
+操作系统
+网络通讯
+
+鸟哥的linux私房菜
+
+c
+the c programming language
+谭浩强
+
+Unix环境高级编程 APUE
+Unix网络编程（上／下）
+
+TCP/IP
+
+数据结构算法
+算法导论
+
+数据结构与算法（c语言描述）
+
+
+Python源码分析
+
+
+编译原理（）
+
+
+def f():
+    pass
+
+f = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

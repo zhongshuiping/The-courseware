@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-正则表达式</title>
+    <script>
+        //1.正则的写法
+        var sOne = "Abc123";
+        var sTwo = "123gh";
+
+        var regOne = new RegExp("a", "i");
+        var regTwo = /a/i;
+        var bIsTrue = regTwo.test(sOne);
+
+
+        //2. 纯数字 的正则
+        var sNumber = "abc123";
+        var sNum = "123456";
+        var regNumber = /^\d+$/;
+        bIsTrue = regNumber.test(sNum);
+
+        //3. g global 全文搜索
+        var sStr = "abcdfabcddfffC";
+
+        //默认 找到一个
+        var regFour = /c/;
+        var regFive = /c/i;
+        var regSix = /c/gi;
+
+        var sNew = sStr.replace(regSix, "#");
+        alert(sNew);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

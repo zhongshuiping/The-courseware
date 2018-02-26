@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-js中数组定义和常用方法</title>
+    <script>
+        window.onload = function () {
+            
+            // 定义数组第一种方式:创建数组对象
+            var oList01 = new Array(1,2,3);
+            // 定义数组第二种方式:快速创建
+            var oList02 = ['a','b','c',1,'a'];
+            // console.log(oList01, oList02);
+
+
+
+
+            // 1.获取数组中成员/元素个数'长度'
+           var iLen = oList02.length;
+            //    console.log(iLen);
+
+            // 2.改,查 数组中的元素
+            oList02[3] = 'd'; // 修改数组指定角标的成员
+            // console.log(oList02);
+            // console.log(oList02[3]);
+
+            // 3.数组的增,删
+            oList02.push(1,2); // 在数组的最后面添加一个或多个元素
+
+            oList02.pop(); // 只能删除数组中最后一个元素
+            // oList02.pop();
+            // console.log(oList02);
+
+            // 4.数组中元素的反转/颠倒
+            // oList02.reverse();
+            console.log(oList02);
+
+
+
+            // 5.返回数组中元素第一次出现的索引值
+            // var iNum = oList02.indexOf('a');
+            var iNum = oList02.indexOf('z'); // 如果返回 -1 表示当前元素在数组中不存在
+            // console.log(iNum);
+
+            // 6.在数组中增加或删除成员
+            // 第一个参数表示第几个角标开始删除 
+            // 第二个参数表示 删除元素的个数 
+            // 第三个及以后的参数表示 在删除开始 索引的位置 插入单个或多个元素
+            // oList02.splice(0,2);
+            // oList02.splice(0,2,1,2,5);
+            // console.log(oList02);
+
+            // 将数组中的元素拼接成字符串
+           var sStr = oList02.join(); //'a,b,c,d,a,1' 如果join不传参数 在拼接字符串时会用逗号连接每个元素的方式 拼接成字符串
+            sStr = oList02.join(''); // 'abcda1' 如果传空字符串  会把每个元素直接拼接成字符串
+            sStr = oList02.join('-'); // 'a-b-c-d-a-1'
+           console.log(sStr);
+
+        }
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>

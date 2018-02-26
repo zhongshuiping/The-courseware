@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-元素溢出</title>
+
+    <style>
+        .con{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+
+            /* 当子元素的尺寸大于父元素的尺寸时就会有元素溢出/超出的问题 */
+            /* overflow 属性的值:
+                visible 默认值,显示子元素超出的区域
+                hidden  将子元素超出的部分裁剪掉
+                scroll 在某些浏览器,子元素没有超出时,也会显示滚动条的背景
+                auto 如果子元素超出,就显示滚动条,不超出就不显示
+             */
+            overflow: auto;
+        }
+
+        .box{
+            width: 150px;
+            height: 450px;
+            background-color: gold;
+
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="con">
+        <div class="box"></div>
+    </div>
+    
+</body>
+</html>

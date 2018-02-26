@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11-清除浮动</title>
+
+    <style>
+        /* 当子元素全部浮动后,父元素的高度就无法自动计算,这个时候就要解决浮动带来的问题,专业名词叫清除浮动 */
+        .list{
+            width: 210px;
+            border: 1px solid black;
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+
+            /* 1.第一种方式,不推荐 */
+            /* overflow: hidden; */
+        }
+
+        .list li{
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            background-color: gold;
+            float: left;
+        }
+
+        /* 第三种清除浮动的方式*/
+        /* .clearfix::after{
+            content: '';
+            display: table;
+            clear: both;
+        } */
+
+        /* 解决margin-top塌陷问题 */
+        /* .clearfix::before{
+            content: '';
+            display: table;
+        } */
+
+
+
+        /* 标准的解决塌陷和清除浮动的写法 */
+        .clearfix::before,.clearfix::after{
+            content: '';
+            display: table;
+        }
+
+        .clearfix::after{
+            clear: both;
+        }
+
+        /* 为了适配IE浏览器 */
+        .celarfix{
+            zoom: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- ul.list>li{$}*8 -->
+    <ul class="list clearfix">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <!-- 第二种方式,在最后多加一个看不见的子元素 -->
+        <!-- <div style="clear:both"></div> -->
+    </ul>
+</body>
+</html>

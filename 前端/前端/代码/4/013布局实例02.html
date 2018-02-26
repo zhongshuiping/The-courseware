@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>布局实例</title>
+	<style type="text/css">
+		.menu{
+			list-style:none;
+			background-color:#55a8ea;
+			padding:0;
+			width:960px;
+			height:40px;
+			margin:50px auto 0;
+			position:relative;
+		}
+
+		.menu li{
+			float:left;
+			width:100px;
+			height:40px;
+			text-align:center;
+			line-height:40px; 
+
+		}
+
+		.menu li a{
+			/* font-size:14px;
+			font-family:'Microsoft Yahei';
+			color:#fff; */
+
+			font:14px/40px 'Microsoft Yahei';
+			color:#fff;
+			text-decoration:none;
+
+		}
+
+		.menu li:hover{
+			background-color:#00619f;
+		}
+
+		.menu .active{
+			background-color:#00619f;
+		}
+
+		.menu .new{
+			width:33px;
+			height:20px;
+			background:url(images/new.png) no-repeat;
+			position:absolute;
+			left:433px;
+			top:-9px;
+		}
+
+		.menu .new:hover{
+			background:url(images/new.png) no-repeat;
+		}
+
+
+	</style>
+</head>
+<body>
+	<ul class="menu">
+		<li><a href="">首 页</a></li>
+		<li class="active"><a href="">网站建设</a></li>
+		<li><a href="">网站建设</a></li>
+		<li><a href="">网站建设</a></li>
+		<li><a href="">网站建设</a></li>
+		<li><a href="">网站建设</a></li>
+		<li><a href="">网站建设</a></li>
+		<li class="new"></li>
+	</ul>
+</body>
+</html>

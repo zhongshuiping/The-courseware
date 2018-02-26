@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-行内元素布局菜单案例</title>
+
+    <style>
+        .menu{
+            width: 960px;
+            height: 40px;
+            border: 1px solid #d1d1d1;
+            margin: 50px auto 0px;
+
+            text-align: center;
+        }
+
+        .menu a,.menu span{
+            color: #3d3d3d;
+            line-height: 40px;
+            font-size: 14px;
+            font-family: "Microsoft Yahei";
+        }
+
+        .menu a{
+            text-decoration: none;
+        }
+        .menu a:hover{
+            color: red;
+        }
+
+        .menu span{
+            margin: 0px 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- .menu>(a[href="#"]{首页}+span{|})*7 -->
+    <div class="menu">
+        <a href="#">首页</a>
+        <span>|</span>
+        <a href="#">网站建设</a>
+        <span>|</span>
+        <a href="#">程序开发</a>
+        <span>|</span>
+        <a href="#">网络营销</a>
+        <span>|</span>
+        <a href="#">企业VI</a>
+        <span>|</span>
+        <a href="#">案例展示</a>
+        <span>|</span>
+        <a href="#">联系我们</a>
+    </div>
+</body>
+</html>

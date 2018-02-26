@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-js中的字符串常用方法</title>
+    <script>
+        window.onload = function () {
+            
+            var sStr = '2018-2-1';
+
+
+            // + 可以做加法运算也可以字符串拼接  只要中间有字符串都是字符串拼接
+
+
+
+            // 2.字符串截取
+            // 不会对原本的字符串有影响,截取出来的字符串应该用变量会接收
+            // 第一个参数表示要截取的起始角标,包含起始角标
+            // 第二个参数表示要截取到角标,不包含结束角标
+        //    var sNewStr = sStr.substring(0,2);
+
+            // 如果只传一个参数表示第此角标一直截取到最后,包含起始角标
+        // var sNewStr = sStr.substring(1);
+
+
+        // 3.把字符串拆分成数组
+        // split()如果不传参数,默认把字符串当成数组中的一个元素
+    //    var aList = sStr.split();
+    //  split('') 如果传空字符串会把每一个字符拆分成一个元素
+    //    var aList = sStr.split('');
+
+            // 如果传入字符可以 以指定字符来进行拆分字符串,如果字符串中没有此字符会把字符串当成数组中的一个元素
+    //    var aList = sStr.split('-');
+
+
+            // indexOf() 返回字符在字符串中第一次出现的位置 从0开始 如果字符在字符串中不存在返回-
+           var iNum = sStr.indexOf('z');
+
+            console.log(iNum);
+
+
+            
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

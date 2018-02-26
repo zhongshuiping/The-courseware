@@ -1,0 +1,18 @@
+Connection:MySQLdb.connect(),cursor(),commit(),rollback(),close()
+Cursor:execute(),fetchone(),fetchall(),close()
+
+string：存储二进制安全的数据
+hash：对象，字典
+	stu
+	name
+	gender
+list：列表
+set：无序列表
+zset：有序列表
+
+
+
+If key already exists and is a string, this command appends the value at the end of the string. If key does not exist it is created and set as an empty string, so APPEND will be similar to SET in this special case.
+
+
+

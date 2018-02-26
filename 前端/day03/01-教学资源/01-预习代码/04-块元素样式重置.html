@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-块元素样式重置</title>
+
+    
+    <style>
+        /* 块元素/行元素特性:
+        1.独霸一行
+        2.宽度默认和父元素一样宽
+        3.支持所有样式如margin padding等
+        
+         */
+        h1,p,ul{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul{
+            list-style: none;
+        }
+
+        h1{
+            /* 和父元素的字体一样大 默认16 */
+            font-size: 100%;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>h1标签</h1>
+    <div>div标签</div>
+    <p>p标签</p>
+    <ul>
+        <li>列表</li>
+    </ul>
+
+</body>
+</html>

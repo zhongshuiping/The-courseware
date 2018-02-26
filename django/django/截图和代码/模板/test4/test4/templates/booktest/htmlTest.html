@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+{{ t1 }}
+<hr>
+{{ t1|safe }}
+<hr>
+{% autoescape off %}
+{{ t1 }}
+{% endautoescape %}
+<hr>
+字面值：<br>
+{{ t2|default:'<h1>abc</h1>' }}
+<br>
+手动转义：{{ t2|default:'&lt;h1&gt;abc&lt;/h1&gt;' }}
+</body>
+</html>

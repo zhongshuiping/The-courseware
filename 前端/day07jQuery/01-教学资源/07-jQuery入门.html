@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>07-jQuery入门</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h2 id="toc_0">07天-jQuery入门</h2>
+
+<h3 id="toc_1">00- 知识点预习</h3>
+
+<ul>
+<li>  1.jQuery的加载</li>
+<li>  2.jQuery选择器</li>
+<li>  3.jQuery的click事件</li>
+<li>  4.jQuery的样式操作</li>
+<li>  5.jQuery动画</li>
+</ul>
+
+<h3 id="toc_2">01- 封闭函数</h3>
+
+<ul>
+<li>作用:避免在修改他人代码时出现 方法同名替换的情况</li>
+<li>  想让一个函数直接执行用封闭函数</li>
+<li>避免同名函数覆盖</li>
+<li>避免同名变量覆盖</li>
+</ul>
+
+<h3 id="toc_3">02- jQuery的简介</h3>
+
+<ul>
+<li>  <strong>jQuery</strong>是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是<strong>“write Less，Do More”</strong>，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。</li>
+<li>  <strong>jQuery</strong>的核心特性可以总结为：具有独特的链式语法和短小清晰的多功能接口；具有高效灵活的CSS选择器，并且可对CSS选择器进行扩展；拥有便捷的插件扩展机制和丰富的插件。jQuery兼容各种主流浏览器，如IE 6.0+、FF 1.5+、Safari 2.0+、Opera 9.0+等</li>
+</ul>
+
+<h3 id="toc_4">03- jQuery的基本使用</h3>
+
+<ul>
+<li>  1、http://jquery.com/ 官方网站</li>
+<li>  2、https://code.jquery.com/ 版本下载</li>
+</ul>
+
+<div><pre><code class="language-none">导入CSSq
+&lt;script src=&quot;js/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;</code></pre></div>
+
+<ul>
+<li>为了兼容低版本的浏览器建议使用1.x版本jQuery</li>
+</ul>
+
+<h3 id="toc_5">04- jQuery和原生的对比</h3>
+
+<ul>
+<li>Write Less, Do More</li>
+<li>  写的少，做的多，运行速度快</li>
+<li>原生js只能获取CSS行内式中的属性</li>
+<li>jQuery可以直接设置或获取CSS中属性</li>
+</ul>
+
+<h3 id="toc_6">05- jQuery的CSS属性操作</h3>
+
+<ul>
+<li>原生js中操作样式用style属性</li>
+<li>jQuery中操作CSS函数
+
+<ul>
+<li>数字类型可以不加单位，如果加了单位要用双引号</li>
+<li>属性用双引号</li>
+<li>属性名可以用js写法也可以用CSS的写法</li>
+<li>属性之间用逗号连接</li>
+</ul></li>
+<li>  jQuery中获取CSS属性时只用双引号包着属性即可</li>
+<li> jQuery中设置CSS属性时要用大括号{}把属性和值括起来,类似字典格式</li>
+</ul>
+
+<h3 id="toc_7">06- jQuery的选择器</h3>
+
+<ul>
+<li>常用选择器</li>
+</ul>
+
+<div><pre><code class="language-none">//1.标签
+var $element = $(&quot;div&quot;);
+
+//2.类
+$element = $(&quot;.para&quot;);
+
+//3.ID
+$element = $(&quot;#spa&quot;);
+
+//4.层级选择器
+$element = $(&quot;.box div&quot;);
+
+//5.属性选择器
+$element = $(&quot;div[class=box3]&quot;);
+</code></pre></div>
+
+<h3 id="toc_8">07- jQuery选择集的过滤</h3>
+
+<ul>
+<li>has() 选中后代包含xx的标签</li>
+<li>not() 选中除了xx的标签</li>
+<li>eq(角标)  选中选择集中指定索引的标签 从0开始</li>
+</ul>
+
+<div><pre><code class="language-none">// 1.has 获取包含有x元素的 x元素
+//  获取嵌套有p标签的div标签
+var $element = $(&quot;div&quot;).has(&quot;p&quot;);
+
+// 2. not ：除了 X 的标签 外的 div标签
+//  选择 除了类名叫 box2以外的所有div标签
+$element = $(&quot;div&quot;).not(&quot;.box2&quot;);
+
+// 3.eq(角标) 等于
+var $eq = $(&quot;.list li&quot;);
+$eq.eq(6).CSS({&quot;color&quot;:&quot;red&quot;});</code></pre></div>
+
+<h3 id="toc_9">08- jQuery选择器的转移</h3>
+
+<ul>
+<li><p>找上面相邻的标签</p>
+
+<ul>
+<li>prev() 上一个</li>
+<li>prevAll() 上面所有</li>
+</ul></li>
+<li><p>找下面相邻的标签</p>
+
+<ul>
+<li>next();</li>
+<li>nextAll();</li>
+</ul></li>
+<li><p>siblings();除了自己 选中平级的所有标签</p></li>
+<li><p>parent()父标签</p></li>
+<li><p>children()获取所有直接子标签</p></li>
+<li><p>find()查找里面的后代元素</p></li>
+</ul>
+
+<div><pre><code class="language-none">// 1.选择器转移
+var $div = $(&quot;.box4&quot;);
+
+// 1.1找上面相信的元素
+// 上一个
+var $element = $div.prev();
+
+// 上面所有
+$element = $div.prevAll();
+
+// 1.2 找下面的相邻元素
+// 下一个
+$element = $div.next();
+
+// 下面所有
+$element = $div.nextAll();
+
+// 1.3 除了自己，别的平级元素都选中
+$element = $div.siblings();
+
+// 2.父子关系
+
+// 父元素
+$element = $div.parent();
+
+// 子元素 获取的所有直接子元素
+$element = $div.children();
+
+// 查找里面的后代元素
+$element = $div.find(&quot;.grandson&quot;);</code></pre></div>
+
+<h3 id="toc_10">09- length判断元素是否有无</h3>
+
+<ul>
+<li>length 如果为0说明没有此标签</li>
+<li>获取当前标签的个数</li>
+</ul>
+
+<h3 id="toc_11">10- click事件</h3>
+
+<ul>
+<li>click 点击事件</li>
+<li>this 当前触发事件的标签对象</li>
+<li>index() 获取元素的角标</li>
+</ul>
+
+<h3 id="toc_12">11- 操作类样式类名称</h3>
+
+<div><pre><code class="language-none">// 1.给一个标签 添加类名称
+$(&quot;div&quot;).addClass(&quot;green&quot;);
+
+//  box green
+// 2.删除标签 绑定的 类名称
+$(&quot;div&quot;).removeClass(&quot;green&quot;);
+
+// 3.切换 类名称
+// 如果有这个类名 删除
+// 如果 没有这个类名  添加
+$(&quot;div&quot;).toggleClass(&quot;green&quot;);</code></pre></div>
+
+<h3 id="toc_13">12- 选项卡案例</h3>
+
+<ul>
+<li>给当前点击的按钮添加class,其它按钮删除class，没有class就不会有黄色背景</li>
+<li>通过点击的按钮索引来查找对应索引的div标签，然后给它添加class，同时删除其它div标签的class</li>
+</ul>
+
+<h3 id="toc_14">13- jQuery的动画</h3>
+
+<ul>
+<li>animate</li>
+<li>jQuery 是尺寸相关的动画  颜色不会动画</li>
+<li>如果要颜色方面的动画要关联jQuery.color库</li>
+<li>想要实现连续动画可以在动画完成之后执行的函数中继续写动画代码</li>
+</ul>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<style type="text/css">
+		div[class*='col-']{
+			border:1px solid #000;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+		    <!--  图片的响应：如果容器的宽度比图片大，图片就等于自己的宽度
+				如果容器的宽度比图片小，那么图片的宽度就等于容器的宽度减去左右padding值
+		      -->
+			<div class="col-md-3"><img src="images/location_bg.jpg" class="img-responsive img-round"></div>
+			<div class="col-md-9"><img src="images/location_bg.jpg" class="img-responsive img-circle"><img src="images/location_bg.jpg" class="img-responsive img-thumbnail"></div>
+		</div>
+	</div>
+</body>
+</html>

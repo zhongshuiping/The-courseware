@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-搜索框案例</title>
+    <style>
+        .searchbar{
+            width: 600px;
+            height: 40px;
+            border: 1px solid #10ad10;
+            margin: 50px auto 0px;
+        }
+
+        /* 文本输入框有默认边框和内边距 */
+        .input_text{
+            height: 40px;
+            width: 500px;
+            font-size: 12px;
+            font-family: 'Microsoft YaHei';
+            color: #757575;
+            border: 0px;
+            padding: 0px;
+            text-indent: 10px;
+            outline: none;
+        }
+
+        .sub{
+            border: 0px;
+            padding: 0px;
+            width: 100px;
+            height: 40px;
+            background-color: #10ad10;
+            color: white;
+            font-size: 18px;
+            font-family: 'Microsoft YaHei';
+            /* 此地的右浮动是为了去掉行内元素之间默认间隙问题 */
+            float: right;
+            outline: none;
+            /* 让鼠标变成小手 */
+            cursor: pointer;
+        }
+
+     
+
+    </style>
+</head>
+<body>
+    
+    <form action="" class="searchbar">
+        <input type="text" class="input_text" placeholder="请输入要搜索的内容">
+        <input type="submit" value="搜 索" class="sub">
+    </form>
+
+
+
+</body>
+</html>

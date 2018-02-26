@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-操作元素属性</title>
+    <script>
+        // 网页加载完之后再执行 大括号里面的代码
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            var oA = document.getElementById('link01');
+            // 读取元素属性
+            // alert(oDiv.id);
+
+            // 写入属性,也叫设置属性
+            oDiv.style.color = 'red';
+            oA.href = 'http://www.itcast.cn';
+
+            // 修改类名来更换样式
+            oA.className = 'a02';
+
+
+            // 读取标签里包裹的内容
+            alert(oDiv.innerHTML);
+            alert(oA.innerHTML);
+
+            // 修改标签内包裹的内容
+            oA.innerHTML = '传智播客';
+            oDiv.innerHTML =  '<a href="#" id="link01" class="a01">个链接</a>';
+            
+        }
+    </script>
+
+    <style>
+        .a01{
+            color: red;
+            font-size: 20px;
+
+        }
+
+        .a02{
+            color: pink;
+            font-size: 30px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="div1">div元素</div>
+    <a href="#" id="link01" class="a01">这是一个链接</a>
+</body>
+</html>

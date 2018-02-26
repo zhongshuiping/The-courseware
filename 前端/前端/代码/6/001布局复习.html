@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>布局复习</title>
+	<style type="text/css">
+		body,ul,li,h3,h4{
+			margin:0;
+			padding:0;
+		}
+
+		ul{
+			list-style:none;
+		}
+
+
+		.goods_list_con{
+			width:498px;
+			height:343px;
+			border:1px solid red;
+			margin:50px auto 0;
+		}
+
+
+		.goods_list_con h3{
+			width:436px;
+			height:20px;
+			font:20px/20px 'Microsoft Yahei';
+			color:#000;
+			margin:30px auto 0;
+			border-left:4px solid red;
+			text-indent:15px;
+		}
+
+		.pic{
+			width:212px;
+			height:239px;
+			background-color:pink;
+			float:left;
+			margin:17px 0 0 29px;
+		}
+
+		.goods_list{
+			width:211px;
+			height:239px;
+		
+			float:right;
+			margin:17px 29px 0 0;
+		}
+
+
+		.pic_list{
+			width:105px;
+			height:142px;
+			float:left;
+
+		}
+
+		.pic_list .picshow{
+			display:block;
+			width:70px;
+			height:90px;
+			background-color:green;
+			margin:0 auto;
+		}
+
+		.pic_list h4{
+			font:16px/40px 'Microsoft Yahei';
+			color:#000;
+			text-align:center;
+		}
+
+		.goods_list ul{
+			width:211px;
+			height:97px;
+		
+			float:left;
+		}
+
+		.goods_list ul li{
+			width:104px;
+			height:47px;
+			border:1px dashed #ddd;
+			float:left;
+			margin-right:-1px;
+			margin-bottom:-1px;
+			text-align:center;
+		}
+
+		.goods_list ul li a{
+			display:inline-block;
+			width:104px;
+			height:47px;
+			text-decoration:none;
+			font:14px/47px 'Microsoft Yahei';
+			color:#000;
+		}
+
+		.goods_list ul li a:hover{
+			background:pink;
+			color:red;
+
+		}
+
+
+
+
+
+
+
+
+	</style>
+</head>
+<body>
+	<div class="goods_list_con">
+		<h3>淘宝女装</h3>
+		<div class="pic"></div>
+		<div class="goods_list">
+			<div class="pic_list">
+				<a href="#" class="picshow"></a>
+				<h4>时尚包包</h4>
+			</div>
+			<div class="pic_list">
+				<a href="#" class="picshow"></a>
+				<h4>潮流美鞋</h4>
+			</div>
+			<ul>
+				<li><a href="">新品上市</a></li>
+				<li><a href="">女装</a></li>
+				<li><a href="">欧美风</a></li>
+				<li><a href="">美搭</a></li>
+			</ul>
+
+		</div>
+	</div>
+</body>
+</html>

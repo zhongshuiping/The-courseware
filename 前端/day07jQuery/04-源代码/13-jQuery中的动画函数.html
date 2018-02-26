@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>13-jQuery中的动画函数</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            /* background-color: gold */
+        }
+    </style>
+
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <!-- <script src="./js/jquery.color.js"></script> -->
+    <script
+  src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"
+  integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE="
+  crossorigin="anonymous"></script>
+    <script>
+    
+        $(function () {
+            var $Div = $('.box');
+
+            // swing  先慢中快后慢
+            // linear 直线 匀速
+
+
+            // 第一个参数 要执行动画的属性
+            // 第二个参数 动画持续 时间 毫秒
+            // 第三个参数 可以不写默认是swing     
+            // 第四个参数  动画执行完成后的回调函数
+            $Div.animate({'width': 600,'background-color' : 'green'},2000,'swing',function () {
+
+
+
+                $Div.animate({'width': 200,'background-color' : 'gold'},2000,'swing',function () {
+
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="box">div元素</div>
+</body>
+
+</html>

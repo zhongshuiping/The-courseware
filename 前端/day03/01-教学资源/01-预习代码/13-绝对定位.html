@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>13-绝对定位</title>
+
+    <style>
+        .con{
+            width: 700px;
+            height: 700px;
+            border: 1px solid black;
+
+            /* margin: 0 auto; */
+            
+
+            /* 子元素需要绝对定位时要设置父元素的相对定位 */
+            position: absolute;
+        }
+
+        .box1,.box2{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            position: absolute;
+        }
+
+        .box1{
+            background-color: green;
+            /* 绝对定位
+            元素脱离文档流,不占文档流的位置,
+            绝对定位默认参照父元素,但父元素必须要设置相对定位,不然就会以找父元素的父元素一直找到有相对定位的元素来定位
+            
+             */
+            
+            left: 100px;
+            top: 100px;
+
+            /* 当元素使用定位后可以使用此属性控制元素的层级 默认所有元素的值都是0  越大越在顶层 */
+            /* z-index: 1; */
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="con">
+        <div class="box1">第一个div</div>
+        <div class="box2">第二个div</div>
+    </div>
+    
+</body>
+</html>

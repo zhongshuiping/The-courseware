@@ -1,0 +1,34 @@
+/* 去掉标签默认的内边距和外边距 */
+body,p,h1,h2,h3,h4,h5,h6,ul,dl,dd,input,select{margin:0;padding:0}
+
+/* 去掉列表的项目符号 */
+ul{list-style:none;}
+
+em{font-style:normal;}
+
+/* 去掉默认的下划线 */
+a{text-decoration:none;}
+
+/* 去掉图片在加链接时的边框 */
+img{border:0;}
+
+
+
+
+.clearfix:before,.clearfix:after{
+	content:'';
+	display:table;
+}
+
+.clearfix:after{
+	clear:both;
+}
+
+.clearfix{zoom:1}
+
+
+.fl{float:left;}
+.fr{float:right;}
+
+
+

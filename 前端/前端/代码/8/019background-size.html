@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>background-size</title>
+	<style type="text/css">
+		
+		.box{
+			width:200px;
+			height:200px;
+			border:1px solid #000;
+			margin:50px auto 0;
+			background:url(images/apple.png) no-repeat;
+
+			/* background-size:200px 200px; */
+
+			background-size:100% 100%;
+		}
+
+		.box2{
+			width:500px;
+			height:500px;
+			border:1px solid #000;
+			margin:50px auto 0;
+			background:url(images/003.jpg) no-repeat;
+
+			/* background-size:cover; */
+
+			background-size:contain;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+
+	<div class="box2"></div>
+</body>
+</html>

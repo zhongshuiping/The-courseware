@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>00-jQuery中的动画函数</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/jquery.color.js"></script>
+
+    <script>
+    
+        $(function () {
+            var $Div = $('.box');
+            var $Div1 = $('.box1');
+
+
+            /* 
+            第一个参数 要执行动画的函数   {key:value}
+            2参数     动画持续时间  单位 毫秒
+            3参数    默认不写就是swing  linear匀速
+            4参数    动画执行完成后的回调
+            
+             */
+            $Div.animate({'width':1000, 'backgroundColor': '#ffaabb'}, 4000, 'swing', function () {
+                alert('div')
+            })
+
+
+            $Div1.animate({'width':1000,  'backgroundColor': '#aaffbb'}, 4000, 'linear', function () {
+                alert('div1');
+            })
+        })
+    </script>
+
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+
+            margin: 0  auto;
+
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 0  auto;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+</body>
+</html>

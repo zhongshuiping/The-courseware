@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-表格布局案例</title>
+
+    <style>
+        .resume{
+            width: 708px;
+            height: 249px;
+
+            margin: 0 auto;
+
+            border-collapse: collapse;
+        }
+
+        .resume td,.resume th{
+            border: 1px solid #bcc0bf;
+            text-indent: 10px;
+        }
+
+        .resume th{
+            text-align: left;
+            background-color: #ebfaf3;
+        }
+
+        .resume td{
+            font-size: 16px;
+            font-family: "Microsoft Yahei";
+         
+        }
+
+        .resume .icon{
+            text-indent: 0px;
+            text-align: center;
+
+        }
+        .resume .icon img{
+            /* float: left; */
+            vertical-align: middle;
+
+        }
+
+    </style>
+</head>
+<body>
+    <table class="resume">
+        <tr>
+            <th colspan="5" height="35px">基本情况</th>
+      
+        </tr>
+        <tr> 
+            <td width="15%">姓    名</td>
+            <td width="25%"></td>
+            <td width="15%">性    别</td>
+            <td width="25%"></td>
+            <td width="20%" rowspan="5" class="icon"><img src="./images/programmer.jpg" alt="程序员"></td>
+        </tr>
+        <tr>
+            <td>名    族</td>
+            <td></td>
+            <td>出生日期</td>
+            <td></td>
+            
+            
+            
+            
+            
+        </tr>
+        <tr>
+            <td>政治面貌</td>
+            <td></td>
+            <td>健康情况</td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td>籍    贯</td>
+            <td></td>
+            <td>学    历</td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td>电子信箱</td>
+            <td></td>
+            <td>联系电话</td>
+            <td></td>
+
+        </tr>
+    </table>
+</body>
+</html>

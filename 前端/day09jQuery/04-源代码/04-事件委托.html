@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-事件委托</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            // $('.list li').click(function () {
+            //     $(this).css({'color': 'red'});
+            // })
+
+            // $('.list').html('<li>电影排列1</li><li>电影排列2</li>');
+
+            // $('.list li').click(function () {
+            //     $(this).css({'color': 'red'});
+            // })
+
+
+            // $('.list').click(function () {
+            //     $(this).css({'color': 'red'});
+            // })
+            // 利用冒泡之后可以解决新增加的元素拥有相同事件,但它不能定位到是那个子级触发了这个事件
+            // $('.list').html('<li>电影排列1</li><li>电影排列2</li>');
+
+            
+            // 如果列表中的数据是动态变化如果它们还有事件就尽量用委托
+            // 父元素.调用delegate函数(委托者/需要帮助的标签, '要委托的事件', '事件触发后的回调')
+            $('.list').delegate('li','click',function () {
+                // 事件委托里的this表示让父级触发事件的那个子元素
+                $(this).css({'color': 'red'});
+            })
+
+            $('.list').html('<li>电影排列1</li><li>电影排列2</li>');
+
+        })
+    </script>
+</head>
+<body>
+
+    <ul class="list">
+
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+        <li>列表5</li>
+        <li>列表6</li>
+        <li>列表7</li>
+        <li>列表8</li>
+    </ul>
+    
+</body>
+</html>

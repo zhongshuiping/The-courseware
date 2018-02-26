@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <script src="/static/booktest/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            //使用ajax加载省信息
+            $.get('/pro/',function (list) {
+                pro=$('#pro')
+                //{data:[[1,'北京'],[2,'天津'],...]}
+                $.each(list.data,function (index, item) {
+                    //[1,'北京']
+                    pro.append('<option value="'+item[0]+'">'+item[1]+'</option>')
+                });
+            })
+
+            //查询市的信息
+            $('#pro').change(function () {
+                //area140000/
+                $.get('/city'+$(this).val()+'/',function (list) {
+                    city=$('#city');
+                    city.empty().append('<option value="0">请选择市</option>')
+                    $('#dis').empty().append('<option value="0">请选择区县</option>')
+                    //{data:[{id:1,title:北京},{id:2,title:天津},...]}
+                    $.each(list.data,function (index, item) {
+                        //{id:1,title:北京}
+                        city.append('<option value="'+item.id+'">'+item.title+'</option>');
+                    });
+                });
+            });
+
+            //查询区县的信息
+            $('#city').change(function () {
+                $.get('/city'+$(this).val()+'/',function (list) {
+                    dis=$('#dis').empty().append('<option value="0">请选择区县</option>');
+                    $.each(list.data,function (index, item) {
+                       dis.append('<option value="'+item.id+'">'+item.title+'</option>');
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<select id="pro">
+    <option value="0">请选择省</option>
+</select>
+<select id="city">
+    <option value="0">请选择市</option>
+</select>
+<select id="dis">
+    <option value="0">请选择区县</option>
+</select>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery jsonp</title>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+			url: 'data.js',
+			type: 'get',
+			dataType:'jsonp',
+			jsonpCallback:'aa'
+		})
+		.done(function(data) {
+			alert(data.name);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+
+
+		https://sug.so.360.cn/suggest?callback=suggest_so&encodein=utf-8&encodeout=utf-8&format=json&fields=word,obdata&word=abE7%259A%2584%25E4%25BD%25BF%25E7%2594%25A8%22%5D%7D&_=1481358084554
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

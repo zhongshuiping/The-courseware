@@ -1,0 +1,187 @@
+.topbar{
+    height: 29px;
+    background-color: #F7F7F7;
+    border-bottom: 1px solid #dddddd;
+
+}
+
+.topcon{
+    width: 1200px;
+    /* background-color: gold; */
+    margin: 0px auto;
+    height: 29px;
+}
+
+.topcon h1{
+    font-size: 12px;
+    color: #666;
+    line-height: 29px;
+}
+
+.topcon .userinfo{
+    width: 255px;
+    height: 29px;
+    /* background-color: red; */
+
+}
+
+.register{
+    /* 让元素隐藏不显示,位置也不占 */
+    display: none;
+}
+
+.topbar .username{
+    font-size: 12px;
+    color: #666;
+    line-height: 29px;
+}
+
+.username a{
+    font-size: 12px;
+    color: orange;
+    line-height: 29px;
+}
+
+.orderlist{
+    font-size: 0px;
+    color: #666;
+    line-height: 29px;
+}
+
+.orderlist a{
+    color: #666;
+    font-size: 12px;
+    
+}
+
+.orderlist span{
+    margin: 0px 12px;
+    font-size: 10px;
+}
+
+/* 2.logo和搜索 */
+.logo{
+    height: 90px;
+    background-color: green;
+}
+
+/* 3.全部商品 */
+.shop{
+    height: 40px;
+    /* background-color: aquamarine; */
+}
+
+.shopcon{
+    width: 1200px;
+    height: 40px;
+    /* background-color: gold; */
+    margin: 0px auto;
+}
+
+.shopcon h1{
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: green;
+    color: white;
+    font-size: 14px;
+}
+
+.shopinfolist li{
+    float: left;
+    line-height: 40px;
+
+}
+
+.shopinfolist span{
+    margin: 0px 20px;
+}
+
+.shopinfolist {
+    margin-left: 35px;
+}
+
+.shopinfolist a:hover{
+    color: red;
+}
+
+/* 商品分类和轮播图片 */
+.category{
+
+    height: 270px;
+    background-color: gold;
+}
+
+.categorycon{
+    width: 1200px;
+    height: 270px;
+    margin: 0px auto;
+    background-color: aquamarine;
+}
+
+.shopcate{
+    width: 200px;
+    height: 270px;
+    background-color: #F7F7F7;
+}
+
+.shopcate li{
+    width: 198px;
+    height: 44px;
+    border: 1px solid lightgray;
+
+    border-top: 0px;
+    text-align: center;
+    line-height: 44px;
+    background: url("../images/sprite.png") no-repeat 26px 10px;
+
+}
+
+.shopcate .icon02{
+    background-position-y: -40px;
+}
+
+.shopcate .icon03{
+    background-position-y: -90px;
+}
+.shopcate .icon04{
+    background-position-y: -140px;
+}
+.shopcate .icon05{
+    background-position-y: -190px;
+}
+.shopcate .icon06{
+    background-position-y: -240px;
+}
+
+
+.shopcate a{
+    font-size: 14px;
+    background-color: bisque;
+    display: inline-block;
+    width: 198px;
+    background: url("../images/sprite.png") no-repeat 160px -290px;
+}
+
+.shopcate li:hover{
+    background-color: lightgray;
+}
+
+.shopcate a:hover{
+    color: red;˜
+}
+
+/* 
+
+3.左侧列表: ul>li>a  
+	ul: 200  270px;     
+	li  198px  44px  ;  ffffff; 居中
+	a   14px 
+	
+	
+	背景设置li  设置 icon 图标
+		     a  设置 右边箭头的图标
+
+
+*/

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12-jQuery动画</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+
+            margin: 200px auto;
+        }
+    </style>
+
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $div = $('.box');
+
+            function fnAnimation() {
+                $div.animate({
+                width:'100%'
+            },1000,'linear',function () {
+
+               $div.animate({
+                   width:200
+               },1000,'linear')
+
+            });
+
+            };
+            fnAnimation();
+            setInterval(fnAnimation,2000);
+           
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板文件</title>
+</head>
+<body>
+<h1>首页</h1>
+使用模板变量: {{ content }}<br/>
+使用列表: {{ my_list }}<br/>
+for循环：
+<ul>
+    {% for i in my_list %}
+        <li>{{ i }}</li>
+    {% empty %}
+        <li>列表为空</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

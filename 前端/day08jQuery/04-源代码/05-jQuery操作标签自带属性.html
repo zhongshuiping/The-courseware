@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-jQuery操作标签自带属性</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+
+    <script>
+
+        $(function () {
+            var $Div = $('.box');
+            // prop()只能设置和获取标签自带的属性,不能操作自定义属性
+            // attr()可以操作标签自带属性也可以操作 自定义属性
+
+            // val() 用来获取文本输入框中的文字
+
+            // html() 如果什么也不传可以获取标签中的元素,如果传入东西表示要修改标签中元素
+
+
+            // 获取标签属性的值 直接把属性名用'' 包起来当参数传递即可
+            // console.log($Div.prop('class'));
+            // console.log($Div.attr({'class':'aaaa'}));
+
+            // 设置标签属性  把属性和值用 {}  包起来 如果有多个属性时用逗号连接
+            // $Div.prop({'class' : 'box1', 'id' : 'con'});
+
+
+            $('.btn').click(function () {
+                //    console.log($('.input').prop('value'));
+
+                // $('.input').val('我是后来的');
+
+               console.log( $('.box').html('大大的div元素'));
+            })
+
+            // innerHTML
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="box" xxx='xxx'>div元素</div>
+    <input type="text" class="input">
+    <input type="button" value="按钮" class="btn">
+</body>
+
+</html>

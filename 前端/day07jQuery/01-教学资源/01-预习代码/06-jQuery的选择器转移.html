@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-jQuery的选择器转移</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $div = $('.box3');
+            var $box = $('.box');
+            // 选择当前的标签前面/上面兄弟标签
+            // $div.prev().css({'color':'red'});
+            // 选择同级前面所有标签
+            // $div.prevAll().css({'color':'red'});
+
+            // 选择同级下面/后面标签
+            // $div.next().css({'color':'red'});
+            // 选择同级下面/后面所有标签
+            // $div.nextAll().css({'color':'red'});
+
+            // 选择自己以外的所有同级标签
+            // $div.siblings().css({'color':'red'});
+
+
+            // 选择当前元素的父级标签/上一级标签
+            // $div.parent().css({ 'backgroundColor': 'gold' });
+
+            // 选择当前元素的所有子级
+            // $box.children().css({'color':'red'});
+
+            // 查找是指定的子元素
+            // $box.find('box1').css({'color':'red'});
+
+
+            //  length如果为0说明没有获取到标签,不为0就说明获取到标签
+            alert($box.find('.box6').length);
+
+        })
+    </script>
+</head>
+
+<body>
+
+        <div class="box">div--0
+            <div class="box1">div1</div>
+            <div class="box2">div2</div>
+            <div class="box3">div3</div>
+            <div class="box4">div4</div>
+            <div class="box5">div5</div>
+        </div>
+        <p>p标签</p>
+
+</body>
+
+</html>

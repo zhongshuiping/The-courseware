@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片翻面</title>
+	<style type="text/css">
+		.con{
+			width:300px;
+			height:272px;
+			margin:100px auto 0;
+			position:relative;			
+			transform-style:preserve-3d;
+			transform:perspective(800px) rotateY(0deg);
+		}
+
+
+		.pic,.info{
+			width:300px;
+			height:272px;
+			position:absolute;
+			left:0;
+			top:0;
+			backface-visibility:hidden;
+			transform:perspective(800px) rotateY(0deg);
+			transition:all 500ms ease;
+		}
+
+
+		.info{
+			background-color:gold;
+			text-align:center;
+			line-height:272px;
+			transform:translateZ(2px) rotateY(180deg);
+		}
+
+		.con:hover .pic{
+			transform:perspective(800px) rotateY(180deg);
+		}
+
+		.con:hover .info{
+			transform:perspective(800px) rotateY(0deg);
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<div class="con">
+		<div class="pic"><img src="images/location_bg.jpg"></div>
+		<div class="info">图片文字说明</div>
+	</div>
+</body>
+</html>

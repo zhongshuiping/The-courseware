@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-js中变量及函数的预解析</title>
+    <script>
+    
+        // 函数调用
+        // 函数的预解析,当调用了一个还未定义的函数时,它会自动向后找,看后面代码中有无定义此函数,如果有,也能正常执行,如果没就报错
+        fnTest();
+
+        // 无参数的函数
+        function fnTest() {
+            alert('无参数的函数');
+        };
+
+     
+        // 变量也有预解析能力,如果提前使用了一个没有定义的变量,它后自动向后找,看有无定义,如果有,就不会报错,但它是一个undefined类型
+        alert(iNum);
+
+        var iNum = 100;
+
+       
+
+
+
+/* 
+        // 定义有参数的函数
+        function fnResult(a,b) {
+            // return关键字的作用:
+            // 返回函数中的值/对象
+            // 可以提前结束函数执行
+
+            return a + b;
+        }
+
+       var iResult = fnResult(1,5);
+       alert(iResult); */
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

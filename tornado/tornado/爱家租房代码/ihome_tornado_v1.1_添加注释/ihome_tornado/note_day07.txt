@@ -1,0 +1,182 @@
+书店系统
+
+书籍信息  作者  出版商
+
+tbl_book
+
+id b_id b_title b_desc b_isbn b_publish_date b_price b_sales b_stocks    b_publisher   b_type
+1   1     A                                                                p_a
+2   2     B                                                                p_a
+3   3     C                                                                p_a
+
+
+tbl_author 作者管理模块
+a_id a_name a_address a_mobile b_id
+1     au_a                      1
+2     au_b                      1
+3     au_c
+
+
+tbl_book_author 书与作者的关系（多对多）
+id b_id  a_id
+1    1    1
+2    1    2
+3    3    2
+
+
+tbl_publisher 出版商模块
+p_id p_name p_address p_tel
+1     p_a
+2     p_b
+3     p_c
+
+tbl_book_type  书与类目的关系
+id  b_id  t_id t_root_id
+
+tbl_type  书的类目
+ID   t_name  t_manager(管理人员) t_desc
+1    医学     张三
+2    工程     李四
+
+
+医学
+ |-- 外科
+ |-- 麻醉
+ |-- 中医----
+ |        |--- 接骨
+          |--- 针灸
+          |--- 推拿
+            |---
+
+tbl_type 终极类目表
+id  t_name  t_manager t_desc  t_parent_id
+1    医学                        -1
+2    工程                         -1
+3    外科                         1
+4    中医                         1
+5    针灸                         4
+6    推拿                         4
+
+type_ids = []
+ret = select id from tbl_type where t_parent_id=1
+type_ids.append(ret)   type_ids=[3,4]
+ret = select id from tbl_type where t_parent_id=3
+if not ret:
+elif ret:
+  type_ids.append(ret)  type_ids=[3,4,5,6]
+
+
+select from tbl_book_type where t_id in type_ids
+
+
+
+tbl_type_1 一级目录
+id t_name t_manager t_desc
+
+tbl_type_2  二级目录
+id t_name t_manager t_desc t_parent_id(父级目录)
+
+tbl_type_3 三级目录
+id t_name t_manager t_desc  t_parent_id
+
+可以表自连接查询
+from tbl_type a join tbl_type b on a.id=b.t_parent_id
+
+
+
+
+一对多：主要靠外健实现，有外键的表是"多"，外键指向的表是"一"
+
+为了减少查询次数，提高查询效率，可以适当的增加冗余字段
+
+
+insert into tbl_name() values(),(),()
+update tbl_name set f1=val1,f2=val2 where f3=val3
+delete from tbl_name where f=val
+truncate tbl_name (清空，且自增id重置为初始值)
+drop table tbl_name
+drop database db_name
+alter table tbl_name add up_mobile char(11) NOT NULL COMMENT '手机号' 修改表增加字段
+alter table tbl_name modify up_mobile char(11) NOT NULL COMMENT '手机号' 修改表中的up_mobile字段
+alter table tbl_name change up_mobile mobile char(11) NOT NULL COMMENT '手机号' 修改表中的字段名
+alter talbe tbl_name drop up_moible 删除字段
+select  from tbl_name where
+ where的过滤条件
+ =
+ !=
+ <>
+ in (1,2,3,4,5)
+ between 1 and 5
+ AND
+ OR
+ like '%itcast%'
+ like 'itcast%'
+ >
+ <
+ >=
+ <=
+ 嵌套子查询
+ select * from ih_house_info where hi_area_id=(select ai_area_id from ih_area_info where ai_name='东城区' )
+1. = 子查询的返回结果必须只有一条
+2. in 子查询可以返回多条记录
+3. 可以使用关联查询的情况下，尽量不用子查询
+select * from ih_house_info a nner join ih_area_info b on a.hi_area_id=b.ai_area_id where b.ai_name='东城区'
+
+DISTINCT field1,field2,field3
+
+order by field1,field2,field3
+select hi_house_id,hi_price,hi_ctime from ih_house_info order by hi_price desc,hi_ctime;
+
+union 会去重
+select hi_house_id from ih_house_info where hi_area_id=1 union select hi_house_id from ih_house_info where hi_area_id=2;
+union all 不会去重
+select hi_house_id from ih_house_info where hi_area_id=1 union all select hi_house_id from ih_house_info where hi_area_id=1;
+
+
+时间对比
+select hi_house_id,hi_ctime from ih_house_info where hi_ctime between '2017-02-28 00:00:00' and '2017-02-28 23:59:59';
+
+GROUP BY
+select ai_area_id,max(hi_price),min(hi_price),avg(hi_price),sum(hi_price) from ih_house_info inner join ih_area_info on hi_area_id=ai_area_id group by ai_area_id;
+
+
+HAVING
+select ai_area_id,max(hi_price) as max_price from ih_house_info inner join ih_area_info on hi_area_id=ai_area_id where (ai_area_id between 1 and 10)  group by ai_area_id having max_price between 30000 and 50000;
+
+
+索引
+可以提高查询速度，但是会减慢更新、插入等操作的速度
+对于经常更新数据的字段 尽量不建索引
+索引不是越多越好
+索引只对频繁查询的字段建索引
+对于字段的可取值有限的情况下，建索引意义不大
+
+复合索引
+KEY `hi_status` (hi_verify_status, hi_online_status)
+
+hi_verify_status,hi_online_status
+1                 1                   address
+1                 2                   address
+
+
+where hi_verify_status=1 and hi_online_status=2   推荐，与索引字段顺序一致
+where hi_online_status=2 and hi_verify_status=1
+
+where 最左匹配原则
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

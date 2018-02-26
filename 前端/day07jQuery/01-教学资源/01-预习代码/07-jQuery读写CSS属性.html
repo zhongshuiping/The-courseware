@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-jQuery读写CSS属性</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $div = $('.box');
+
+            // 读取
+            // alert($div.css('fontSize'));
+            // alert($div.css('color'));
+
+            // 设置
+            // 设置单个属性
+            // $div.css('color','red');
+            // 设置多个属性
+            // $div.css({color:'red','font-size':'20px'});
+
+            var $div1 = $('div');
+            // 如果用选择集去获取属性值时只会获取第一个标签的属性值
+            alert($div1.css('font-size'));
+
+        })
+    </script>
+</head>
+<body>
+    <div class="box">div元素</div>
+    <div style="font-size:50px">div元素2</div>
+</body>
+</html>

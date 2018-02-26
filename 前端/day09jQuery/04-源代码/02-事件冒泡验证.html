@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-事件冒泡验证</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            // 给html文档添加了点击事件
+            $(document).click(function () {
+                alert('document')
+            })
+
+
+            $('.grandfather').click(function () {
+                alert('grandfather');
+            })
+
+            $('.father').click(function () {
+                alert('father');
+            })
+
+            $('.son').click(function (event) {
+                
+
+                alert('son');
+                // 谁的事件不想继续向父级传递 就在里面return false  阻止冒泡
+                // return false;
+                // 阻止事件传递
+                event.stopPropagation();
+            })
+
+        })
+
+
+    </script>
+
+    <style>
+        .grandfather{
+            width: 400px;
+            height: 400px;
+            background-color: red;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="grandfather">
+        <div class="father">
+            <div class="son"></div>
+        </div>
+    </div>
+</body>
+</html>

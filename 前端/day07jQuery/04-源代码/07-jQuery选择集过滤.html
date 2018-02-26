@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-jQuery选择集过滤</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            // 选择器过滤时一定要注意过滤的是最前面写的那个对象中的标签
+
+            // 1.has() 只要后代包含某个标签的 调用.has()的那个标签
+            var $Div = $('div');
+
+            // has()它是判断前面选中的多个div中的儿子或后代是否包含叫a1类名的div 
+            // 最终选择的是后代包含类名叫a1的那个div
+            // has()中的条件只能写儿子或孙子这样的后代
+            // $Div.has('.a1').css({'color': 'red'});
+
+            // alert($Div.has('box4').length);
+
+
+
+            // 2.not()过滤掉选择集中的某个标签,条件不能传后代,只能传选择集中的标签
+            // $Div.not('div').css({'color':'red'});
+
+
+
+            // 3.eq() 只要标签代码输写顺序及选择的顺序有关,和它的嵌套关系无关  从0开始
+            $('li').eq(8).css({'color':'red'});
+
+
+
+        })
+    </script>
+</head>
+<body>
+        <a href="">xxx</a>
+        <div class="con">
+                <div class="box1" id="box1">div元素1</div>
+                <div class="box2">div元素2</div>
+                <div class="box3">div元素3</div>
+                <div class="box4">div元素4</div>
+                <div class="box5">div元素5
+                    <a href="#" class="a1">a标签</a>
+
+                </div>
+                <a href="#">a标签</a>
+            </div>
+
+                <!-- <p>xxxxx
+                    <p>xxx</p>
+                </p> -->
+            <ul>
+                <li>列表1</li>
+                <li>列表2</li>
+                <li>列表3</li>
+                <li>列表4</li>
+                <li>列表5</li>
+                <li>列表6</li>
+                <li>列表7</li>
+                <li>列表8</li>
+            </ul>
+
+            <ul>
+                    <li>列表1</li>
+                    <li>列表2</li>
+                    <li>列表3</li>
+                    <li>列表4</li>
+                    <li>列表5</li>
+                    <li>列表6</li>
+                    <li>列表7</li>
+                    <li>列表8</li>
+                </ul>
+</body>
+</html>

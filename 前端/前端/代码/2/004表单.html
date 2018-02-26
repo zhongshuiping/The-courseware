@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+</head>
+<body>
+	<h3>用户注册</h3>
+
+	<!-- 
+
+		?username=tom&
+		pwd=asd123&
+		gender=0&
+		like=game&
+		like=shopping
+		&site=2
+		&info=hello
+
+		%21
+
+
+
+
+	   -->
+
+
+	<form action="http://wwww.itcast.cn" method="get">
+		<div>
+			<label for="username">用户名：</label>
+			<input type="text" name="username" id="username">
+		</div>
+
+		<br>
+
+		<div>
+			<label for="pwd">密码：</label>
+			<input type="password" name="pwd" id="pwd">
+		</div>
+
+		<br>
+
+		<div>
+			<label>性别：</label>
+			<input type="radio" name="gender" id="male" value="0"> <label for="male">男</label>
+			<input type="radio" name="gender" id="female" value="1"> <label for="female">女</label>
+		</div>
+		<br>
+
+		<div>
+			<label>爱好：</label>
+			<input type="checkbox" name="like" value="game"> 打游戏
+			<input type="checkbox" name="like" value="shopping"> 逛街
+			<input type="checkbox" name="like" value="sleep"> 睡觉
+		</div>
+		<br>
+		
+		<div>
+			<label>个人照片</label>
+			<input type="file" name="">
+		</div>
+		<br>
+		<div>
+			<label>籍贯：</label>
+			<select name="site">
+				<option value="0">北京</option>
+				<option value="1">上海</option>
+				<option value="2">广州</option>
+				<option value="3">深圳</option>
+
+			</select>
+		</div>
+		<br>
+		<div>
+			<label>个人描述：</label>
+			<textarea name="info"></textarea>
+		</div>
+		<br>
+		<input type="hidden" name="hid" value="10000">
+
+		<input type="submit" name="" value="提交">
+		<input type="reset" name="" value="重置">
+
+
+		<!-- <input type="image" name="" src="images/new.png"> -->
+
+		<input type="button" name="" value="按钮">
+
+		
+		
+
+	</form>
+</body>
+</html>

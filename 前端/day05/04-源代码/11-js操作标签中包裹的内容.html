@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11-js操作标签中包裹的内容</title>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('box');
+            // 获取标签中元素
+            var sStr = oDiv.innerHTML;
+
+            oDiv.innerHTML = '修改后的内容';
+
+            //    alert(sStr);
+
+            var oUl = document.getElementById('list');
+            oUl.innerHTML = '<li>电影排行</li><li>电影排行</li><li>电影排行</li><li>电影排行</li><li>电影排行</li>'
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">div元素</div>
+
+    <ul id="list">
+        <li>列表</li>
+        <li>列表</li>
+        <li>列表</li>
+        <li>列表</li>
+        <li>列表</li>
+    </ul>
+</body>
+
+</html>

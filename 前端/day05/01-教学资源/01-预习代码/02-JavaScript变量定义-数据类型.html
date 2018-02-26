@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-JavaScript变量定义-数据类型</title>
+</head>
+
+<body>
+
+    <script>
+        //  ctrl + /
+        /* alt + shift + a js中多行注释 */
+
+        // 定义变量
+        // var iNum = 12;
+        // var sTr = 'abc';
+        // var bIsMove = false;
+
+        // 上面一句可以合并成下面的一句
+        var iNum = 12, sTr = 'abc', bIsMove = true;
+
+        // 变量声明,但不赋值,它的值和类型就是undefined
+        var iNum02;
+
+        // 修改变量的值
+        iNum = 15;
+
+     
+        // 复合类型
+        var oObj = {
+            name: "张三",
+            age: 16,
+        }
+
+        // alert(typeof(iNum));
+        // alert(typeof(sTr));
+        // alert(typeof(bIsMove));
+        alert(typeof (oObj.name));
+
+    </script>
+
+</body>
+
+</html>

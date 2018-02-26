@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-雪碧图案例</title>
+    <style>
+        .list{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+
+            /* background-color: gold; */
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .list li{
+            height: 60px;
+            border-bottom: 1px dotted black;
+            line-height: 60px;
+            text-indent: 60px;
+
+            background: url("./images/sprite_bg.png") no-repeat 0px 9px;
+        }
+
+        .list .icon2{
+            background-position-y: -72px;
+        }
+        .list .icon3{
+            background-position-y: -153px;
+        }
+        .list .icon4{
+            background-position-y: -234px;
+        }
+        .list .icon5{
+            background-position-y: -315px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li>电影排行1</li>
+        <li class="icon2">电影排行2</li>
+        <li class="icon3">电影排行3</li>
+        <li class="icon4">电影排行4</li>
+        <li class="icon5">电影排行5</li>
+    </ul>
+</body>
+</html>

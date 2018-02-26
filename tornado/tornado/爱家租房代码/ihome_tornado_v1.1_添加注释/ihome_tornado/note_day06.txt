@@ -1,0 +1,8 @@
+python-redis 文档
+https://redis-py.readthedocs.io/en/latest/
+
+Mysql生成行号
+select @rownum:=@rownum+1 rownum, b.* from (select @rownum:=0) a,(select hi_house_id,hi_price from ih_house_info order by hi_price desc) b;
+
+使用行号分页
+select * from (select @rownum:=@rownum+1 rownum, b.* from (select @rownum:=0) a,(select hi_house_id,hi_price from ih_house_info order by hi_price desc) b) t where rownum between 3 and 4;

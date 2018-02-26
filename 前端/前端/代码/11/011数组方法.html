@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组常用的方法</title>
+	<script type="text/javascript">
+		
+		var aRr = [1,2,3,4];
+
+		var sTr = aRr.join("-");
+		var sTr2 = aRr.join("");
+
+		//alert(sTr); 弹出 1-2-3-4
+		//alert(sTr2); 弹出  1234
+
+
+		aRr.push(5);
+
+		//alert(aRr);  // 弹出1,2,3,4,5
+
+		aRr.pop();  
+
+		//alert(aRr);  // 弹出1,2,3,4
+
+		aRr.unshift(0)
+
+		//alert(aRr);  // 弹出 0,1,2,3,4
+
+		aRr.shift(); 
+
+		//alert(aRr);    // 弹出 1,2,3,4
+
+
+		aRr.reverse();
+
+
+		//alert(aRr);  // 弹出 4,3,2,1
+
+
+
+		var aRr2 = ['a','b','c','d','a','b','c','d'];
+
+		var num = aRr2.indexOf('b');
+
+		alert(num);  // 弹出1
+
+
+		/*
+
+		aRr2.splice(2,1); 
+
+		alert(aRr2);  
+
+		// 弹出 a,b,d,a,b,c,d
+
+		*/
+
+		aRr2.splice(2,1,'e');
+
+
+		alert(aRr2);  // 弹出 a,b,e,d,a,b,c,d
+
+
+		aRr2.splice(4,4,'f','g','h','i');
+
+		alert(aRr2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-阻止表单默认提交行为</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+
+
+/*      js写法
+    window.onload = function () {
+            var oForm = document.getElementById('form');
+
+            oForm.onsubmit = function (event) {
+                alert('我要提交了');
+                // 阻止表单的默认提交
+                // return false;
+
+                // 阻止默认行为/阻止提交 
+                // event.preventDefault();
+
+            }
+        } */
+
+
+        $(function () {
+            $('#form').submit(function (event) {
+                // return false;
+
+                // 阻止默认行为/阻止提交 
+                event.preventDefault();
+            })
+        })
+        
+    </script>
+</head>
+
+<body>
+    <form action="" class="form" id="form">
+
+        <p>
+
+            <label for="">用户名</label>
+            <input type="text" name="user_name">
+        </p>
+        <p>
+
+            <label for="">密&nbsp;&nbsp;&nbsp;码</label>
+            <input type="password" name="psw">
+        </p>
+
+        <input type="submit" value="提 交">
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-行内块元素的特点</title>
+    <style>
+        /* 行内块的特点:
+            1.元素排列一行
+            2.宽度默认有内容决定
+            3.元素间有默认间距
+            4.支持宽高 marign padding等所有样式
+            5.子元素是内联块元素，父元素可以用text-align属性设置子元素水平对齐方式
+         */
+
+         /* display: 属性是来进行类型转换的
+            block  块元素
+            inline 行内元素
+            inline-block 行内块元素
+            none     不显示
+         
+          */
+
+        div,
+        span {
+            background-color: gold;
+            display: inline-block;
+            /* width: 500px; */
+            /* height: 200px; */
+            /* margin: 100px 20px; */
+            /* padding: 50px; */
+            /* text-align: center; */
+        }
+    </style>
+</head>
+
+<body>
+    <div>div元素</div>
+    <span>span标签</span>
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+body{
+    background-color: gold;
+}
+
+input{
+    border: 0px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    font-size: 20px;
+    background-color: green;
+    color: white;
+    outline: none;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<a href="{% url 'booktest:show' '456' '789' %}">显示</a>
+<hr>
+{{ hero.showname }}
+<hr>
+奇数行显示为红色，偶数行显示为蓝色
+<hr>
+{% comment %}
+{#  http://blog.csdn.net/xyp84/article/details/7945094#}
+{% endcomment %}
+<ul>
+
+{% for hero in list %}
+    {% if forloop.counter|divisibleby:"2" %}
+<li style="color:red">{{ forloop.counter }}:{{ hero.showname }}</li>
+    {% else %}
+<li style="color:blue">{{ forloop.counter }}:{{ hero.showname }}</li>
+    {% endif %}
+{% empty %}
+    <li>啥也没找到</li>
+{% endfor %}
+</ul>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-CSS中的id和组选择器</title>
+
+    <style>
+        /* id选择器 
+        一个标签只能有一个id,设置css时很少用
+        一般用在js中
+        */
+        #div1{
+            color: red;
+        }
+
+        /* 组选择器/并集选择器 
+        
+        将相同的属性可以写在一起,简化代码
+        */
+
+        .box1,.box2{
+            width: 200px;
+            height: 200px;
+            border: 2px solid red;
+
+        }
+
+        .box1{
+            background-color: gold;
+        }
+
+        .box2{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">这是一个div元素</div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

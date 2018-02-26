@@ -1,0 +1,24 @@
+new Vue({
+    e1:'#app',
+    data:{
+    message:'xxxx'
+    }
+})
+
+使用 v-html 指令用于输出 html 代码：
+
+
+
+HTML 属性中的值应使用 v-bind 指令。
+<div v-bind:id="'list-' + id">菜鸟教程</div>
+
+Vue.js 都提供了完全的 JavaScript 表达式支持。
+
+指令是带有 v- 前缀的特殊属性。v-if 指令将根据表达式 seen 的值(true 或 false )来决定是否插入 p 元素。
+
+参数在指令后以冒号指明。例如， v-bind 指令被用来响应地更新 HTML 属性：
+<pre><a v-bind:href="url">菜鸟教程</a></pre>
+
+ v-on 指令，它用于监听 DOM 事件：<a v-on:click="doSomething">
+
+在 input 输入框中我们可以使用 v-model 指令来实现双向数据绑定：

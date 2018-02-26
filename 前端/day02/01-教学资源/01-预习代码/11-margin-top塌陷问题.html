@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11-margin-top塌陷问题</title>
+
+    <style>
+
+        /* 第四种解决塌陷的方法 
+        通过伪元素的方法是推荐方法  固定写法
+        */
+        .clearfix::before{
+            content: '';
+            display: table;
+        }
+
+        .con{
+            width: 300px;
+            height: 300px;
+            /* background-color: green; */
+            background-color: rgb(0, 255, 98);
+            /* margin-top塌陷问题:
+            当父元素没有边界时再设置子元素的margin-top
+            此时子元素的margin-top对子元素无效,但会设置到
+            父元素身上
+             */
+
+             /* 第一种解决塌陷的方法: */
+            /* border: 1px solid red; */
+
+            /* 第二种解决塌陷的方法: */
+            /* overflow: hidden; */
+
+            
+            
+
+
+
+        }
+
+        .box{
+            width: 160px;
+            height: 60px;
+            background-color: gold;
+            margin-top: 100px;
+            /* 第三种解决塌陷的方法 */
+            /* float: left; */
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="con clearfix">
+        <div class="box"></div>
+    </div>
+    
+</body>
+</html>

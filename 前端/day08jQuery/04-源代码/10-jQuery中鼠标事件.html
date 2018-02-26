@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10-jQuery中鼠标事件</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+
+            margin: 50px auto 0px;
+        }
+
+        .con{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+
+            margin: 150px auto 0px;
+        }
+    </style>
+
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+    
+        $(function () {
+
+            // 事件冒泡  子元素身上的事件都会传递到父元素身上  不推荐使用
+            // $('.box').mouseover(function () {
+            //     $(this).animate({'margin-top': 100});
+            // })
+
+            // $('.box').mouseout(function () {
+            //     $(this).animate({'margin-top': 50});
+            // })
+
+            // 子元素触发不会影响父元素  推荐使用
+            // $('.box').mouseenter(function () {
+            //     $(this).animate({'margin-top': 100});
+            // })
+
+            // $('.box').mouseleave(function () {
+            //     $(this).animate({'margin-top': 50});
+            // })
+
+
+            // hover只mouseenter和mouseleave结合休,里面传两个回调函数,第一个就是进入 第二个就离开
+            // $('.box').hover(function () {
+            //     console.log('mouseenter');
+            // },function () {
+            //     console.log('mouseleave');
+            // })
+
+            $('.box').hover(function (event) {
+                if (event.type == 'mouseenter') { //进入
+                    
+                } else {
+
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="con"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+数据库  本质是一个特殊的文件
+        由多个表组成    
+        行是记录    列是字段  能唯一标识一行记录的字段是主键
+数据库中的表与表之间可以发生关系  关系型数据库 非关系型数据库
+SQL 数据查询语言
+DML 数据操作语言
+TPL 事务处理语言
+mysql支持多线程，复制全局事务
+tar zxvf *
+数据的完整性  约束
+-------------------------
+等于=
+大于>
+大于等于>=
+小于<
+小于等于<=
+不等于!=或<>
+查询编号大于3的学生
+select * from students where id>3;
+---------------------------
+and or not 逻辑运算符
+----------------------
+like
+%表示任意多个任意字符
+_表示一个任意字符
+查询姓黄的学生
+select * from students where sname like '黄%';
+-------------------------------------
+select count(*) from students;
+select max(id) from students where gender=0;
+select min(id) from students where isdelete=0;
+select sum(id) from students where gender=1;
+select avg(id) from students where isdelete=0 and gender=0;
+-----------------------------------------------------
+asc从小到大排列，即升序
+desc从大到小排序，即降序
+select * from students
+where gender=1 and isdelete=0
+order by id desc;
+----------------------
+select * from 表名
+limit start,count
+
+distinct 去重
+-------------------------
+分页   limit必须放在最后
+

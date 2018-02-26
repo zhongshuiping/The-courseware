@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-jQuery中的焦点和失去焦点</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $Text = $('.text');
+            var $Text1 = $('.text1');
+
+            //  让文本输入框成为焦点,尽量不要传东西,传了之后就不是自动档,就变成了手动档
+            $Text.focus();
+            // $Text1.focus();
+
+            // 失去焦点就是文本输入框不能再输入东西
+            $Text1.blur(function () {
+                console.log('验证用户的输入是否合法');
+            })
+        })
+    </script>
+
+</head>
+<body>
+    <input type="text" class="text">
+    <input type="text" class="text1">
+</body>
+</html>

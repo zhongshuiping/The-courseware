@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-jQuery的表单提交事件</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+
+            $('.form').submit(function () {
+                alert('提交表单');
+                // 阻止表单的默认提交
+                // return false;
+                event.preventDefault();
+            })
+        })
+    </script>
+</head>
+<body>
+    <form action="" class="form">
+     <p>
+        <label>用户名:</label>
+        <input type="text" name="username">
+     </p>
+     <p>
+        <label>密&nbsp;&nbsp;&nbsp;码:</label>
+        <input type="password" name="psw">
+     </p>
+     <p>
+         <input type="submit" value="提 交">
+     </p>
+     
+
+    </form>
+</body>
+</html>

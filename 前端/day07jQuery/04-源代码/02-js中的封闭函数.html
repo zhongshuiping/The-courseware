@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-js中的封闭函数</title>
+    <script src="./js/test.js"></script>
+
+    <script>
+        window.onload = function () {
+            fnTest();
+
+            // 封闭函数可以解决同名全局变量或同名函数覆盖问题
+
+            // 第一种封闭函数写法
+            // (function () {
+            //     // 此地省略若干行代码
+            //     function fnTest() {
+            //         alert("存钱");
+            //     }
+
+            //     fnTest();
+            // })()
+
+            // 第二种封闭函数写法
+            // !function () {
+            //       // 此地省略若干行代码
+            //       function fnTest() {
+            //         alert("存钱");
+            //     }
+
+            //     fnTest();
+            // }()
+
+            // 第三种封闭函数写法
+            ~function () {
+                  // 此地省略若干行代码
+                  function fnTest() {
+                    alert("存钱");
+                }
+
+                fnTest();
+            }()
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

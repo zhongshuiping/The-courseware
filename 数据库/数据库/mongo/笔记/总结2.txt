@@ -1,0 +1,11 @@
+数据库，集合，文档
+db,show dbs,use 数据库名,drop 数据库
+db.集合名.insert({})
+db.集合名.update({条件},{$set:{}},{multi:true})
+db.集合名.remove({条件})
+db集合名.find({条件},{投影}).limit().skip().sort().count().distinct()
+
+数据库 增加 修改 删除 查询
+mysql	insert update delete select
+redis	set	set	del	get
+mongodb	insert	update	remove	find,aggregate

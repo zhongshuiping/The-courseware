@@ -1,0 +1,20 @@
+@w:200px;
+
+
+.box(@w:100px,@h:100px,@bw:1px){
+	width:@w;
+	height:@h;
+	border:@bw solid gold;
+}
+
+
+.box01{
+	width:@w;
+	height:@w;
+	background-color:gold;
+}
+
+.box02{
+	.box(200px,300px,2px);
+	color:red;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-js中列表加载数组中的数据</title>
+    <style>
+    
+        .list{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+
+            margin: 20px auto 0px;
+
+            width: 300px;
+        }
+
+        .list li{
+            border-bottom: 1px dotted black;
+            line-height: 60px;
+            text-indent: 30px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            // 0. 获取列表
+            var oUl = document.getElementById('list');
+            // 1.定义数组
+            var aList = ['神秘巨星', '无问西东', '一路向西', '武松打虎', '红海行动'];
+            var sStr = '';
+            // 2.for循环遍历数组,把数组中的元素拼接成字符串'<li>神秘巨星</li><li>神秘巨星</li><li>神秘巨星</li>'
+            for (var i = 0; i < aList.length; i++) {
+                // 拼接
+                sStr += '<li>'+ aList[i] +'</li>';
+
+            }
+
+            // 3.把拼接好的li标签塞在列表
+            oUl.innerHTML = sStr;
+
+        }
+    </script>
+</head>
+<body>
+    <ul class="list" id="list">
+        <li>电影排行1</li>
+        <li>电影排行2</li>
+        <li>电影排行3</li>
+        <li>电影排行4</li>
+        <li>电影排行5</li>
+    </ul>
+</body>
+</html>

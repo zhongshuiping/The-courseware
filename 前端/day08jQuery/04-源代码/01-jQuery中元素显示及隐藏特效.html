@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-jQuery中元素显示及隐藏特效</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            display: none;
+        }
+    </style>
+
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+    
+        $(function () {
+            // 给按钮添加点击事件
+            $('input').click(function () {
+                // 隐藏
+                // $('.box').hide();
+
+                // 显示
+                // $('.box').show();
+
+                // 显示和隐藏切换
+                // $('.box').toggle();
+
+
+                // $('.box').css({'display':'block'});
+                // alt  + shift + a
+              /*   if ($('.box').css('display') == 'none') {
+                    $('.box').css({'display':'block'});
+                } else {
+                    $('.box').css({'display':'none'});
+                } */
+
+                // 三目运算
+                // 条件 ?  条件成立返回  : 条件不成立
+                // 10 > 5 ? 10 : 5
+                $('.box').css({'display': ($('.box').css('display') == 'none')  ? 'block' : 'none'}); 
+
+
+            })
+        })
+    </script>
+</head>
+<body>
+    
+    <input type="button" value="动 画">
+    <div class="box"></div>
+    <p>p标签</p>
+</body>
+</html>

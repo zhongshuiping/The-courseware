@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width:300px;
+            height:300px;
+            background:gold;
+            /*            
+              border:50px solid black;
+              增加了边框后，
+              元素宽度变成了200px+50px(左边框)+50px(右边框)
+              元素高度变成了200px+50px(上边框)+50px(下边框)
+            */           
+
+            /*            
+              padding:50px;
+              增加了padding后，
+              元素宽度变成了300px(包含边框)+50px(左内边距)+50px(右内边距)
+              元素高度变成了300px(包含边框)+50px(上内边距)+50px(下内边距)
+            */
+
+             /*            
+              思考：如果给元素增加边框和内边距，又不想改变元素整体的尺寸，应该怎么做？ 
+              
+              答：在width和height的基础上减去由边框和内边距增加的尺寸,上面的元素，将width
+              和height改成100px，再加上四周50px的边框，四周50px的内边距，元素的宽高保持300px
+              不变。
+
+            */            
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

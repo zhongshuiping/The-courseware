@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10-jQuery中操作样式类</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+
+        $(function () {
+            var $Div = $('#con');
+
+            // 给标签添加class 名字
+            // $Div.addClass('box1');  //原有类名还在
+
+            // $Div[0].className = 'box1'; 原生赋值class时会把之前 的类名覆盖
+
+            // 删除标签class 名字
+            // $Div.removeClass('box');
+
+
+            // 删除或添加class 名字 没有就添加,有了就删除
+            $Div.toggleClass('box1');
+        })
+    </script>
+
+    <style>
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box box1" id="con">div元素</div>
+</body>
+
+</html>

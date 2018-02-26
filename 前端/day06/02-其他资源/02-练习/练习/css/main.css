@@ -1,0 +1,39 @@
+        .clearfix:after,.clearfix:before{ content: "";display: table;}
+        .clearfix:after{ clear:both;}
+        .clearfix{zoom:1;}
+
+        ul,h4{
+            list-style:none;
+            margin:0px;
+            padding:0px;
+        }
+        
+        .con{
+            width:880px;
+            border:5px solid #666;
+            margin:50px auto 0;
+            /*overflow:hidden;*/
+        }
+
+        .con li{
+            width:198px;
+            height:220px;
+            border:1px solid #ddd;
+            float:left;
+            margin:10px;
+        }
+
+        .con li h4{
+            height:30px;
+            line-height:30px;
+            text-align:center;
+            font-weight:normal;
+            font-size:16px;
+            color:#333;
+            font-family:'Microsoft Yahei';
+        }
+
+        .con li img{
+            margin-left:10px;
+        }
+

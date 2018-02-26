@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>元素溢出</title>
+	<style type="text/css">
+		.con{
+			width:500px;
+			height:300px;
+			border:1px solid #333;
+			margin:50px auto 0;
+			/* 
+			隐藏溢出的部分
+			overflow:hidden; 
+
+			*/
+			/* 
+
+			不管是否溢出，都显示滚动条
+			overflow:scroll; 
+
+			*/
+
+			overflow:auto;
+		}
+
+		.box{
+			width:400px;
+			height:500px;
+			background-color:gold;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="con">
+		<div class="box">
+			当子元素的尺寸超过父元素的尺寸时，需要设置父元素显示溢出的子元素的方式，设置的方法是通过overflow属性来设置。当子元素的尺寸超过父元素的尺寸时，需要设置父元素显示溢出的子元素的方式，设置的方法是通过overflow属性来设置。
+		</div>
+	</div>
+</body>
+</html>

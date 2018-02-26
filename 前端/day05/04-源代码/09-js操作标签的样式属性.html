@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-js操作标签的样式属性</title>
+    <script>
+    
+    // 1.文档准备
+    window.onload = function () {
+        // 1.1 获取标签对象
+        var oDiv = document.getElementById('div1');
+        // 标签对象.style.color
+        oDiv.style.color = 'red';
+        // 在css中带有 -的属性 在js中写的时候把-去掉后面的单词首字符大写 background-color  
+        // font-size  fontSize
+        oDiv.style.backgroundColor = 'gold';
+        oDiv.style.fontSize = '20px';
+
+    }
+    </script>
+</head>
+<body>
+    <div id="div1">div元素</div>
+
+</body>
+</html>

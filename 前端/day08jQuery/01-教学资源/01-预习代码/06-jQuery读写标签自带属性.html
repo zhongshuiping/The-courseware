@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-jQuery读写标签自带属性</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $div = $('.box'),
+            $a = $('a'),
+            $input = $('.text'),
+            $btn = $('.btn');
+
+            // 1.获取标签的属性
+            var sPropValue = $div.prop('class');
+
+            sPropValue = $a.prop('href');
+
+            sPropValue = $input.prop('type');
+            // alert(sPropValue);
+
+
+            // 2.设置标签的属性
+            // $div.prop({'class':'box1', 'id':'box'});
+            // $a.prop({'href':'http://www.itheima.com','title':'黑马程序员官网'});
+            // $input.prop({'value':'哈哈哈'});
+
+
+            $btn.click(function () {
+            //    sPropValue = $input.prop('value');
+            // sPropValue = $input.val();
+            //    alert(sPropValue);
+               $input.val('修改');
+
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+    <div class="box">这是一个div元素</div>
+    <a href="http://www.itcast.cn">这是一个a标签</a>
+    <input type="text" class="text">
+    <input type="button" value="点击获取属性值" class="btn">
+
+</body>
+</html>

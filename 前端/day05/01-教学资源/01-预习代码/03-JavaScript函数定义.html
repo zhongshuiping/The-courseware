@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-JavaScript函数定义</title>
+
+    <script>
+        
+        // 1.无参数的函数定义:
+        function fnTest() {
+            alert('hello');
+        }
+
+        // 1.1.函数调用/执行
+        fnTest();
+
+
+        // 2.有参数的函数定义:
+        function fnResult(a,b) {
+            // alert(a + b);
+
+            // return关键字的作用:返回函数中的值或对象,也可以结束函数的运行
+            return a + b;
+        }
+
+       var iResult = fnResult(1,2);
+       alert(iResult);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>流体布局</title>
+	<style type="text/css">
+		body,ul{
+			margin:0;
+			padding:0
+		}
+
+		ul{
+			list-style:none;
+		}
+		
+		
+		.menu{
+			height:50px;
+		}
+
+		.menu li{
+			/* 
+			第一种解决宽度超过的方法：
+			width:calc(25% - 4px); 
+
+			*/
+
+			width:25%;
+			height:50px;
+			text-align:center;
+			line-height:50px;
+			float:left;
+			background-color:gold;
+			border:2px solid #000;
+			box-sizing:border-box;
+		}
+
+
+	</style>
+</head>
+<body>
+	<ul class="menu">
+		<li><a href="">菜单文字</a></li>
+		<li><a href="">菜单文字</a></li>
+		<li><a href="">菜单文字</a></li>
+		<li><a href="">菜单文字</a></li>
+	</ul>
+</body>
+</html>

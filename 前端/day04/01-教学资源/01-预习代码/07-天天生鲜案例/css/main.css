@@ -1,0 +1,424 @@
+a:hover{
+    color: red !important;
+}
+
+/* 顶部欢迎和用户信息区域 */
+.header-con{
+    height: 29px;
+    border-bottom: 1px solid #dddddd;
+    background-color: #f7f7f7;
+}
+
+/* 顶部内容区域 */
+.header{
+    width: 1200px;
+    height: 29px;
+    margin: 0 auto;
+}
+
+/* 欢迎来到天天生鲜标题 */
+.header h1{
+    font-size: 12px;
+    color: #666666;
+    height: 29px;
+    line-height: 29px;
+}
+
+/* 顶部右侧注册区域的文字大小和颜色 */
+.header-right span,.header-right a{
+    font-size: 12px;
+    color: #666666;
+}
+
+.header-right div{
+    height: 29px;
+    line-height: 29px;
+}
+/* 用户名的颜色  */
+.header-right .username{
+    color: #ff8800;
+}
+
+/* 竖线和外边距 */
+.header-right span{
+    margin: 0 15px;
+}
+
+
+/* logo和搜索区域 */
+.logo-con{
+    width: 1200px;
+    height: 115px;
+    margin: 0 auto
+}
+
+/* logo图片 */
+.logo{
+    margin: 29px 0 0 17px;
+}
+
+
+/* 搜索区域 */
+.search-con{
+    margin: 34px 0 0 124px;
+    width: 616px;
+    height: 38px;
+    border: 1px solid #37ab40;
+}
+
+/* 搜索内容框 */
+.search-text{
+    width: 516px;
+    height: 38px;
+    /* 清除焦点的高亮 */
+    outline: none;
+    /* 搜索框的 */
+    background: url(../images/icons.png) no-repeat 11px 11px;
+    /* 缩进 */
+    text-indent: 36px;
+}
+
+/* 搜索框按钮 */
+.search-btn{
+    width: 100px;
+    height: 38px;
+    font-size: 14px;
+    color: white;
+    background-color: #37ab40;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+/* 购物车 */
+.cart-con{
+    margin-top: 34px;
+}
+
+/* 我的购物车 */
+.cart-con a{
+    width: 158px;
+    height: 38px;
+    border: 1px solid #dddddd;
+    font-size: 14px;
+    color: #37ab40;
+    line-height: 38px;
+    text-indent: 56px;
+    background: url(../images/icons.png) no-repeat 11px -41px;
+}
+
+/* 购物车数量 */
+.cart-con span{
+    width: 40px;
+    height: 40px;
+    background-color: #ff8800;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* menu区域 */
+.nenu-con{
+    height: 40px;
+    border-bottom: 1px solid #37ab40;
+}
+
+/* menu内容区域 */
+.menu{
+    width: 1200px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+/* 全部商品分类标题 */
+.menu h2{
+    width: 200px;
+    height: 40px;
+    background-color: #37ab40;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+}
+
+/* 商品分类 右侧的列表 */
+.menulist{
+    margin-left: 34px;
+}
+
+/* 列表内容左浮动 */
+.menulist li{
+    float: left;
+}
+
+
+/* 列表布局 */
+.menulist a,.menulist span{
+    line-height: 40px;
+    font-size: 14px;
+    color: #666666;
+}
+
+/* 竖线 */
+.menulist span {
+    margin: 0 22px;
+}
+
+
+/* 分类和幻灯版区域 */
+.type-slide-con{
+    height: 270px;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 左侧分类列表 */
+.typelist li{
+    height: 44px;
+    width: 198px;
+    border: 1px solid #eeeeee;
+    border-top: 0;
+}
+.typelist li:hover{
+    background-color: #eeeeee  !important;
+}
+/* 左侧的分类列表文字 */
+.typelist a{
+    display: block;
+    width: 198px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 14px;
+    color: #3c3c3c;
+    text-indent: 71px;
+    background: url(../images/icons.png) no-repeat 33px -88px;
+}
+
+/* 商品分类左边的小图标 */
+.typelist li:nth-child(2) a{
+    background-position:30px -138px;
+}
+.typelist li:nth-child(3) a{
+    background-position:33px -188px;
+}
+.typelist li:nth-child(4) a{
+    background-position:34px -238px;
+}
+.typelist li:nth-child(5) a{
+    background-position:33px -288px;
+}
+.typelist li:nth-child(6) a{
+    background-position:33px -338px;
+}
+
+/* 商品分类右侧小箭头 */
+.typelist li{
+    background: url(../images/icons.png) no-repeat 178px -384px;
+}
+
+/* 幻灯片区域 */
+.slide-con{
+    width: 760px;
+    height: 270px;
+    background-color: gold;
+    /* 添加定位属性 子集相对自己定位 */
+    position: relative;
+    overflow: hidden;
+}
+
+/* 图片总宽 */
+.pics{
+    width: 3040px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* 图片横向显示 */
+.slide-con li{
+    float: left;
+}
+
+/* 左箭头 */
+.leftArrow,.rightArrow{
+    width: 15px;
+    height: 23px;
+    position: absolute;
+    top: 122px;
+}
+
+.leftArrow{
+    background: url(../images/icons.png) no-repeat 0 -450px;    
+    left: 11px;
+}
+.rightArrow{
+    background: url(../images/icons.png) no-repeat 0 -500px;
+    right: 11px;
+    
+}
+
+/* 小圆点 */
+.points{
+    position: absolute;
+    left: 319px;
+    bottom: 9px;
+}
+
+.points li{
+    float: left;
+    margin: 0 5px;
+}
+
+/* 小圆点样式 */
+.points a{
+    display: block;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: #9f9f9f;
+}
+
+/* 被选中的小圆点的颜色 */
+.points .pointsactive{
+    background-color: #cecece;
+}
+
+/* 右侧广告 */
+.advs{
+    width: 240px;
+    height: 270px;
+}
+
+/* 右侧广告图片间距问题 */
+.advs img{
+    display: block;
+}
+
+
+
+
+
+/* 商品整体区域 */
+.goods-con{
+    height: 357px;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 商品顶部推荐区域 */
+.titles{
+    height: 33px;
+    width: 1200px;
+    margin-top: 22px;
+    border-bottom: 2px solid #37ab40;
+}
+
+.titles h3{
+    font-size: 16px;
+    color: #37ab40;
+    height: 33px;
+    line-height: 33px;
+    margin-top: 2px;
+}
+
+/* 推荐列表 */
+.recommend{
+    margin: 5px 0 0 22px;
+}
+
+.recommend li {
+    float: left;
+    height: 28px;
+    margin-right: 13px;
+}
+
+.recommend a,.recommend span{
+    display: block;
+    height: 28px;
+    font-size: 12px;
+    color: #666666;
+    line-height: 28px;
+}
+
+
+/* 更多 */
+.more{
+    font-size: 12px;
+    color: #666666;
+    height: 28px;
+    line-height: 28px;
+    margin-top: 5px;
+}
+
+/* 左侧banner图和右侧的商品区域 */
+.bannergoods{
+    height: 300px;
+    display: block;
+}
+
+/* 单个商品 */
+.goodslist li{
+    float: left;
+    width: 249px;
+    height: 299px;
+    border-right: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
+}
+
+/* 商品名称 */
+.goodslist li h3{
+    font-size: 14px;
+    color: #666666;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+/* 商品图片 */
+.goodslist li img{
+    display: block;
+    margin: 0 auto;
+}
+
+/* 商品价格 */
+.goodslist li p{
+    font-size: 20px;
+    color: #c40000;
+    height: 47px;
+    line-height: 49px;
+    text-align: center;
+    margin-top: 7px;
+}
+
+/* 底部区域 */
+.footer{
+    margin-top: 30px;
+    border-top: 1px solid #4ab14e;
+    font-size: 12px;
+    color: #4e4e4e;
+}
+
+/* 关于我们的列表 */
+.abouts{
+    text-align: center;
+    margin-top: 35px;
+}
+
+.abouts li{
+    display: inline-block;
+}
+
+.abouts a{
+    font-size: 12px;
+    color: #4e4e4e;
+}
+
+.copyright{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.contact{
+    text-align: center;
+    margin: 12px 0 40px 0;
+}

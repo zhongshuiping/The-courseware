@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animation 动画</title>
+	<style type="text/css">
+		
+		.box{
+			width:100px;
+			height:100px;
+			background-color:gold;
+			animation:moving 1s ease 1s 5 alternate both;
+			/* animation-play-state:paused; */
+		}
+
+		.box:hover{
+			/* animation-play-state:running; */
+		}
+
+
+		@keyframes moving{
+			
+			from{
+				width:200px;
+			}
+
+			to{
+				width:500px;
+			}
+		}
+		
+
+
+
+
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

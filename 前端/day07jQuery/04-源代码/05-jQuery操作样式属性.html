@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-jQuery操作样式属性</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        // 文档准备
+        $(function () {
+            
+            // 1.获取标签
+            var $Div = $('#box');
+
+            // 如果用jQuery时px单位可以省略 但如果加了px 就要用引号
+            // 如果是设置属性的值 要加上{} 包装成字典
+            $Div.css({'color': 'red', "fontSize" : 20, "background-color" : 'gold'});
+
+            // 如果只是获取属性的值,就直接把属性当前参数传进去就可以了
+           var sStr = $Div.css('color');
+
+           alert(sStr);
+        })
+    </script>
+</head>
+<body>
+    <div id="box">div元素</div>
+</body>
+</html>

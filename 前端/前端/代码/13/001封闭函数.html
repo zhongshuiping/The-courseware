@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封闭函数</title>
+	<script type="text/javascript">
+		
+		var aa = function(){
+
+			alert('test01');
+		};
+
+
+		(function(){
+
+			var aa = function(){
+				alert('test02');				
+			}
+
+			aa();
+
+
+		})();
+
+		aa();
+
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

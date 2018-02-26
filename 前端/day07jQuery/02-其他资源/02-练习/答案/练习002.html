@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            var $pop_con = $('.pop_main');
+            var $pop = $('.pop_con');
+            var iTop = $pop.css('top');
+
+            $('#btn').click(function(){                
+                $pop_con.show();                
+                $pop.css({'opacity':0,'top':0});
+                $pop.animate({'opacity':1,'top':iTop});
+            });
+
+            $('.pop_title a,.cancel').click(function(){
+                 $pop.animate({'opacity':0,'top':0},function(){
+                     $pop_con.hide();
+                 });
+            });
+
+        })
+    
+    </script>
+</head>
+<body>
+    <input type="button" value="弹出弹框" id="btn">
+    <div class="pop_main">
+        <div class="pop_con">
+            <div class="pop_title">
+                <h3>系统提示</h3>
+                <a href="#">×</a>
+            </div>
+            <div class="pop_detail">
+                <p class="pop_text">亲！确定要这么做吗？</p>
+            </div>
+            <div class="pop_footer">
+                <input type="button" value="取 消" class="cancel">
+                <input type="button" value="确 定" class="confirm">                
+            </div>
+        </div>
+        <div class="mask"></div>
+    </div>
+</body>
+</html>

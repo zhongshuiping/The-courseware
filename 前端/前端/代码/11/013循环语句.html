@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通过标签获取元素</title>
+	<script type="text/javascript">
+		window.onload = function(){
+
+			var oList = document.getElementById('list01');
+			var aLi = oList.getElementsByTagName('li');
+
+			// aLi.pop(); 出错！ aLi 是一个类似数组的选择集，没有数组通用的一些方法。
+
+			
+
+			for(var i=0;i<aLi.length;i++){
+
+				if(i%2==0)
+				{
+					aLi[i].style.background = 'gold';
+				}			
+
+			}		
+
+		}
+
+
+
+
+
+	</script>
+</head>
+<body>
+	<ul id="list01">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+	</ul>
+
+	
+</body>
+</html>

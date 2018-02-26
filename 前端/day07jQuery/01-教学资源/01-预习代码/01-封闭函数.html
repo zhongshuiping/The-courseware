@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-封闭函数</title>
+    <script src="./js/01-test.js"></script>
+    <script>
+
+        fnTest();
+        /* 封闭函数的作用:
+        1.防止函数重名覆盖问题
+        2.防止变量重名覆盖问题
+        
+        */
+
+       /*  // 1.封闭函数第一种写法
+        (function () {
+            function fnTest() {
+                alert("hello world111");
+            }
+
+            fnTest();
+        })(); */
+
+
+         // 2.封闭函数第二种写法
+         /* !function () {
+            function fnTest() {
+                alert("hello world111");
+            }
+
+            fnTest();
+        }();  */
+
+        // 3.封装函数第三种写法
+        ~function () {
+            function fnTest() {
+                alert("hello world");
+            }
+
+            fnTest();
+        }();
+
+
+
+
+
+    </script>
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>

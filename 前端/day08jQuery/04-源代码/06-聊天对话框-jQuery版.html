@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-聊天对话框</title>
+    <style type="text/css">
+        .talk_con{
+            width:600px;
+            height:500px;
+            border:1px solid #666;
+            margin:50px auto 0;
+            background:#f9f9f9;
+        }
+        .talk_show{
+            width:580px;
+            height:420px;
+            border:1px solid #666;
+            background:#fff;
+            margin:10px auto 0;
+            overflow:auto;
+        }
+        .talk_input{
+            width:580px;
+            margin:10px auto 0;
+            overflow: hidden;
+        }
+        .whotalk{
+            width:80px;
+            height:30px;
+            float:left;
+            outline:none;
+        }
+        .talk_word{
+            width:420px;
+            height:26px;
+            padding:0px;
+            float:left;
+            margin-left:10px;
+            outline:none;
+            text-indent:10px;
+        }        
+        .talk_sub{
+            width:56px;
+            height:30px;
+            float:left;
+            margin-left:10px;
+            margin-top: 6px;
+
+        }
+        .atalk{
+           margin:10px; 
+        }
+        .atalk span{
+            display:inline-block;
+            background:#0181cc;
+            border-radius:10px;
+            color:#fff;
+            padding:5px 10px;
+        }
+        .btalk{
+            margin:10px;
+            text-align:right;
+        }
+        .btalk span{
+            display:inline-block;
+            background:#ef8201;
+            border-radius:10px;
+            color:#fff;
+            padding:5px 10px;
+        }
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+
+    <script>
+        // 1.文档加载准备
+        $(function () {
+            // 2.获取相应标签
+            var $Words = $('#words'),   // 聊天记录框
+            $Who = $('#who'),           // 消息类型
+            $Text = $('#talkwords'),    // 输入框
+            $Send = $('#talksub'),      // 发送按钮
+            sMessage = '';              // 拼接消息内容
+
+            // 3.给发送按钮添加点击事件
+            $Send.click(function () {
+                
+                // 4.获取到文本输入框中的内容
+                var Scon = $Text.val();
+                // 5.如果没有输入内容时,后面代码不执行,并且弹提示框
+                if (Scon == '') {
+                    alert('请输入内容!');
+                    return;
+                }
+
+
+                // 6.判断消息类型后再去发消息
+                if ($Who.val() == 0) {  // A说
+                    sMessage = '<div class="atalk"><span>A说：'+ Scon +'</span></div>';
+                } else {                // B说
+                    sMessage = '<div class="btalk"><span>B说：'+ Scon +'</span></div>';
+                }
+
+                // 7.修改聊天记录
+                $Words.html($Words.html() + sMessage);
+
+
+                // 8.消息发送后清空文本输入框
+                $Text.val('');
+                
+            })
+
+            
+        })
+    
+    
+    </script>
+</head>
+<body>
+    <div class="talk_con">
+        <div class="talk_show" id="words">
+            <div class="atalk"><span>A说：吃饭了吗？</span></div>
+            <div class="btalk"><span>B说：还没呢，你呢？</span></div>
+        </div>
+        <div class="talk_input">
+            <select class="whotalk" id="who">
+                <option value="0">A说：</option>
+                <option value="1">B说：</option>
+            </select>
+            <input type="text" class="talk_word" id="talkwords">
+            <input type="button" value="发送" class="talk_sub" id="talksub">
+        </div>
+    </div>
+</body>
+</html>

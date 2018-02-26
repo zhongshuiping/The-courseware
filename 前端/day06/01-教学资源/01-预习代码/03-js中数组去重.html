@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-js中数组去重</title>
+    <script>
+        var oList = ['a','b','a'];
+        var oList2 = [];
+        for (var i = 0; i < oList.length; i++) {
+            // 获取数组中指定角标的元素
+            var element = oList[i];
+            // 获取元素在数组中第一次出现的角标
+            var iIndex = oList.indexOf(element);
+            // 如果当前循环的索引和元素在数组中第一次出现的角标一样,说明此元素是第一次出现
+            if (i == iIndex) {
+                // 第一次出现的元素添加到数组中
+                oList2.push(element);
+            }            
+        }
+        console.log(oList2);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

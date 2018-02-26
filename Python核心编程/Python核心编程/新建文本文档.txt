@@ -1,0 +1,10 @@
+def a(a):
+ def b(x):
+    return a+x
+  return b
+
+  def class(a,b):
+    def student(c):
+        c = a + b
+        return c
+    return student

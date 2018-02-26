@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		
+		var a = '123abc';
+		var b = '5.3asd';
+		var c = 'abc123';
+		var d = 'asd5.3';
+
+		var i = 12;
+		var j = '12';
+
+		var e = parseInt(a);
+		var f = parseFloat(b);
+		var g = parseInt(c);
+		var h = parseFloat(d);
+
+
+		//alert(e);  // 弹出123
+
+		//alert(f); // 弹出5.3
+
+
+
+		//alert(g);  // 弹出NaN  not a number
+		//alert(g==NaN);  //弹出false
+
+		//alert(NaN==NaN);  //弹出false
+
+		// parseInt 和 parseFloat 在判断 NaN 有问题！
+
+		// alert(isNaN(a));  // a 不是一个 不是一个数字
+
+		alert(isNaN(i));  // 弹出false
+
+		alert(isNaN(j));  // 弹出false
+
+
+
+
+
+
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-CSS中的id和组选择器</title>
+    <style>
+        .box1{
+            color: red;
+        }
+        /* id选择器名字尽量唯一 它主要用在js中 一个标签只能有一个id名,但可以有多个class名*/
+        #con1{
+            color: green;
+        }
+
+        /* .div1{
+            background-color: gold;
+            width: 200px;
+            height: 200px;
+        }
+
+        .div2{
+            background-color: gold;
+            width: 200px;
+            height: 200px;
+        } */
+
+        /* 组/并集选择器 */
+        .div1,.div2{
+            background-color: gold;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">div元素</div>
+    <div class="box">div元素</div>
+
+    <div id="con con1">div元素2</div>
+    <div id="con">div元素2</div>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- div.div$*2 -->
+    <div class="div1"></div>
+    <br>
+    <div class="div2"></div>
+</body>
+</html>

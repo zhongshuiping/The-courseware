@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-jQuery中的常用选择器</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $div = $('div'); // 标签选择器
+            $div0 = $('.box'),  //  类选择器
+            $div1 = $('#box'),  // id选择器
+            $li = $('.list li'),// 层级/后代选择器
+            $div2 = $('.box,.box1'); // 并级/组选择器
+            $div3 = $('div[class=box1]');   // 属性选择器
+            // $div.css({'color':'red'});
+            // $div1.css({'background-color':'gold'});
+
+            // $li.css({'color':'green'});
+            $div3.css({'color':'red'});
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <div class="box" id="box">div元素</div>
+    <div class="box1">div元素</div>
+    <div class="box2">div元素</div>
+    <ul class="list">
+        <li>电影排行1</li>
+        <li>电影排行2</li>
+        <li>电影排行3</li>
+        <li>电影排行4</li>
+        <li>电影排行5</li>
+        <li>电影排行6</li>
+        <li>电影排行7</li>
+        <li>电影排行8</li>
+    </ul>
+</body>
+</html>

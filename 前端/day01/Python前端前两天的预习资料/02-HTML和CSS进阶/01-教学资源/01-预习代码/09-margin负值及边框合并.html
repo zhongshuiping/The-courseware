@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-margin负值及边框合并</title>
+
+    <style>
+        .box1,.box2{
+            width: 200px;
+            height: 200px;
+            border: 10px solid #000;
+            background-color: gold;
+            float: left;
+        }
+
+        .box2{
+            /* margin-top: -10px; */
+            margin-left: -10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

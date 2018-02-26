@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-背景图设置</title>
+
+    <style>
+        .box{
+            width: 320px;
+            height: 160px;
+            border: 1px solid black;
+
+            margin: 0 auto;
+            
+
+            background-color: gold;
+            background-image: url("./images/bg.jpg");
+
+            /* background-repeat:背景图片是否平铺
+            repeat      平铺
+            no-repeat   不平铺
+            repeat-x    水平方向平铺
+            repeat-y    垂直方向平铺
+             */
+            background-repeat: no-repeat;
+            /* background-repeat: repeat-x;  */
+            /* background-repeat: repeat-y; */
+
+            /* 背景图片位置 */
+            /* background-position: right top; */
+            background-position: 50px 50px;
+            
+        }
+
+        .box1{
+            width: 320px;
+            height: 160px;
+            border: 1px solid black;
+
+            margin: 0 auto;
+
+            background: url("./images/bg.jpg") no-repeat 20px 20px pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <div class="box1"></div>
+</body>
+</html>

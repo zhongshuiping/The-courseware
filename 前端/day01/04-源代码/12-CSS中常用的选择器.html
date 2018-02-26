@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12-CSS中常用的选择器</title>
+
+    <style>
+        /* 1.标签选择器 如果想让当前网页中的所有这人标签有统一样式 用此选择器*/
+        /* div{
+            color: red;
+            background-color: gold;
+        } */
+
+        /* 2.类选择器 */
+        /* .box{
+            color: red;
+        } */
+
+
+        /* 3.层级/后代选择器 */
+       /* div p{
+            color: red;
+        } */
+        div span{
+            color: rebeccapurple;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="box">div标签</div>
+    <div>
+
+        <p>div里面的标签</p>
+        <div>
+            <p>xxx<span>我是一个span</span></p>
+        </div>
+    </div>
+    <span>我是一个span</span>
+    <p class="box">p标签</p>
+
+
+</body>
+</html>

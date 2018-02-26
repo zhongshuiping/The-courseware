@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12-相对定位</title>
+
+    <style>
+        .box{
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            margin: 20px auto;
+        }
+
+        .con1,.con2{
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+
+        }
+
+        .con1{
+
+            margin-top: 20px;
+            background-color: green;
+            /* 元素设置浮动之后,如果没有改过位置,它会自动设置到原本位置 */
+            /* 相对定位是以自身左上角为原点,而且原本位置保留 */
+            position: relative;
+
+            /* left top bottom right 需要先定位后再有效 */
+            left: 100px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="con1"></div>
+        <div class="con2"></div>
+    </div>
+</body>
+</html>

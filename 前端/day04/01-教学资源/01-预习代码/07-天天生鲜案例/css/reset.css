@@ -1,0 +1,53 @@
+/* 清除默认内外边距 */
+h1,h2,h3,h4,h5,h6,body,ul,ol,input,dl,dd.dt,p{
+    margin: 0;
+    padding: 0;
+}
+/* 清除边框 */
+input{
+    border: 0;
+}
+/* 清除序列样式 */
+ul,ol{
+    list-style: none;
+}
+/* 清除下划线 */
+a{
+    text-decoration: none;
+}
+/* 清除斜体 */
+em,i{
+    font-style: normal;
+}
+
+/* 清除加粗 */
+b,strong{
+    font-weight: normal;
+}
+
+/* 左浮动 */
+.fl{
+    float: left;
+}
+
+/* 右浮动 */
+.fr{
+    float: right;
+}
+
+
+/* 清除浮动塌陷问题 */
+.clearfix:before,.clearfix::after{
+    content: "";
+    display: table;
+}
+
+.clearfix:after{
+    clear: both;
+}
+
+/* 兼容低版本浏览器 */
+.clearfix{
+    zoom: 1;
+}
+

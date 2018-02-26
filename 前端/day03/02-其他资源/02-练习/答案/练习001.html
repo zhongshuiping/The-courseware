@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        body{
+            background:#00ccff;
+        }
+
+        .register{
+            width:500px;
+            height:550px;
+            background:#f9f9f9;
+            margin:50px auto 0;
+            /* 解决margin-top塌陷 */
+            overflow:hidden;
+        }
+
+        .register h3{
+            width:430px;
+            font-size:24px;
+            line-height:50px;
+            color:#ff9966;
+            font-weight:normal;           
+            margin:10px auto 20px;
+            border-bottom:1px solid #ddd;
+        }
+
+        .form-group{
+            width:450px;
+
+            /* 清除浮动 */
+            overflow:hidden;            
+            margin:15px 0 25px 25px;
+        }
+
+        .form-group label{
+            float:left;
+            width:100px;
+            height:38px;
+            line-height:38px;
+            text-align:right;
+            color:#333;
+            font-size:14px;
+        }
+
+        .form-group input{
+            width:328px;
+            height:36px;
+            border:1px solid #ccc;
+            outline:none;
+            text-indent:10px;
+            font-size:14px; 
+            float:left;
+        }
+
+        .form-group .inputinfo{
+          width:308px;
+          height:50px;
+          border:1px solid #ccc;
+          padding:0px;
+          outline:none;
+          padding:10px;  
+        }
+
+        .form-group .agreement{
+            width:15px;
+            height:15px;
+            border:1px solid #ccc;
+            margin-left:100px;
+        }
+
+        .form-group .agreement_info{
+            float:left;
+            color:#333;
+            font-size:14px;
+            margin-left:10px;
+        }
+
+        .inputbtn{
+            width:330px;
+            height:38px;
+            background:#00ccff;
+            border:0px;
+            font-size:18px;
+            color:#fff;
+            margin-left:125px;
+        }      
+
+    </style>
+</head>
+<body>
+    <div class="register">
+        <h3>注册表单</h3>
+        <form>
+           <div class="form-group">
+                <label>用户名：</label>
+                <input type="text" class="inputtext">
+           </div>
+           <div class="form-group">
+                <label>密码：</label>
+                <input type="password" class="inputtext">
+           </div>
+           <div class="form-group">
+                <label>确认密码：</label>
+                <input type="password"  class="inputtext">
+           </div>
+           <div class="form-group">
+                <label>邮箱：</label>
+                <input type="text"  class="inputtext">
+           </div>
+           <div class="form-group">
+                <label>个人简介：</label>
+                <textarea  class="inputinfo"></textarea>
+            </div>
+           <div class="form-group">
+                <input type="checkbox" class="agreement"><span  class="agreement_info">同意用户使用协议</span>
+           </div>
+           <input type="submit" value="注 册" class="inputbtn">
+        </form>
+    </div>
+</body>
+</html>

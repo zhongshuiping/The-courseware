@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-jQuery选择集的遍历</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $li = $('.list li');
+            // var iLenght = $li.length;
+            // for (var i = 0; i < iLenght; i++) {
+
+            //     if (i % 2 == 1) {
+            //         $li.eq(i).css({'color':'red'});
+            //     }
+            // }
+
+            $li.each(function () {
+                if ($(this).index() % 2 == 1) {
+                    $(this).css({'color':'red'});
+                }
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <ul class="list">
+        <li>li标签1</li>
+        <li>li标签2</li>
+        <li>li标签3</li>
+        <li>li标签4</li>
+        <li>li标签5</li>
+        <li>li标签6</li>
+        <li>li标签7</li>
+        <li>li标签8</li>
+    </ul>
+</body>
+</html>

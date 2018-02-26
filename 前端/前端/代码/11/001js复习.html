@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- <script type="text/javascript" src="test.js"></script> -->
+
+	<script type="text/javascript">
+
+	window.onload = function(){
+
+
+		var oDiv = document.getElementById('div1');
+		var oBtn01 = document.getElementById('btn01');
+		var oBtn02 = document.getElementById('btn02');
+
+
+		var sty = 'background';
+
+		oDiv.title = '这是一个div标签';
+		oDiv.style.color = 'red';
+		oDiv.style.fontSize = '30px';
+
+		// oDiv.style[sty] = 'gold';
+
+		oDiv.onclick = myalert;
+		oBtn01.onclick = change01;
+		oBtn02.onclick = change02;
+
+
+
+		function myalert(){
+			alert('ok!');
+		}
+
+
+
+		function change01(){
+			oDiv.className = 'sty01';
+		}
+
+
+		function change02(){
+			oDiv.className = 'sty02';
+		}
+
+
+}
+
+
+
+	
+
+
+
+	</script>
+
+	<style type="text/css">
+		
+		.sty01{
+			width: 200px;
+			height:200px;
+			background-color:cyan;
+		}
+
+		.sty02{
+			width: 300px;
+			height:300px;
+			background-color:gold;
+		}
+
+
+
+	</style>
+
+
+	
+</head>
+<body>
+	<input type="button" name="" value="样式01" id="btn01">
+	<input type="button" name="" value="样式02" id="btn02">
+	<div id="div1" class="sty01">div标签</div>
+
+	
+</body>
+</html>

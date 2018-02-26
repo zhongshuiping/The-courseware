@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css 选择器</title>
+	<style type="text/css">
+		div{
+			color:red;
+		}
+
+		#box{
+			color:green;
+		}
+
+		.red{
+			color:red;
+		}
+
+		.bold{
+			font-weight:bold;
+		}
+
+		.yahei{
+			font-family:'Microsoft Yahei';
+		}
+
+
+		.duanluo{
+			text-indent:28px;
+			font-size:14px;
+		}
+
+
+		.duanluo em{
+			font-style:normal;
+			color:pink;
+		}
+
+
+		.list{
+			list-style:none;
+		}
+
+
+		.list li{
+			height:30px;
+		}
+
+		.list a{
+			text-decoration:none;
+			font-family:'Microsoft Yahei';
+			font-size:14px; 
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<div class="red bold yahei">这是一个div</div>
+	<div id="box" class="red">这是第二个div</div>
+	<div class="red yahei">这是第三个div</div>
+	
+	<p class="duanluo yahei">
+		HTML是 <em>HyperText Mark-up Language</em> 的首字母简写，意思是超文本标记语言，超文本指的是超链接，标记指的是标签，是一种用来制作网页的语言，这种语言由一个个的标签组成，用这种语言制作的文件保存的是一个文本文件，文件的扩展名为html或者htm，一个html文件就是一个网页，html文件用编辑器打开显示的是文本，可以用文本的方式编辑它，如果用浏览器打开，浏览器会按照标签描述内容将文件渲染成网页，显示的网页可以从一个网页链接跳转到另外一个网页。
+	</p>
+
+	<p>
+		<em>xhtml</em>制定了文档的编写规范，html5可部分遵守，也可全部遵守，看开发要求。
+
+		1、所有的标签必须小写
+
+		2、所有的属性必须用双引号括起来
+
+		3、所有标签必须闭合
+
+		4、img必须要加alt属性(对图片的描述)
+
+	</p>
+
+
+	<ul class="list">
+		<li><a href="">新闻标题</a></li>
+		<li><a href="">新闻标题</a></li>
+		<li><a href="">新闻标题</a></li>
+		<li><a href="">新闻标题</a></li>
+		<li><a href="">新闻标题</a></li>
+		<li><a href="">新闻标题</a></li>
+	</ul>
+
+</body>
+</html>

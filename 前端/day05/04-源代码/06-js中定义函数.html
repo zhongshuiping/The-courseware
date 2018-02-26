@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-js中定义函数</title>
+    <script>
+    
+        // def func_test():
+        //     print()
+
+
+        // func_test()
+
+        // 无参数的函数
+        function fnTest() {
+            alert('无参数的函数');
+        };
+
+        // 函数调用
+        fnTest();
+
+        // 定义有参数的函数
+        function fnResult(a,b) {
+            // return关键字的作用:
+            // 返回函数中的值/对象
+            // 可以提前结束函数执行
+
+            return a + b;
+        }
+
+       var iResult = fnResult(1,5);
+       alert(iResult);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

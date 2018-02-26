@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+
+	window.onload = function(){
+
+		var oPop = document.getElementById('pop');
+		var oShut = document.getElementById('shutoff');
+
+
+
+
+		/*
+
+		setTimeout(showpop,4000);
+
+
+		function showpop(){
+
+			oPop.style.display = 'block';
+
+		}
+
+
+		*/
+
+		 setTimeout(function(){
+		 	oPop.style.display = 'block';
+
+		 },3000);
+
+
+		
+
+		oShut.onclick = function(){
+			oPop.style.display = 'none';
+		}
+
+
+
+	}
+
+
+
+
+
+	</script>
+	<style type="text/css">
+
+		.pop_con{
+			display:none;
+		}
+		
+		.pop{
+			width:400px;
+			height:300px;
+			background-color:#fff;
+			border:1px solid #000;
+			position:fixed;
+			left:50%;
+			top:50%;
+			margin-left:-200px;
+			margin-top:-150px;
+			z-index:9999;
+		}
+
+		.mask{
+			position:fixed;
+			width:100%;
+			height:100%;
+			background-color:#000;
+			left:0;
+			top:0;
+			opacity:0.3;
+			filter:alpha(opacity=30);
+			z-index:9990;		
+		}
+
+
+	</style>
+</head>
+<body>
+	<h1>首页标题</h1>
+	<p>页面内容</p>
+
+
+
+	<div class="pop_con" id="pop">
+		<div class="pop">
+			<h3>提示信息！</h3>
+			<a href="#" id="shutoff">关闭</a>
+		</div>
+		
+		<div class="mask"></div>
+	</div>
+	
+</body>
+</html>

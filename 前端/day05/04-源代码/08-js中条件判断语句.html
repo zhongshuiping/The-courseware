@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-js中条件判断语句</title>
+    <script>
+        
+        var iNum01 = 0;
+        var iNum02 = 5;
+
+        // if (iNum01 > iNum02) {
+        //     alert('成立');
+        // } else {
+        //     alert('不成立');
+        // }
+
+
+        // if (5 > 10) {
+        //     alert('成立');
+        // } else if (iNum01 < iNum02){
+        //     alert('不成立');
+        // } else {
+        //     alert('以上两个条件都不成立')
+        // }
+
+        // 在js中 == 会先把== 左右两边的变量类型转换成相同类型再去做比较
+        // 自动转换类型 专业名词 隐式转换
+        // if (10 == '10') {
+        //     alert('成立');
+        // }
+
+        // === 它先比较变量类型,如果类型不一样就直接不相等
+        // if (10 === '10') {
+        //     alert('成立');
+        // } else {
+        //     alert('不成立');
+        // }
+
+        // &&  一假则为假,只要其中有一个条件不成立 直接就不成立
+        // if (10 > 15 && 10 > 9) {
+        //     alert('成立');
+        // } else {
+        //     alert('不成立');
+        // }
+
+        // 一真则为真 ,只要有一个条件满足就成立
+        // if (10 > 15 || 10 > 9) {
+        //     alert('成立');
+        // } else {
+        //     alert('不成立');
+        // }
+
+        // ! 真变假,假变真
+        if (!iNum01) {
+            alert('成立');
+        } else {
+            alert('不成立');
+        }
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

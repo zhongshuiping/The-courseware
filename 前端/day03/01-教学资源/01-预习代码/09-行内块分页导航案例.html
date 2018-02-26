@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-行内块分页导航案例</title>
+
+    <style>
+        .page{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+
+            width: 960px;
+            height: 40px;
+            border: 1px solid #d1d1d1;
+
+            margin: 50px auto 0px;
+
+            text-align: center;
+
+            font-size: 0px;
+        }
+
+        .page li{
+            display: inline-block;
+            margin: 7px 5px 0;
+
+
+        }
+
+        .page a{
+            text-decoration: none;
+            display: inline-block;
+            padding: 0px 10px;
+            height: 26px;
+            background-color: gold;
+            color: #393c35;
+
+            /* font-size: 12px;
+            line-height: 26px;
+            font-family: "Microsoft YaHei"; */
+            font: 12px/26px "Microsoft YaHei";
+        }
+        .page span{
+            font: 12px/26px "Microsoft YaHei";
+
+        }
+        .page a:hover{
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul class="page">
+        <li><a href="#">上一页</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><span>...</span></li>
+        <li><a href="#">17</a></li>
+        <li><a href="#">18</a></li>
+        <li><a href="#">19</a></li>
+        <li><a href="#">20</a></li>
+        <li><a href="#">下一页</a></li>
+    </ul>
+</body>
+</html>

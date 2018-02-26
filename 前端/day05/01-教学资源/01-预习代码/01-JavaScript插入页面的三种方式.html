@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-JavaScript插入页面的三种方式</title>
+    <!-- 第三种JavaScript插入页面的三种方式:外链式 推荐 -->
+    <script src="./js/hello.js"></script>
+
+    <link rel="stylesheet" href="">
+
+    <!-- 第二种JavaScript插入页面的方式:内嵌式 部分推荐 -->
+    <script>
+        alert("内嵌式");
+    </script>
+
+    <style>
+        div{
+            color: blue;
+        }
+    </style>    
+</head>
+<body>
+    
+    <!-- 第一种JavaScript插入页面的方式: 行内式/行间事件  不推荐 -->
+    <div style="color:red" onclick="alert('hello world!')">这是一个div</div>
+</body>
+</html>

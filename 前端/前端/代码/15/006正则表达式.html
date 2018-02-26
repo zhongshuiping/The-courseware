@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		
+		//定义一个正则的规则：
+
+		// 第一种定义方法：
+		var re = new RegExp('a','ig');
+		
+		// 第二种定义方法：
+		var re2 = /ad/ig;
+
+
+		var str = 'abc';
+
+
+		//alert(re2.test(str)); 弹出false
+
+		// ^匹配开头 $匹配结尾
+		var re3 = /^\d+$/;
+		var str3 = '123abc';
+		//alert(re3.test(str3));  false
+
+		var re4 = /^\w+$/;
+		var str4 = 'as&d';
+		//alert(re4.test(str4)); false
+
+		var str5 = '123adfcd678jasdfjk988lkjkasd345';
+		var re5 = /\d+/g;
+
+		var arr = str5.match(re5);
+
+		//alert(arr);
+
+
+		var re6 = /d/;
+
+		//alert(str5.search(re6));
+
+
+		var str6 = str5.replace(re5,'*');
+
+		alert(str6);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

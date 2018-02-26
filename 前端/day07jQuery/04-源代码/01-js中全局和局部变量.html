@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-js中全局和局部变量</title>
+    <script>
+    
+        window.onload = function () {
+
+            var iNum = 10;
+            // 在js中尽量不要局部和全局变量同名;
+            // 如果在js中定义的局部变量和全局变量同名,局部变量优先级会比全局高,而且在函数如果定义了一个局部变量和全局同名,
+            // 它会在定义局部变量的函数里直接屏蔽全局变量,当我们提前使用变量时,变量的预解析,就会报undefined类型
+            function fnTest() {
+                alert(iNum);
+
+
+               var iNum = 20;  // 定义局部变量
+
+
+            }
+            // alert(iNum);  // 10
+            fnTest();
+            // alert(iNum);  // 20
+
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

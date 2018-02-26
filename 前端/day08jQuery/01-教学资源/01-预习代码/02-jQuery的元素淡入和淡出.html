@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-jQuery的元素淡入和淡出</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            /* display: none; */
+        }
+    </style>
+
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $btn = $('.btn'),
+            $div = $('.box');
+
+            $btn.click(function () {
+                // 淡入 慢慢显示
+                // $div.fadeIn();
+                // 淡出 慢慢隐藏
+                // $div.fadeOut();
+
+                // 淡入和淡出切换
+                // $div.stop().fadeToggle();
+
+                
+                // $div.fadeTo(2000,0.2,function () {
+                //     $(this).fadeTo(2000,1);
+                // });
+                
+            })
+
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <input type="button" value="动画按钮" class="btn">
+    <div class="box"></div>
+    <p>段落标签</p>
+</body>

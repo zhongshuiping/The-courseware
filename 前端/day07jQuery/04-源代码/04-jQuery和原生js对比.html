@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-jQuery和原生js对比</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        // 原生js操作标签
+        window.onload = function () {
+            // 获取标签
+            var oDiv = document.getElementById('box');
+            // 设置样式
+            oDiv.style.color = 'red';
+
+            // 获取标签的样式
+
+            // 用原生js只能获取到行内式样式的属性
+            alert(oDiv.style.color + 'js获取');
+        }
+
+
+
+        // // jQuery的文档加载准备
+        // $(document).ready(function () {
+        //     // 获取标签
+        //     var $Div = $('#box');
+
+        //     // 设置样式
+        //     $Div.css({'backgroundColor': 'gold'});
+        //     // 只要此属性有值都能获取到,不管是自己设置的还是父元素继承过来的都OK
+        //     alert($Div.css('fontSize') + 'jQuery');
+        // })
+
+
+        //      // jQuery的文档加载准备
+        //      $().ready(function () {
+        //     // 获取标签
+        //     var $Div = $('#box');
+
+        //     // 设置样式
+        //     $Div.css({'backgroundColor': 'gold'});
+        //     // 只要此属性有值都能获取到,不管是自己设置的还是父元素继承过来的都OK
+        //     alert($Div.css('fontSize') + 'jQuery');
+        // })
+
+
+             // jQuery的文档加载准备
+             $(function () {
+            // 获取标签
+            var $Div = $('#box');
+
+            // 设置样式
+            $Div.css({'backgroundColor': 'gold'});
+            // 只要此属性有值都能获取到,不管是自己设置的还是父元素继承过来的都OK
+            alert($Div.css('fontSize') + 'jQuery');
+        })
+
+        // 原本在js中很多操作都是用的属性,
+        // 在jQuery中几乎都换成了用函数去操作'同一个函数可取可设置'
+  
+        
+
+    </script>
+
+
+</head>
+<body>
+    <div id="box">div元素</div>
+</body>
+</html>

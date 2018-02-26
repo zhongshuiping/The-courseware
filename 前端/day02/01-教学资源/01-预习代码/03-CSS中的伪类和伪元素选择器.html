@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-CSS中的伪类和伪元素选择器</title>
+
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+
+        /* hover伪类 当鼠标悬浮在元素上时的样式 */
+        .box:hover{
+            color: red;
+            background-color: green;
+        }
+
+        .link01:hover{
+            color: orange;
+            text-decoration: none;
+        }
+
+        
+
+
+        .box01,.box02{
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* 伪元素 */
+        /* 在前面 */
+        .box01::before{
+            content: "前面的文字";
+            color: red;
+        }
+
+        /* 在后面 */
+        .box02::after{
+            content: "后面的文字";
+            color: green;
+        }
+    </style>    
+</head>
+<body>
+
+
+    <div class="box">这是一个div</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="#" class="link01">这是一个链接标签</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="box01">这是第二个div</div>
+    <div class="box02">这是第三个div</div>
+</body>
+</html>

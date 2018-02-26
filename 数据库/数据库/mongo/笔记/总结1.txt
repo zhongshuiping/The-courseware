@@ -1,0 +1,26 @@
+string
+hash
+list
+set
+zset
+
+增加
+mysql:insert into 表名(列) values(值)
+mongo:db.集合名.insert({})
+
+修改：
+mysql:update 表名 set 列=值 where 条件
+mongo:db.集合名.update({条件},{值$set},{是否修改多条})
+
+删除：
+mysql:delete from 表名 where ....
+mongo:db.集合名.remove({条件},{是否删除多条})
+
+查询：
+db.stu.find({},{})
+比较运算符，逻辑运算符，$where
+limit(),skip(),sort(),count(),distinct()
+
+
+
+

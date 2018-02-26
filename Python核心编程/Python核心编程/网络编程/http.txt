@@ -1,0 +1,13 @@
+HTTP响应报文格式分析：
+
+响应行 版本  状态码 状态说明       HTTP/1.1 200 OK    Not Found
+             2xx   成功
+             3xx  重定向   Location：
+             4xx  没有找到
+             5xx  服务器错误
+Content-Type: xx   代表数据的文件类型
+Last-Modified  xx   最后一次被修改的时间（缓存）
+
+Connection: keep-alive  长连接
+Content-Encoding : 代表数据的压缩方式
+响应体：服务器给客户端发送的数据

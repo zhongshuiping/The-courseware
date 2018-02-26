@@ -1,0 +1,223 @@
+body{
+	font-family:'Microsoft Yahei';
+	color:#666;
+	font-size:12px;
+}
+
+
+/*  顶部状态条样式 */
+
+.header_con{
+	height:29px;
+	background-color:#f7f7f7;
+	border-bottom:1px solid #ddd;
+}
+
+.header{
+	width:1200px;
+	height:29px;
+	margin:0 auto;
+}
+
+.welcome{
+	font:12px/29px 'Microsoft Yahei';
+	color:#666;
+}
+
+.user_login_link,.user_welcome,.user_shopping{
+	height:29px;
+	line-height:29px;
+}
+
+.user_login_link a,.user_shopping a{
+	color:#666;
+}
+
+.user_login_link a:hover,.user_shopping a:hover{
+	color:#f80;
+}
+
+.user_login_link span,.user_shopping span{
+	margin:0 15px;
+	color:#cecece;
+}
+
+.user_welcome{
+	display:none;
+}
+
+.user_welcome em{
+	color:#f80;
+}
+
+
+
+/* logo、搜索、购物车样式 */
+
+.logo_bar{
+	width:1200px;
+	height:115px;
+	margin:0 auto;
+}
+
+.logo{
+	width:151px;
+	height:59px;
+	margin:29px 0 0 17px;
+}
+
+.search{
+	width:616px;
+	height:38px;
+	border:1px solid #37ab40;
+	margin:34px 0 0 123px;
+	background:url(../images/icons.png) 8px 9px no-repeat;
+}
+
+.search .input_text{
+	width:470px;
+	height:38px;
+	border:0px;
+	margin-left:37px;
+	outline:none;
+}
+
+.search .input_btn{
+	width:100px;
+	height:38px;
+	background-color:#37ab40;
+	border:0px;
+	font:14px/38px 'Microsoft Yahei';
+	color:#fff;
+	cursor:pointer;
+}
+
+.chart{
+	width:200px;
+	height:40px;
+	margin-top:34px;
+}
+
+.chart a{
+	width:158px;
+	height:38px;
+	border:1px solid #ddd;
+	font:14px/38px  'Microsoft Yahei';
+	color:#37ab40;
+	text-indent:56px;
+	background:url(../images/icons.png) 17px -43px no-repeat #f7f7f7;
+}
+
+.chart span{
+	width:40px;
+	height:40px;
+	background-color:#f80;
+	font:bold 18px/40px 'Microsoft Yahei';
+	color:#fff;
+	text-align:center;
+}
+
+
+
+.sub_menu_con{
+	height:40px;
+	border-bottom:2px solid #37ab40;
+}
+
+.sub_menu{
+	width:1200px;
+	height:40px;
+	margin:0 auto;
+}
+
+.sub_menu h1{
+	width:200px;
+	height:40px;
+	background-color:#37ab40;
+	font:14px/40px 'Microsoft Yahei';
+	color:#fff;
+	text-align:center;
+}
+
+.sub_menu ul{
+	overflow:hidden;
+}
+
+.sub_menu li{
+	float:left;
+	height:14px;
+	padding:0 25px;
+	border-left:1px solid #666;
+	margin-left:-1px;
+	margin-top:13px;
+}
+
+.sub_menu li a{
+	font:14px/14px 'Microsoft Yahei';
+	color:#666;
+}
+
+.sub_menu li a:hover{
+	color:#f80;
+}
+
+.center_con{
+	width:1200px;
+	height:270px;
+	margin:0 auto;
+}
+
+.center_con .main_menu{
+	width:200px;
+	height:270px;
+	overflow:hidden;
+	
+}
+
+.center_con .main_menu li{
+	width:198px;
+	height:44px;
+	border:1px solid #eee;
+	margin-top:-1px;
+	background:url(../images/icons.png) 166px -385px no-repeat;
+}
+
+.center_con .main_menu li a{
+	display:block;
+	width:198px;
+	height:44px;
+	font:14px/44px 'Microsoft Yahei';
+	color:#333;
+	text-indent:71px;
+	background:url(../images/icons.png) 33px 0px no-repeat;
+}
+
+.center_con .main_menu li .fruit{
+	background-position:33px -90px;
+
+}
+
+.center_con .main_menu li .seafood{
+	background-position:31px -140px;
+
+}
+
+.center_con .main_menu li .meat{
+	background-position:31px -190px;
+
+}
+
+.center_con .main_menu li .egg{
+	background-position:33px -240px;
+
+}
+
+.center_con .main_menu li .vegetable{
+	background-position:33px -290px;
+
+}
+
+.center_con .main_menu li .ice{
+	background-position:33px -338px;
+
+}

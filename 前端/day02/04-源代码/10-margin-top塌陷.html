@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10-margin-top塌陷</title>
+    <style>
+        .box{
+            width: 299px;
+            height: 300px;
+            background-color: gold;
+            /* 1.给父元素设置边框 */
+            /* border-top: 1px solid gold; */
+
+            /* 2.设置元素溢出属性 */
+            /* overflow: hidden; */
+
+            /* 3.padding */
+            /* padding: 10px; */
+
+            /* 一般解决显示问题bug都是找父元素设置父元素,而不是直接设置子元素 */
+
+        }
+
+        /* 4.推荐的解决margin-top塌陷方式 */
+        .clearfix::before{
+            /* 添加空字符串内容 */
+            content: '';
+            /* 把空字符串转行成一个块类型的表格 */
+            display: table;
+        }
+
+        .con{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            /* 如果设置子元素的顶部外边距时,子级相对父级没有下,但是父级向下移动
+            设置子元素的顶部外边距对子元素没有影响,反而影响到父级 这个就是margin-top塌陷
+             */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box clearfix">
+        <div class="con"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-jQuery中元素淡入淡出特效</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #008000;
+            display: none;
+        }
+    </style>
+
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+    
+        $(function () {
+            // 给按钮添加点击事件
+            $('input').click(function () {
+             
+                // 1.淡入  透明度+display
+                $('.box').fadeIn(2000);
+
+                // 2.淡出
+                // $('.box').fadeOut();
+
+                // 3.淡入或淡出
+                // $('.box').stop().fadeToggle();
+
+                // $('.box').fadeTo(2000,0,function () {
+                //     $('.box').css({'display':'none'});
+                // })
+
+            })
+        })
+    </script>
+</head>
+<body>
+    
+    <input type="button" value="动 画">
+    <div class="box"></div>
+    <p>p标签</p>
+</body>
+</html>

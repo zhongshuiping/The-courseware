@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>整页滚动</title>
+	<link rel="stylesheet" type="text/css" href="css/test.css">
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+			var $h = $(window).height();
+			var len = $('.pages').length;
+			var $points = $('.points li');
+			var $pages = $('.pages');
+			var nowscreen = 0;
+			var timer = null;
+
+			$pages.eq(0).addClass('moving');
+
+
+			$('.pages').css({height:$h});
+
+
+			//dat的值：-1是向下滑动，1是向上滑动
+			$(window).mousewheel(function(event,dat){
+
+				//清掉前面刚刚开的定时器
+				clearTimeout(timer);
+
+				// 最新的一次定时器
+				timer = setTimeout(function(){
+
+					if(dat==-1)
+					{
+						nowscreen++;
+
+						if(nowscreen>len-1){
+							nowscreen=len-1;
+						}
+					}
+					else
+					{
+						nowscreen--;
+
+						if(nowscreen<0){
+							nowscreen=0;
+						}
+					}
+
+					$('.pages_con').animate({top:-$h*nowscreen},300);
+
+					$points.eq(nowscreen).addClass('active').siblings().removeClass('active');
+
+					$pages.eq(nowscreen).addClass('moving').siblings().removeClass('moving');
+
+				},200);
+			})
+
+
+			$points.click(function(){
+
+				$(this).addClass('active').siblings().removeClass('active');
+				$('.pages_con').animate({top:-$h*$(this).index()},300);
+
+				$pages.eq($(this).index()).addClass('moving').siblings().removeClass('moving');
+
+			})
+
+
+
+		})
+
+	</script>	
+</head>
+<body>
+	<div class="pages_con">
+
+		<div class="pages page1 moving">
+			<div class="main_con">
+				<div class="left_img"><img src="images/001.png"></div>
+				<div class="right_info">
+				Web前端开发是从网页制作演变而来的，名称上有很明显的时代特征。在互联网的演化进程中，网页制作是Web1.0时代的产物，那时网站的主要内容都是静态的，用户使用网站的行为也以浏览为主。
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="pages page2">
+			<div class="main_con">
+				<div class="right_img"><img src="images/002.png"></div>
+				<div class="left_info">
+				2005年以后，互联网进入Web2.0时代，各种类似桌面软件的Web应用大量涌现，网站的前端由此发生了翻天覆地的变化。网页不再只是承载单一的文字和图片，各种富媒体让网页的内容更加生动，网页上软件化的交互形式为用户提供了更好的使用体验，这些都是基于前端技术实现的。
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="pages page3">
+			<div class="main_con">
+				<div class="left_img"><img src="images/004.png"></div>
+				<div class="right_info">
+				以前会Photoshop和Dreamweaver就可以制作网页，现在只掌握这些已经远远不够了。无论是开发难度上，还是开发方式上，现在的网页制作都更接近传统的网站后台开发，所以现在不再叫网页制作，而是叫Web前端开发。
+
+					
+				</div>
+			</div>			
+		</div>
+
+		<div class="pages page4">
+			<div class="main_con">
+				<div class="left_img"><img src="images/003.png"></div>
+				<div class="right_info">
+					Web前端开发在产品开发环节中的作用变得越来越重要，而且需要专业的前端工程师才能做好，这方面的专业人才近几年来备受青睐。Web前端开发是一项很特殊的工作，涵盖的知识面非常广，既有具体的技术，又有抽象的理念。简单地说，它的主要职能就是把网站的界面更好地呈现给用户。
+				</div>
+			</div>			
+		</div>
+
+		<div class="pages page5">
+			<div class="main_con">
+				<div class="center_img"><img src="images/005.png"></div>		
+			</div>			
+		</div>
+
+
+	</div>
+
+	<ul class="points">
+		<li class="active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

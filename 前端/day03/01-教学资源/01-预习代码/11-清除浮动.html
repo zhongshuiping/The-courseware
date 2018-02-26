@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11-清除浮动</title>
+
+    <style>
+        /* 什么时候需要清除浮动:
+        当父元素没有设置高度而子元素又全部浮动后
+        此时父元素的高度就无法自动计算了
+        
+         */
+
+        /* .clearfix::after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+         清除margin-top塌陷问题 
+        .clearfix::before{
+            content: "";
+            display: table;
+        } */
+
+        /* 以下是推荐的清除浮动方案 同时也解决了margin-top塌陷问题 */
+        .clearfix::before,.clearfix::after{
+            content: "";
+            display: table;
+        }
+        .clearfix::after{
+            clear: both;
+        }
+        /* IE下清除浮动及解决margin-top塌陷问题 */
+        .clearfix{
+            zoom: 1;
+        }
+
+        .list{
+            width: 210px;
+            /* height: 300px; */
+            border: 1px solid black;
+
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            /* 第一种清除浮动的方法 */
+            /* overflow: hidden; */
+        }
+
+        .list li{
+            width: 50px;
+            height: 50px;
+            background-color: gold;
+
+            margin: 10px;
+            text-align: center;
+            line-height: 50px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul class="list clearfix">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <!-- 第二种清除浮动的方法 -->
+        <!-- <div style="clear:both"></div> -->
+    </ul>
+</body>
+</html>

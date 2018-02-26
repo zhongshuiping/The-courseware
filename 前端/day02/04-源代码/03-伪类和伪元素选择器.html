@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-伪类和伪元素选择器</title>
+
+    <style>
+        .a1{
+            color: black;
+        }
+
+        /* 伪类选择器 当鼠标摸到指定元素时它的CSS样式才会生效*/
+        .a1:hover{
+            color: red;
+        }
+
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+
+        .box:hover{
+            background-color: purple;
+            width: 300px;
+        }
+
+        /* 伪元素 后期解决一些bug用 */
+        .con1::before{
+            content: '在元素前面添加的文字';
+            color: red;
+        }
+
+        .con2::after{
+            content: "在元素后面添加的文字";
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="a1">更多</a>
+
+    <div class="box"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- div.con${div元素$}*2 -->
+    <div class="con1">div元素1</div>
+    <div class="con2">div元素2</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-js中数组常用的方法</title>
+    <script>
+        window.onload = function () {
+            
+            // 定义数组
+            var aList = [1, 2, 3, 4, 1];
+
+            // 1.给数组中增加元素 ,参数就是要添加的元素,会在数组的最后面添加一个新的元素
+            // aList.push(5);
+
+            // 1.1 写几个参数就在数组的最后添加几个元素
+            // aList.push(5,6,7);
+
+
+            // 2.删除数组中最后的一个元素
+            // aList.pop();
+
+
+
+            // 3.修改数组中的元素
+            // aList[1] = '2';
+
+
+            // 4.获取数组中的元素
+        //    var iNum = aList[0];
+
+            // console.log(iNum);
+
+
+            // 5.删除数组中指定的元素
+            // 第一个参数表示要从第几个下标开始删除
+            // 第二个参数表示要删除几个元素
+            // aList.splice(0,3);
+
+            // 第三个及以后的参数都表示要添加的元素,添加到第一个参数指定的角标位置起
+            // aList.splice(0,0, 'a','b');
+
+
+
+            // 6.数组中的元素反转,0角标的元素放到最后,最后角标的放到0角标,中间也是同样交换
+            // aList.reverse();
+
+            // 7.join加数组中的元素拼接成字符串
+            // join()中没有传参数时,每一个元素在拼接成字符串时,中间都有一个逗号连接
+        //    var sStr = aList.join();
+
+            // join('') 如果传空字符串时,就不会有逗号连接
+        //    var sStr = aList.join('');
+
+            // 如果传入一些东西,它会用传入的字符来连接每一个元素
+        //    var sStr = aList.join('-');
+
+            // length 获取元素个数,获取数组长度
+        //    var iNum = aList.length;
+
+            // 获取元素在数组中第一次出现的角标/下标 如果此元素在数组中不存在 返回-1
+           var iNum = aList.indexOf(1);
+            console.log(iNum);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

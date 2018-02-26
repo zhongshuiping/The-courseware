@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-jQuery操作样式类</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+        }
+    </style>
+    <script>
+        $(function () {
+            var $div = $('div');
+
+            // 给标签添加class
+            // $div.addClass('box');
+
+            // 删除标签的class
+            // $div.removeClass('box');
+
+            // 删除或添加class 已有就删除,没有就添加
+            $div.click(function () {
+                $div.toggleClass('box');
+
+            })
+        })
+    </script>
+    
+</head>
+<body>
+    <div>div1</div>
+
+</body>
+</html>

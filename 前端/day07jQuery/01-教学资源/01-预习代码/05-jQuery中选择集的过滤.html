@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-jQuery中选择集的过滤</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $div = $('div');
+            var $lis = $('li');
+            // has()选择包含p标签的div
+            // $div.has('p').css({'color':'red'});
+
+            // not选择类名不为.box的div
+            // $div.not('.box').css({'color':'red'});
+
+            // eq()选择标签集合中 指定角标的 标签
+            $lis.eq(7).css({'color':'red'});
+
+
+        })
+    </script>
+</head>
+<body>
+    <div class="box">div元素
+        <p class="p">p标签</p>
+    </div>
+    <div class="box1">div元素2
+        <h1>h1标签</h1>
+    </div>
+    
+    <ul class="list">
+        <li>li标签1</li>
+        <li>li标签2</li>
+        <li>li标签3</li>
+        <li>li标签4</li>
+        <li>li标签5</li>
+        <li>li标签6</li>
+        <li>li标签7</li>
+        <li>li标签8</li>
+    </ul>
+
+    
+
+</body>
+</html>

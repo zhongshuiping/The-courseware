@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .set_con{
+            width:900px;
+            height:350px;
+            border:1px solid #666;
+            margin:50px auto 0;
+        }
+
+        .left_set{
+            width:299px;
+            float:left;
+            height:330px;
+            border-right:1px solid #666;
+            padding-top:20px;
+        }
+
+        .left_set label{
+            float:left;
+            width:80px;
+            height:40px;
+            line-height:40px;
+            text-align:left;
+            text-indent:20px;
+            margin-top:10px;
+            font-size:12px;
+        }
+
+        .left_set input{
+            padding:0px;
+            width:198px;
+            height:38px;
+            border: 1px solid #999;
+            float:left;
+            margin-top:10px;
+            text-indent:10px;
+            outline:none;
+        }
+
+        .left_set .setbtn{
+            width:99px;
+            height:40px;
+            border:0px;
+            background:#0181cc;
+            color:#fff;
+            text-indent:0px;
+            margin-left:80px;
+            font-size:16px;
+            margin-top:20px
+        }
+
+        .right_show{
+            width:600px;
+            height:350px;
+            float:left;
+            overflow:auto;
+        }
+
+        .box{
+            width:100px;
+            height:100px;
+            border: 5px solid #000;
+            background:gold;
+            margin:50px auto 0;
+        }
+
+    </style>
+    <script type="text/javascript">      
+    // 写出对应功能代码
+
+
+
+    </script>
+</head>
+<body>
+    <div class="set_con">
+        <div class="left_set">
+            <label>宽度：</label>
+            <input type="text" value="100px">
+            <label>高度：</label>
+            <input type="text" value="100px">
+            <label>背景色：</label>
+            <input type="text" value="gold">
+            <label>边框：</label>
+            <input type="text" value="5px solid #000">
+            <label>圆角：</label>
+            <input type="text" value="0px">
+            <input type="button" value="设 置" class="setbtn">
+        </div>
+        <div class="right_show">
+            <div class="box"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-jQuery的节点操作</title>
+    <style>
+        .box{
+            width: 200px;
+            background-color: gold;
+            border: 1px solid black;
+
+        }
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $box = $('.box');
+
+            // 1.创建节点 '标签'
+            // 创建空标签/空节点
+            var $div = $('<div>');
+            // 
+            var $div2 = $('<div>我是新创建的</div>');
+
+
+                // 1.元素内部的最后插入标签
+            // 在元素内部的最后插入节点/标签
+            // $box.append($div2);
+            // 把标签插入到元素内部的最后面
+            // $div2.appendTo($box);
+
+
+            // 2.元素内部的最前面插入标签
+            // $box.prepend($div2);
+            // 把标签插入到元素内部的最前面
+            // $div2.prependTo($box);
+
+
+            // 3.在元素外面的前面插入标签
+            // $box.before($div2);
+            // 把标签插入到元素外面的前面
+            // $div2.insertBefore($box);
+
+
+            // 4.在元素外面的后面插入标签
+            // $box.after($div2);
+            // 把标签插入到元素外面的后面
+            $div2.insertAfter($box);
+
+
+
+                // 删除节点/标签
+            $div2.remove();
+            // $box.remove();
+
+
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <div class="box">
+        <p>我是p1</p>
+        <p>我是p2</p>
+    </div>
+</body>
+</html>

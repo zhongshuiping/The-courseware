@@ -1,0 +1,28 @@
+from  urllib import request
+request.Request(url,data=data,headers={'':''}) data是经过urlencode处理的
+request.urlopen(url)  
+request.urlencode({'ke':ke})   将变成 ?kw=kw
+基本的urlopen()不支持代理，cookie等其他的HTTP/HTTPS高级功能,所以需要创建Hander处理器,
+调用request.build_opener(Hander),返回一个opener，opener.open(url)
+httpproxy_handler = request.ProxyHandler({"http" : "124.88.67.81:80"}) 使用代理IP
+
+# 构建一个CookieJar对象实例来保存cookie
+cookiejar = cookielib.CookieJar()
+# 使用HTTPCookieProcessor()来创建cookie处理器对象，参数为CookieJar()对象
+handler=urllib2.HTTPCookieProcessor(cookiejar)
+-------------------------------------------------------------
+from requests
+kw={'':''}
+headers={'':''}
+request.get(url,params=ky,headers=headers,data=data,proxies)
+ ssion = requests.session()
+ headers= headers
+ data = data
+ ssion.post(url,data) 发送附带用户名和密码的请求，获取登陆后的Cookie，保存在session
+ session.get(url)  可以直接访问那些登陆后才可以访问的页面
+ ---------------------------------------------------------
+ beautifulSoup
+ find_all(name, attrs, recursive, text, **kwargs) 
+          name 查找所以名字为name的tag，可以是字符串，正则表示式
+          attrs keyword参数（id='link2'）
+          text 搜文档中的字符串内容

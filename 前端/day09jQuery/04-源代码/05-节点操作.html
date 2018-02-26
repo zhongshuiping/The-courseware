@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-节点操作</title>
+
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+
+
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+    
+        $(function () {
+
+            // 1.创建节点  空标签
+            var $Div = $('<div>');
+            var $Div1 = $('<div>新元素</div>');
+
+            var $Box = $('.box'); // 给它添加标签
+
+            // 2.给当前标签的内部添加标签/节点
+            // 2.1 给里面的前面
+            // $Box.prepend($Div1);
+            // $Div1.prependTo($Box);
+
+
+
+            // 2.2 给里面的后面
+            // $Box.append($Div1);
+            // $Div1.appendTo($Box);
+
+
+
+
+
+
+            //3.给当前标签的外部添加标签/节点
+
+
+            // 3.1 给外面的前面添加
+            // $Box.before($Div1);
+            // $Div1.insertBefore($Box);
+
+
+            // 3.2 给外面的后面添加
+            // $Box.after($Div1);
+            $Div1.insertAfter($Box);
+
+
+
+            // 4.删除标签
+            $Div1.remove();
+            // 如果删除父元素子元素也会一起删除
+            $Box.remove();
+
+
+        })
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="con">div里面的标签</div>
+    </div>
+    <p class="p1">p1标签</p>
+</body>
+</html>

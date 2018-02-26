@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript">
+
+	
+	$(function(){
+
+		setTimeout(function(){		
+
+            $('.p1').addClass('moving');
+
+		},0);
+
+
+		var myswiper = new Swiper('.swiper-container',{
+		direction: 'vertical',   
+    	pagination: '.swiper-pagination',
+    	onSlideChangeEnd:function(swiper){
+            console.log(swiper);
+    		var index = swiper.activeIndex;
+    		$('.swiper-slide').removeClass('moving').eq(index).addClass('moving');
+    	}
+  
+		})
+	});
+
+
+</script>
+
+	<title>整屏滚动</title>
+</head>
+<body>
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+
+        <div class="swiper-slide p1">
+        	<h1>页面标题一</h1>
+        	<p>页面内容</p>
+        </div>
+
+        <div class="swiper-slide p2">
+        	<h1>页面标题二</h1>
+        	<p>页面内容</p>
+        </div>
+
+
+        <div class="swiper-slide p3">
+        	<h1>页面标题三</h1>
+        	<p>页面内容</p>
+        </div>
+
+
+        <div class="swiper-slide p4">
+        	<h1>页面标题四</h1>
+        	<p>页面内容</p>
+        </div>
+
+
+
+    </div>    
+    <div class="swiper-pagination"></div>
+</div>
+
+<div class="up_icon"></div>
+
+
+	
+</body>
+</html>

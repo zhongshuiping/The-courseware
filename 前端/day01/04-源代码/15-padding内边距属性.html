@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>15-padding内边距属性</title>
+
+    <style>
+        .box div{
+            background-color: gold;
+            color: red;
+            width: 300px;
+            height: 300px;
+            /* 内边距会影响元素显示出来的大小 所以能不用就不用它 */
+            /* padding-left: 50px;
+            padding-top: 50px; */
+
+            border: 10px solid black;
+            /* margin只会影响位置不会影响大小 */
+            margin: 20px;
+
+            /* 元素在网页上显示的真实大小 不光有width  height 影响还有内边框和边框也会影响 */
+
+
+            padding: 10px;
+            /* 上下  左右 */
+            padding: 10px 20px;
+            /* 上  左右  下 */
+            /* 上 右  下 左 */
+        }
+    </style>
+</head>
+<body>
+        <div class="box">
+                <div>div标签</div>
+            </div>
+</body>
+</html>

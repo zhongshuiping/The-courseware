@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包的用途-存循环的索引值</title>
+	<script type="text/javascript">
+		window.onload = function(){
+
+			var aLi = document.getElementsByTagName('li');
+
+			for(var i=0;i<aLi.length;i++)
+			{
+				(function(i){
+
+					aLi[i].onclick = function(){
+
+						alert(i);					
+					}
+
+				})(i);
+				
+
+			}
+
+
+		}
+
+	</script>
+	<style type="text/css">
+		li{
+			height:30px;
+			background-color: gold;
+			margin-bottom:10px;
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+	</ul>
+</body>
+</html>

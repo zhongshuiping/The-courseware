@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-行内元素默认样式重置</title>
+
+    <style>
+        /* 行内元素/内联元素特性:
+        1.宽高默认由内容决定
+        2.排列在一行,当遇到父元素的边界会自动换行
+        3.不支持宽高 margin上下 padding上下有问题
+        4.代码换行后行内元素之间有小间隙
+        5.行内元素设置文本水平对齐无效,但可以设置他们的父元素的text-align实现水平对齐
+        
+         */
+        .box{
+            /* width: 300px; */
+            height: 300px;
+            background-color: bisque;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        em,i{
+            font-style: normal;
+        }
+
+        b,strong{
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <a href="#">a标签</a>
+        <span>span标签</span>
+        <i>专业名词i标签</i>
+        <em>语气强调em标签</em>
+        <b>关键字b标签</b>
+        <strong>非常重要的内容strong标签</strong>
+
+        <!-- <img src="./images/programmer.jpg" alt="图片"> -->
+</body>
+</div>
+
+</html>

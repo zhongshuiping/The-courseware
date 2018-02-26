@@ -1,0 +1,128 @@
+接口文档
+
+1. 发送手机短信验证码
+
+url: /api/smscode
+method: post
+传入参数：
+json格式
+{"mobile":"18516111111", "piccode":"abcd", "piccode_id":"ccb80acc-b424-4c42-bacb-30d9c0068474"}
+参数名      参数类型    是否必须    参数说明
+mobile     string     是          用户手机号
+piccode    string     是          用户填写的图片验证码
+piccode_id string     是         图片验证码编号
+
+
+返回参数：
+json格式
+{"errcode": 0, "errmsg": "", "data":{}}
+参数名      参数类型     是否必传    参数说明
+errcode     int         是       返回状态码
+errmsg      string      是       状态描述
+data        dict        否       附带数据
+
+
+流程
+1. 接受客户端传过来的参数
+2. 检查参数是否都传了
+3. 判断手机号格式是否正确
+4. 检查图片验证码是否正确，若不正确 返回
+5. 删除图片验证码
+6. 生成短信验证码
+7. 发送短信验证码
+
+
+2. session数据
+保存到服务器中
+1）数据库
+2）文件
+3）缓存中（redis)
+4）程序中
+session_conts = {
+    "session_id_1":{
+        "user_name":"abc",
+        "user_mobile":"13711111111",
+    }
+    "session_id_2":{
+        "user_name":"abc",
+        "user_mobile":"13711111111",
+    }
+}
+
+3. GIL python线程是伪线程  cpython
+
+线程 资源竞争
+var = 1
+a                    b
+if var>=1:          var =0
+    var = 2
+
+
+拥有lock1             拥有lock2
+想要lock2             想要lock1
+
+进程
+父进程 fork
+子进程
+join()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

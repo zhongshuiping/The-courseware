@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-盒子模型</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 120px;
+            background-color: gold;
+            /* 边框样式:
+            solid 实线 
+            dashed 虚线
+            dotted 点线
+             */
+            border: 20px dotted red;
+
+            padding: 10px;
+
+            margin: 100px;
+            /* width height border padding都会影响元素在网页中显示的真实大小 
+            
+            元素在网页中显示的真实宽度 = width + padding-left + padding-right + border-left + border-right
+            
+            元素在网页中显示的真实高度 = height + padding-top + padding-bottom + border-top + border-bottom
+            */
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">元素在页面中显示成一个方块，类似一个盒子，CSS盒子模型就是使用现实中盒子来做比喻，帮助我们设置元素对应的样式</div>
+</body>
+
+</html>

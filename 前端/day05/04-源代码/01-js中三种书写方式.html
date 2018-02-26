@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-js中三种书写方式</title>
+    <!-- 3.外链式 -->
+    <script src="./js/test.js">
+    
+        // alert('xxxxxx');
+        // 如果一个script标签做了外链一个js文件的操作/或标签中写了src属性之后它里面就不能再去写js的代码,写了也不执行
+        // 如果真的要写,应该重新写一个script标签
+    </script>
+
+    <script src="">
+        alert('xxxxxx');
+    </script>
+
+
+    <!-- 2.嵌入式 -->
+    <script>
+        alert('点一下怎么了!');
+    </script>
+
+    <!-- <link rel="stylesheet" href="xxxx.css"> -->
+
+
+    <style>
+        div {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1.js行内式写法 不推荐 -->
+    <div style="color:red;" onclick="alert('点一下试试!')">div元素</div>
+</body>
+
+</html>

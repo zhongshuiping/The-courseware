@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>13-网页换肤案例</title>
+    <!-- 外链css文件 -->
+    <link rel="stylesheet" href="./css/skin01.css" id="link">
+
+    <script>
+        // 1.文档加载准备
+        window.onload = function () {
+            // 2.获取到要操作的标签对象
+            var oBtn1 = document.getElementById('btn1'),
+            oBtn2 = document.getElementById('btn2'),
+            oLink = document.getElementById('link');
+
+            // 3.给按钮添加点击事件
+            oBtn1.onclick = function () {
+                oLink.href = './css/skin01.css';
+            }
+
+            oBtn2.onclick = function () {
+                oLink.href = './css/skin02.css';
+            }
+
+
+        }
+    </script>
+
+
+</head>
+<body>
+    <h1>网页换肤</h1>
+    <input type="button" value="皮肤一" id="btn1">
+    <input type="button" value="皮肤二" id="btn2">
+</body>
+</html>

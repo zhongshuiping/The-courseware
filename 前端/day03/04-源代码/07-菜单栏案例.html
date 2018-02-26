@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-菜单栏案例</title>
+    <style>
+        .menu{
+            height: 40px;
+            width: 960px;
+            border: 1px solid #d1d1d1;
+            margin: 50px auto 0px;
+
+            text-align: center;
+            font-size: 0px;
+        }
+
+        .menu a,.menu span{
+            
+            color: #3d3d3d;
+            font-size: 14px;
+            font-family: 'Microsoft YaHei';
+            line-height: 40px;
+            /* background-color: gold; */
+        }
+
+        .menu a{
+            text-decoration: none;
+        }
+
+        .menu span{
+            margin: 0px 20px;
+        }
+
+        .menu a:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- div.menu>(a[href="#"]{首页}+span{|})*7 -->
+    <div class="menu">
+        <a href="#">首页</a>
+        <span>|</span>
+        <a href="#">首页</a>
+        <span>|</span>
+        <a href="#">首页</a>
+        <span>|</span>
+        <a href="#">首页</a>
+        <span>|</span>
+        <a href="#">首页</a>
+        <span>|</span>
+        <a href="#">首页</a>
+        <span>|</span>
+        <a href="#">首页</a>
+
+    </div>
+</body>
+</html>

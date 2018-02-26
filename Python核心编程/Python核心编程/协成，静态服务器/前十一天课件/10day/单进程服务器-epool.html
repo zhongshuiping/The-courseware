@@ -1,0 +1,1649 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw" >
+    <!-- Start book python高级 -->
+    <head>
+        <!-- head:start -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Web服务器-7-epoll | python高级</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-splitter/splitter.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-emphasize/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../10day/知识扩展-C10K问题.html" />
+    
+    
+    <link rel="prev" href="../10day/单进程服务器-非堵塞模式.html" />
+    
+
+        <!-- head:end -->
+    </head>
+    <body>
+        <!-- body:start -->
+        
+    <div class="book"
+        data-level="11.2"
+        data-chapter-title="Web服务器-7-epoll"
+        data-filepath="10day/单进程服务器-epool.md"
+        data-basepath=".."
+        data-revision="Mon Dec 25 2017 18:15:04 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        python高级
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="01day/index.html">
+            
+                
+                    <a href="../01day/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Linux介绍、命令
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="01day/01_操作系统（科普章节）.html">
+            
+                
+                    <a href="../01day/01_操作系统（科普章节）.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        操作系统（科普章节）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01day/02_操作系统的发展史（科普章节）.html">
+            
+                
+                    <a href="../01day/02_操作系统的发展史（科普章节）.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        操作系统的发展史（科普章节）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="01day/03_文件和目录（理解）.html">
+            
+                
+                    <a href="../01day/03_文件和目录（理解）.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        文件和目录
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="01day/04_Ubuntu 图形界面入门.html">
+            
+                
+                    <a href="../01day/04_Ubuntu 图形界面入门.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        Ubuntu 图形界面入门
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="01day/05_常用 Linux 命令的基本使用.html">
+            
+                
+                    <a href="../01day/05_常用 Linux 命令的基本使用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        Linux 命令的基本使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="01day/06_Linux 终端命令格式.html">
+            
+                
+                    <a href="../01day/06_Linux 终端命令格式.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        Linux 终端命令格式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="01day/07_Linux 常用命令.html">
+            
+                
+                    <a href="../01day/07_Linux 常用命令.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.7.</b>
+                        
+                        Linux 常用命令\(一\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="02day/00-Linux 常用命令2.html">
+            
+                
+                    <a href="../02day/00-Linux 常用命令2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.8.</b>
+                        
+                        Linux 常用命令\(二\)
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="02day/index.html">
+            
+                
+                    <a href="../02day/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Linux安装软件、python开发环境
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="02day/01-软件安装与卸载.html">
+            
+                
+                    <a href="../02day/01-软件安装与卸载.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        软件安装与卸载
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="02day/02-常用服务器ftp、ssh.html">
+            
+                
+                    <a href="../02day/02-常用服务器ftp、ssh.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        常用服务器ftp、ssh
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="02day/03-编辑器vim.html">
+            
+                
+                    <a href="../02day/03-编辑器vim.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        编辑器vim
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="02day/04-pycharm的集成vim.html">
+            
+                
+                    <a href="../02day/04-pycharm的集成vim.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        pycharm的集成vim
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="02day/05-编辑器sublime、终端运行python.html">
+            
+                
+                    <a href="../02day/05-编辑器sublime、终端运行python.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        编辑器sublime、终端运行python
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="03day/index.html">
+            
+                
+                    <a href="../03day/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        网络-udp
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="03day/01-网络通信概述.html">
+            
+                
+                    <a href="../03day/01-网络通信概述.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        网络通信概述
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="03day/02-ip地址.html">
+            
+                
+                    <a href="../03day/02-ip地址.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        ip地址\(重点\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="03day/03-Linux命令（ping、ifconfig）.html">
+            
+                
+                    <a href="../03day/03-Linux命令（ping、ifconfig）.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Linux命令\(ping、ifconfig等\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="03day/04-端口.html">
+            
+                
+                    <a href="../03day/04-端口.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        端口\(重点\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="03day/05-socket简介.html">
+            
+                
+                    <a href="../03day/05-socket简介.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        socket简介
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="03day/06-udp网络程序-发送、接收数据.html">
+            
+                
+                    <a href="../03day/06-udp网络程序-发送、接收数据.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        udp网络程序-发送、接收数据\(重点\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="03day/python3编码转换.html">
+            
+                
+                    <a href="../03day/python3编码转换.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        python3编码转换
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="03day/07-udp绑定信息.html">
+            
+                
+                    <a href="../03day/07-udp绑定信息.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        udp绑定端口问题\(重点\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="03day/08-udp网络通信过程.html">
+            
+                
+                    <a href="../03day/08-udp网络通信过程.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        网络通信过程\(简单版\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="03day/09-应用.html">
+            
+                
+                    <a href="../03day/09-应用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        案例:udp聊天器
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="08day/index.html">
+            
+                
+                    <a href="../08day/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        网络-tcp
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="05day/tcp简介.html">
+            
+                
+                    <a href="../05day/tcp简介.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        tcp简介
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="05day/tcp网络程序-客户端.html">
+            
+                
+                    <a href="../05day/tcp网络程序-客户端.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        tcp网络程序-客户端\(重点\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="05day/tcp网络程序-服务器.html">
+            
+                
+                    <a href="../05day/tcp网络程序-服务器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        tcp网络程序-服务器\(重点\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="05day/tcp注意点.html">
+            
+                
+                    <a href="../05day/tcp注意点.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        tcp注意点\(重点\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="08day/99-应用.html">
+            
+                
+                    <a href="../08day/99-应用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        案例:文件下载器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="05day/tcp的4次挥手.html">
+            
+                
+                    <a href="../05day/tcp的4次挥手.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        3次握手和4次挥手
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="08day/tcp-ip简介.html">
+            
+                
+                    <a href="../08day/tcp-ip简介.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                        tcp/ip简介
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="04day/index.html">
+            
+                
+                    <a href="../04day/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        多任务-线程
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="04day/多任务的介绍.html">
+            
+                
+                    <a href="../04day/多任务的介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        多任务的介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="04day/多任务的概念.html">
+            
+                
+                    <a href="../04day/多任务的概念.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        多任务的概念
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="04day/01-线程创建-threading.html">
+            
+                
+                    <a href="../04day/01-线程创建-threading.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        线程\(重点\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="04day/02-线程创建-注意点.html">
+            
+                
+                    <a href="../04day/02-线程创建-注意点.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        线程-注意点
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="04day/多线程-共享全局变量.html">
+            
+                
+                    <a href="../04day/多线程-共享全局变量.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        多线程-共享全局变量\(重点\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="04day/多线程-共享全局变量问题.html">
+            
+                
+                    <a href="../04day/多线程-共享全局变量问题.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        多线程-共享全局变量-问题
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="04day/同步.html">
+            
+                
+                    <a href="../04day/同步.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        同步
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="04day/互斥锁.html">
+            
+                
+                    <a href="../04day/互斥锁.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.8.</b>
+                        
+                        互斥锁\(重点\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="04day/死锁.html">
+            
+                
+                    <a href="../04day/死锁.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.9.</b>
+                        
+                        死锁
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.10" data-path="04day/99-案例.html">
+            
+                
+                    <a href="../04day/99-案例.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.10.</b>
+                        
+                        案例:多任务版udp聊天器
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="05day/index.html">
+            
+                
+                    <a href="../05day/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        多任务-进程
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="05day/02-进程状态.html">
+            
+                
+                    <a href="../05day/02-进程状态.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        进程以及状态
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="05day/进程的创建-multiprocessing.html">
+            
+                
+                    <a href="../05day/进程的创建-multiprocessing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        进程的创建-multiprocessing
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="05day/进程、线程对比.html">
+            
+                
+                    <a href="../05day/进程、线程对比.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        进程、线程对比
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="05day/程间通信-Queue.html">
+            
+                
+                    <a href="../05day/程间通信-Queue.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        进程间通信-Queue
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="05day/进程的创建-进程池.html">
+            
+                
+                    <a href="../05day/进程的创建-进程池.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.5.</b>
+                        
+                        进程的创建-进程池Pool
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.6" data-path="05day/05-应用：文件夹copy器（多进程版）.html">
+            
+                
+                    <a href="../05day/05-应用：文件夹copy器（多进程版）.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.6.</b>
+                        
+                        案例：文件夹copy器（多进程版）
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="06day/index.html">
+            
+                
+                    <a href="../06day/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        多任务-协程
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="06day/迭代器.html">
+            
+                
+                    <a href="../06day/迭代器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        迭代器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="06day/生成器.html">
+            
+                
+                    <a href="../06day/生成器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        生成器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="06day/协程-yield.html">
+            
+                
+                    <a href="../06day/协程-yield.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        协程-yield
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="06day/协程-greenlet.html">
+            
+                
+                    <a href="../06day/协程-greenlet.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        协程-greenlet
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="06day/协程-gevent.html">
+            
+                
+                    <a href="../06day/协程-gevent.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                        协程-gevent
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.6" data-path="06day/并发下载器.html">
+            
+                
+                    <a href="../06day/并发下载器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                        案例:并发下载器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.7" data-path="06day/进程、线程、协程对比.html">
+            
+                
+                    <a href="../06day/进程、线程、协程对比.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.7.</b>
+                        
+                        进程、线程、协程区别
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="07day/index.html">
+            
+                
+                    <a href="../07day/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        正则表达式
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="07day/正则/section.1.html">
+            
+                
+                    <a href="../07day/正则/section.1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        正则表达式概述
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="07day/正则/section.3.html">
+            
+                
+                    <a href="../07day/正则/section.3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        re模块操作
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="07day/正则/section.4.html">
+            
+                
+                    <a href="../07day/正则/section.4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        匹配单个字符
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="07day/正则/section.5.html">
+            
+                
+                    <a href="../07day/正则/section.5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        匹配多个字符
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="07day/正则/section.6.html">
+            
+                
+                    <a href="../07day/正则/section.6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        匹配开头结尾
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="07day/正则/section.7.html">
+            
+                
+                    <a href="../07day/正则/section.7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        匹配分组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="07day/正则/section.8.html">
+            
+                
+                    <a href="../07day/正则/section.8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        re模块的高级用法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="07day/正则/section.9.html">
+            
+                
+                    <a href="../07day/正则/section.9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                        贪婪和非贪婪
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9" data-path="07day/正则/section.10.html">
+            
+                
+                    <a href="../07day/正则/section.10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.</b>
+                        
+                        r的作用
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="11day/index.html">
+            
+                
+                    <a href="../11day/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        HTTP协议
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="11day/网络通信过程.html">
+            
+                
+                    <a href="../11day/网络通信过程.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        网络通信过程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="11day/NAT.html">
+            
+                
+                    <a href="../11day/NAT.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                        NAT
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="09day/http协议.html">
+            
+                
+                    <a href="../09day/http协议.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.3.</b>
+                        
+                        HTTP协议
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="08day/tcp长连接和短连接.html">
+            
+                
+                    <a href="../08day/tcp长连接和短连接.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.4.</b>
+                        
+                        长连接和短连接
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.5" data-path="09day/brower.html">
+            
+                
+                    <a href="../09day/brower.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.5.</b>
+                        
+                        案例-模拟浏览器实现
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="09day/index.html">
+            
+                
+                    <a href="../09day/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        web静态服务器-并发服务器1
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="09day/Web静态服务器-1-显示固定的页面.html">
+            
+                
+                    <a href="../09day/Web静态服务器-1-显示固定的页面.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                        Web服务器-1-显示固定的页面
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="09day/Web静态服务器-2-显示需要的页面.html">
+            
+                
+                    <a href="../09day/Web静态服务器-2-显示需要的页面.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                        Web服务器-2-显示需要的页面
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="09day/Web并发服务器-1-多进程.html">
+            
+                
+                    <a href="../09day/Web并发服务器-1-多进程.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.3.</b>
+                        
+                        Web服务器-3-多进程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.4" data-path="09day/Web并发服务器-2-多线程.html">
+            
+                
+                    <a href="../09day/Web并发服务器-2-多线程.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.4.</b>
+                        
+                        Web服务器-4-多线程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.5" data-path="10day/单进程服务器-gevent版.html">
+            
+                
+                    <a href="../10day/单进程服务器-gevent版.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.5.</b>
+                        
+                        Web服务器-5-gevent版
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="10day/index.html">
+            
+                
+                    <a href="../10day/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        web静态服务器-并发服务器2
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1" data-path="10day/单进程服务器-非堵塞模式.html">
+            
+                
+                    <a href="../10day/单进程服务器-非堵塞模式.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                        Web服务器-6-非阻塞模式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="11.2" data-path="10day/单进程服务器-epool.html">
+            
+                
+                    <a href="../10day/单进程服务器-epool.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.2.</b>
+                        
+                        Web服务器-7-epoll
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="10day/知识扩展-C10K问题.html">
+            
+                
+                    <a href="../10day/知识扩展-C10K问题.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.3.</b>
+                        
+                        知识扩展-C10K问题
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    本書使用 GitBook 釋出
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >python高级</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h2 id="web&#x9759;&#x6001;&#x670D;&#x52A1;&#x5668;7epoll">Web&#x9759;&#x6001;&#x670D;&#x52A1;&#x5668;-7-epoll</h2>
+<h3 id="io&#x591A;&#x8DEF;&#x590D;&#x7528;">IO&#x591A;&#x8DEF;&#x590D;&#x7528;</h3>
+<p>&#x591A;&#x8DEF;IO&#x597D;&#x5904;&#x5C31;&#x5728;&#x4E8E;&#x5355;&#x4E2A;process&#x5C31;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x5904;&#x7406;&#x591A;&#x4E2A;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x7684;IO&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x591A;&#x8DEF;IO&#x6A21;&#x578B;&#x5728;&#x5F88;&#x591A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E0A;&#x90FD;&#x6709;&#x4E00;&#x4E9B;&#x5B9E;&#x73B0;&#xFF0C;&#x6BD4;&#x5982;&#x591A;&#x6570;BSD&#x5E73;&#x53F0;&#x90FD;&#x652F;&#x6301;&#x7684;kqueue()&#xFF0C;&#x6216;&#x8005;Windows&#x652F;&#x6301;&#x7684;IOCP&#xFF0C;&#x800C;Linux &#x5E73;&#x53F0;(&#x5185;&#x6838;&#x7248;&#x672C;2.5+)&#x4E0A;&#x5C31;&#x6709;&#x4E00;&#x4E2A;&#x8457;&#x540D;&#x7684;&#x6A21;&#x578B;epoll&#x3002;</p>
+<p>&#x5728;epoll&#x6A21;&#x578B;&#x4E2D; &#x7531;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8D1F;&#x8D23;&#x76D1;&#x542C;&#x7684;&#x6240;&#x6709;socket&#xFF0C;&#x5F53;&#x67D0;&#x4E2A;socket&#x6709;&#x6570;&#x636E;&#x5230;&#x8FBE;&#x4E86;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5C31;&#x901A;&#x77E5;&#x7528;&#x6237;&#x8FDB;&#x7A0B;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x6BD4;  &#x5728;&#x7528;&#x6237;&#x5C42;&#x9762;&#x5B9E;&#x73B0;&#x7684; for &#x3001;while&#x4E0D;&#x65AD;&#x6B7B;<strong>&#x5FAA;&#x73AF;&#x53BB;&#x68C0;&#x6D4B;&#x6BCF;&#x4E2A;socket&#x7684;&#x901A;&#x4FE1;&#x72B6;&#x6001;</strong> &#x7684;&#x4EE3;&#x7801;&#x9AD8;&#x6548;&#x592A;&#x591A; &#xFF0C;&#x4E5F;&#x79F0;<strong>&#x8F6E;&#x8BE2;</strong>&#x3002;</p>
+<p>&#x5982;&#x679C;&#x7528;&#x6237;&#x5C42;&#x9762;&#x7684;&#x8F6E;&#x8BE2; &#xFF0C; &#x67D0;&#x77ED;&#x65F6;&#x95F4;&#x6BB5;&#x5185;&#x6CA1;&#x6709;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#xFF0C;&#x5219;CPU&#x6267;&#x884C;&#x6D41;&#x7A0B;&#x5C5E;&#x4E8E;&#x65E0;&#x7528;&#x529F;(while&#x6B7B;&#x5FAA;&#x73AF;&#x4E2D;) &#x4EA7;&#x51FA;&#x6548;&#x7387;&#x4F4E; &#x6D6A;&#x8D39;&#x8D44;&#x6E90;&#x3002;&#x5E76;&#x4E14;&#x6267;&#x884C;&#x6548;&#x7387;&#x548C;&#x8F6E;&#x8BE2;&#x7684;socket&#x6570;&#x91CF;&#x606F;&#x606F;&#x76F8;&#x5173;&#xFF0C; &#x4E00;&#x822C;&#x5728;1024-2048&#x5DE6;&#x53F3;&#x3002;&#x968F;&#x7740;&#x9700;&#x8981;&#x8F6E;&#x8BE2;&#x7684;&#x6570;&#x91CF;&#x589E;&#x52A0;&#xFF0C;&#x8F6E;&#x8BE2;&#x6548;&#x7387;&#x8D8A;&#x4F4E;&#x3002;</p>
+<p><img src="../assets/test-b128.png" alt=""></p>
+<p>&#x800C;epoll&#x5219;&#x5728;&#x76D1;&#x542C;&#x7684;socket&#x7684;&#x6570;&#x91CF;&#x4E0A;&#x9650;&#x5236;&#x8F83;&#x5C11; &#x4E3B;&#x8981;&#x548C;&#x7CFB;&#x7EDF;&#x53C2;&#x6570;&#x76F8;&#x5173;(&#x786C;&#x4EF6;&#x6240;&#x80FD;&#x63D0;&#x4F9B;&#x7684;&#x6027;&#x80FD;)&#xFF0C;&#x4E00;&#x822C;&#x673A;&#x5668;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x76D1;&#x542C;5w-10w socket&#xFF0C;&#x751A;&#x81F3;100w&#x3002;</p>
+<h3 id="epoll&#x7B80;&#x5355;&#x6A21;&#x578B;">epoll&#x7B80;&#x5355;&#x6A21;&#x578B;</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> socket
+<span class="hljs-keyword">import</span> select
+
+<span class="hljs-comment"># &#x521B;&#x5EFA;&#x5957;&#x63A5;&#x5B57;</span>
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+<span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x53EF;&#x4EE5;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x7ED1;&#x5B9A;&#x7684;&#x4FE1;&#x606F;</span>
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR,<span class="hljs-number">1</span>)
+
+<span class="hljs-comment"># &#x7ED1;&#x5B9A;&#x672C;&#x673A;&#x4FE1;&#x606F;</span>
+s.bind((<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-number">7788</span>))
+
+<span class="hljs-comment"># &#x53D8;&#x4E3A;&#x88AB;&#x52A8;</span>
+s.listen(<span class="hljs-number">10</span>)
+
+<span class="hljs-comment"># &#x5C06;&#x5957;&#x63A5;&#x5B57;&#x8BBE;&#x7F6E;&#x4E3A;&#x975E;&#x963B;&#x585E;&#x6A21;&#x5F0F;</span>
+
+s.setblocking(<span class="hljs-keyword">False</span>)  
+
+<span class="hljs-comment"># &#x521B;&#x5EFA;&#x4E00;&#x4E2A;epoll&#x5BF9;&#x8C61;</span>
+epoll = select.epoll()
+
+<span class="hljs-comment"># &#x6D4B;&#x8BD5;&#xFF0C;&#x7528;&#x6765;&#x6253;&#x5370;&#x5957;&#x63A5;&#x5B57;&#x5BF9;&#x5E94;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;</span>
+<span class="hljs-comment"># print(s.fileno())</span>
+<span class="hljs-comment"># print(select.EPOLLIN|select.EPOLLET)</span>
+
+<span class="hljs-comment"># &#x6CE8;&#x518C;&#x4E8B;&#x4EF6;&#x5230;epoll&#x4E2D;</span>
+<span class="hljs-comment"># epoll.register(fd[, eventmask])</span>
+<span class="hljs-comment"># &#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;fd&#x5DF2;&#x7ECF;&#x6CE8;&#x518C;&#x8FC7;&#xFF0C;&#x5219;&#x4F1A;&#x53D1;&#x751F;&#x5F02;&#x5E38;</span>
+<span class="hljs-comment"># &#x5C06;&#x521B;&#x5EFA;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x6DFB;&#x52A0;&#x5230;epoll&#x7684;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x4E2D;</span>
+epoll.register(s.fileno(), select.EPOLLIN|select.EPOLLET)
+
+connections = {}
+addresses = {}
+
+<span class="hljs-comment"># &#x5FAA;&#x73AF;&#x7B49;&#x5F85;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x5230;&#x6765;&#x6216;&#x8005;&#x5BF9;&#x65B9;&#x53D1;&#x9001;&#x6570;&#x636E;</span>
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+
+    <span class="hljs-comment"># epoll &#x8FDB;&#x884C; fd &#x626B;&#x63CF;&#x7684;&#x5730;&#x65B9; -- &#x672A;&#x6307;&#x5B9A;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x5219;&#x4E3A;&#x963B;&#x585E;&#x7B49;&#x5F85;</span>
+    epoll_list = epoll.poll()
+
+    <span class="hljs-comment"># &#x5BF9;&#x4E8B;&#x4EF6;&#x8FDB;&#x884C;&#x5224;&#x65AD;</span>
+    <span class="hljs-keyword">for</span> fd, events <span class="hljs-keyword">in</span> epoll_list:
+
+        <span class="hljs-comment"># print fd</span>
+        <span class="hljs-comment"># print events</span>
+
+        <span class="hljs-comment"># &#x5982;&#x679C;&#x662F;socket&#x521B;&#x5EFA;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x88AB;&#x6FC0;&#x6D3B;</span>
+        <span class="hljs-keyword">if</span> fd == s.fileno():
+            new_socket, new_addr = s.accept()
+
+            print(<span class="hljs-string">&apos;&#x6709;&#x65B0;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5230;&#x6765;%s&apos;</span> % str(new_addr))
+
+            <span class="hljs-comment"># &#x5C06; conn &#x548C; addr &#x4FE1;&#x606F;&#x5206;&#x522B;&#x4FDD;&#x5B58;&#x8D77;&#x6765;</span>
+            connections[new_socket.fileno()] = new_socket
+            addresses[new_socket.fileno()] = new_addr
+
+            <span class="hljs-comment"># &#x5411; epoll &#x4E2D;&#x6CE8;&#x518C; &#x65B0;socket &#x7684; &#x53EF;&#x8BFB; &#x4E8B;&#x4EF6;</span>
+            epoll.register(new_socket.fileno(), select.EPOLLIN|select.EPOLLET)
+
+        <span class="hljs-comment"># &#x5982;&#x679C;&#x662F;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x6570;&#x636E;</span>
+        <span class="hljs-keyword">elif</span> events == select.EPOLLIN:
+            <span class="hljs-comment"># &#x4ECE;&#x6FC0;&#x6D3B; fd &#x4E0A;&#x63A5;&#x6536;</span>
+            recvData = connections[fd].recv(<span class="hljs-number">1024</span>).decode(<span class="hljs-string">&quot;utf-8&quot;</span>)
+
+            <span class="hljs-keyword">if</span> recvData:
+                print(<span class="hljs-string">&apos;recv:%s&apos;</span> % recvData)
+            <span class="hljs-keyword">else</span>:
+                <span class="hljs-comment"># &#x4ECE; epoll &#x4E2D;&#x79FB;&#x9664;&#x8BE5; &#x8FDE;&#x63A5; fd</span>
+                epoll.unregister(fd)
+
+                <span class="hljs-comment"># server &#x4FA7;&#x4E3B;&#x52A8;&#x5173;&#x95ED;&#x8BE5; &#x8FDE;&#x63A5; fd</span>
+                connections[fd].close()
+                print(<span class="hljs-string">&quot;%s---offline---&quot;</span> % str(addresses[fd]))
+                <span class="hljs-keyword">del</span> connections[fd]
+                <span class="hljs-keyword">del</span> addresses[fd]
+</code></pre>
+<h4 id="&#x8BF4;&#x660E;">&#x8BF4;&#x660E;</h4>
+<ul>
+<li>EPOLLIN    &#xFF08;&#x53EF;&#x8BFB;&#xFF09;</li>
+<li>EPOLLOUT    &#xFF08;&#x53EF;&#x5199;&#xFF09;</li>
+<li>EPOLLET    &#xFF08;ET&#x6A21;&#x5F0F;&#xFF09;</li>
+</ul>
+<p>epoll&#x5BF9;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x64CD;&#x4F5C;&#x6709;&#x4E24;&#x79CD;&#x6A21;&#x5F0F;&#xFF1A;LT&#xFF08;level trigger&#xFF09;&#x548C;ET&#xFF08;edge trigger&#xFF09;&#x3002;LT&#x6A21;&#x5F0F;&#x662F;&#x9ED8;&#x8BA4;&#x6A21;&#x5F0F;&#xFF0C;LT&#x6A21;&#x5F0F;&#x4E0E;ET&#x6A21;&#x5F0F;&#x7684;&#x533A;&#x522B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>LT&#x6A21;&#x5F0F;&#xFF1A;&#x5F53;epoll&#x68C0;&#x6D4B;&#x5230;&#x63CF;&#x8FF0;&#x7B26;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x5E76;&#x5C06;&#x6B64;&#x4E8B;&#x4EF6;&#x901A;&#x77E5;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x4E0D;&#x7ACB;&#x5373;&#x5904;&#x7406;&#x8BE5;&#x4E8B;&#x4EF6;&#x3002;&#x4E0B;&#x6B21;&#x8C03;&#x7528;epoll&#x65F6;&#xFF0C;&#x4F1A;&#x518D;&#x6B21;&#x54CD;&#x5E94;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E76;&#x901A;&#x77E5;&#x6B64;&#x4E8B;&#x4EF6;&#x3002;
+
+ET&#x6A21;&#x5F0F;&#xFF1A;&#x5F53;epoll&#x68C0;&#x6D4B;&#x5230;&#x63CF;&#x8FF0;&#x7B26;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x5E76;&#x5C06;&#x6B64;&#x4E8B;&#x4EF6;&#x901A;&#x77E5;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5FC5;&#x987B;&#x7ACB;&#x5373;&#x5904;&#x7406;&#x8BE5;&#x4E8B;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x5904;&#x7406;&#xFF0C;&#x4E0B;&#x6B21;&#x8C03;&#x7528;epoll&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x518D;&#x6B21;&#x54CD;&#x5E94;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E76;&#x901A;&#x77E5;&#x6B64;&#x4E8B;&#x4EF6;&#x3002;
+
+LT&#x7C7B;&#x4F3C;&#x4E8E;&#x6545;&#x969C;&#x4E0D;&#x9664;&#xFF0C;&#x7EA2;&#x706F;&#x4E0D;&#x706D;&#xFF0C;
+ET&#x7C7B;&#x4F3C;&#x4E8E;&#x53EA;&#x8BF4;&#x4E00;&#x6B21;&#xFF0C;&#x4E0D;&#x518D;&#x8D58;&#x8FF0;&#x3002;
+</code></pre><h3 id="&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;">&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;</h3>
+<pre><code>&#x5728;UNIX/LINUX&#x4E2D;&#xFF0C;`&#x4E00;&#x5207;&#x7686;&#x6587;&#x4EF6;`&#x3002;
+&#x666E;&#x901A;&#x6587;&#x4EF6;&#x662F;&#x6587;&#x4EF6;&#xFF0C;&#x76EE;&#x5F55;&#x4E5F;&#x662F;&#x6587;&#x4EF6;&#xFF0C;&#x8BBE;&#x5907;&#x662F;&#x6587;&#x4EF6;&#xFF0C;&#x7F51;&#x7EDC;IO&#x4E5F;&#x662F;&#x6587;&#x4EF6;&#x3002;
+
+&#x5BF9;&#x4E8E;Linux&#x6765;&#x8BB2; &#x4ECE;&#x7F51;&#x7EDC;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x4E2D;&#x8BFB;&#x53D6;&#x4E00;&#x4E9B;&#x6570;&#x636E; &#x548C; &#x4ECE;&#x6587;&#x4EF6;&#x4E2D;&#x8BFB;&#x53D6;&#x4E00;&#x4E9B;&#x6570;&#x636E;  &#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x6837;&#x7684;&#x64CD;&#x4F5C;&#x3002;
+
+&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A; &#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x662F;&#x5BF9;&#x6211;&#x4EEC;&#x8BFB;&#x5199;&#x6587;&#x4EF6;&#x8D44;&#x6E90;&#x7684;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x3002;&#x6211;&#x4EEC;&#x64CD;&#x4F5C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x5C31;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x5BF9;&#x6587;&#x4EF6;&#x8D44;&#x6E90;&#x7684;&#x64CD;&#x4F5C;&#x3002;
+</code></pre><p>&#x5BF9;&#x4E8E;UNIX/Linux&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x6765;&#x8BB2;&#xFF0C;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x5C31;&#x662F;&#x5BF9;<strong>&#x8FDB;&#x7A0B;&#x5185;&#x90E8;</strong>&#x6240;&#x62E5;&#x6709;&#x6587;&#x4EF6;&#x8D44;&#x6E90;&#x7684;&#x4E00;&#x79CD;&#x63CF;&#x8FF0;&#x7684;&#x7B26;&#x53F7;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x65E0;&#x7B26;&#x53F7;&#x6574;&#x6570;(0,1,2...)&#x3002;
+&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E2D;&#x6240;&#x80FD;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x662F;&#x6709;&#x9650;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x7528;&#x5B8C;&#x8BB0;&#x5F97;&#x4E00;&#x5B9A;&#x8981;&#x5173;&#x95ED;&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code>&#x5982;&#x679C;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;socket&#x5BF9;&#x8C61;&#x5BF9;&#x5E94;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26; sock.fileno()
+</code></pre><h3 id="&#x5C0F;&#x603B;&#x7ED3;">&#x5C0F;&#x603B;&#x7ED3;</h3>
+<p>I/O &#x591A;&#x8DEF;&#x590D;&#x7528;&#x7684;&#x7279;&#x70B9;&#xFF1A;</p>
+<p><span class="pg-emphasize pg-emphasize-yellow" style="background: #2ff700;">&#x901A;&#x8FC7;&#x4E00;&#x79CD;&#x673A;&#x5236;&#x4F7F;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x80FD;&#x540C;&#x65F6;&#x7B49;&#x5F85;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#xFF0C;&#x800C;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#xFF08;&#x5957;&#x63A5;&#x5B57;&#x63CF;&#x8FF0;&#x7B26;&#xFF09;&#x5176;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x8FDB;&#x5165;&#x8BFB;&#x5C31;&#x7EEA;&#x72B6;&#x6001;&#xFF0C;epoll()&#x51FD;&#x6570;&#x5C31;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x3002;</span></p>
+<p>&#x6240;&#x4EE5;, I/O&#x591A;&#x8DEF;&#x590D;&#x7528;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x5728; &#x4EFB;&#x4F55;&#x65F6;&#x5019; &#x76D1;&#x89C6;&#x4EFB;&#x52A1;&#x90FD;&#x662F;&#x5355;&#x8FDB;&#x7A0B;(&#x5355;&#x7EBF;&#x7A0B;)&#x6A21;&#x5F0F; &#x8FDB;&#x884C;&#x5DE5;&#x4F5C;&#xFF0C;&#x5B83;&#x4E4B;&#x6240;&#x4EE5;&#x80FD;&#x63D0;&#x9AD8;&#x6548;&#x7387;&#x662F;&#x56E0;&#x4E3A;select / epoll &#x628A;&#x8FDB;&#x6765;&#x7684;socket&#x653E;&#x5230;&#x4ED6;&#x4EEC;&#x7684; &apos;&#x76D1;&#x89C6;&apos; &#x5217;&#x8868;&#x91CC;&#x9762;&#xFF0C;&#x5F53;&#x4EFB;&#x4F55;socket&#x6709;&#x53EF;&#x8BFB;&#x53EF;&#x5199;&#x6570;&#x636E;&#x7ACB;&#x9A6C;&#x5904;&#x7406;&#xFF0C;&#x90A3;&#x5982;&#x679C;select\epoll &#x624B;&#x91CC;&#x540C;&#x65F6;&#x68C0;&#x6D4B;&#x7740;&#x5F88;&#x591A;socket&#xFF0C; &#x4E00;&#x6709;&#x52A8;&#x9759;&#x9A6C;&#x4E0A;&#x8FD4;&#x56DE;&#x7ED9;&#x8FDB;&#x7A0B;&#x5904;&#x7406;&#xFF0C;&#x6BD4;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;socket&#x8FC7;&#x6765;,&#x6062;&#x590D;&#x963B;&#x585E;&#x7B49;&#x5F85;&#x524D;&#x7684;&#x60C5;&#x51B5;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x5904;&#x7406;&#x8BF7;&#x6C42; &#x6548;&#x7387;&#x9AD8;&#x3002;&lt;/span&gt;</p>
+<p>&#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x591A;&#x7EBF;&#x7A0B; &#x65B9;&#x5F0F;&#xFF0C;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x8FC7;&#x6765;&#x5F00;&#x4E00;&#x4E2A; &#x7EBF;&#x7A0B;&#x5904;&#x7406;&#xFF0C;&#x8FD9;&#x6837;&#x6D88;&#x8017;&#x7684;&#x5185;&#x5B58;&#x548C;&#x7EBF;&#x7A0B; &#x5207;&#x6362;&#x9875;&#x4F1A;&#x8017;&#x6389;&#x66F4;&#x591A;&#x7684;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#x3002;</p>
+<p>&#x6240;&#x4EE5;, &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7ED3;&#x5408;I/O&#x591A;&#x8DEF;&#x590D;&#x7528;&#x548C;&#x591A;&#x7EBF;&#x7A0B; &#x6765;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#x5E76;&#x53D1;&#xFF0C;I/O&#x590D;&#x7528;&#x8D1F;&#x8D23;&#x63D0;&#x9AD8;&#x63A5;&#x53D7;socket&#x7684;&#x901A;&#x77E5;&#x6548;&#x7387;&#xFF0C;&#x6536;&#x5230;&#x8BF7;&#x6C42;&#x540E;&#xFF0C;&#x4EA4;&#x7ED9; &#x591A;&#x7EBF;&#x7A0B; &#x6765;&#x5904;&#x7406;&#x903B;&#x8F91;&#x3002;</p>
+<h3 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h3>
+<ul>
+<li>&#x5982;&#x679C;&#x60F3;&#x4E86;&#x89E3;&#x4E0B;epoll&#x5728;Linux&#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#xFF1A;<a href="http://blog.csdn.net/xiajun07061225/article/details/9250579" target="_blank">http://blog.csdn.net/xiajun07061225/article/details/9250579</a></li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../10day/单进程服务器-非堵塞模式.html" class="navigation navigation-prev " aria-label="Previous page: Web服务器-6-非阻塞模式"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../10day/知识扩展-C10K问题.html" class="navigation navigation-next " aria-label="Next page: 知识扩展-C10K问题"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-splitter/splitter.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"toggle-chapters":{},"splitter":{},"emphasize":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        <!-- body:end -->
+    </body>
+    <!-- End of book python高级 -->
+</html>

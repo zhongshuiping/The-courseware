@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-jQuery中的循环遍历</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $Lis = $('.list li');
+
+            // for(var i = 0; i < $Lis.length; i++) {
+
+            //     if (i % 2 == 1) {
+            //         $Lis.eq(i).css({'color' : 'red'});
+            //     } 
+            // }
+
+
+            //   each中的this表示的是当前正遍历出来的那个标签对象
+            // each中传的函数可以有两个参数第一个参数表示索引  第二个参数表示当前遍历出来的那个标签对象
+            $Lis.each(function (i, ele) {
+                if (i % 2 == 1) {
+                    $(this).css({'color' : 'red'});
+                } 
+
+                // $(this)
+            }) 
+        })
+    
+    </script>
+</head>
+<body>
+    <ul class="list">
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+        <li>列表5</li>
+        <li>列表6</li>
+        <li>列表7</li>
+        <li>列表8</li>
+    </ul>
+</body>
+</html>

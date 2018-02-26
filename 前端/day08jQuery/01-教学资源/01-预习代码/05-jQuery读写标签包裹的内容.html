@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-jQuery读写标签包裹的内容</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $div = $('.box');
+
+            // 1.获取标签包裹的内容
+            var sContent = $div.html();
+            // alert(sContent);
+
+            // 2.设置标签中包裹的内容
+            // $div.html('修改的内容');
+
+            // $div.html('<a href="http://www.itcast.cn">传智播客</a>');
+        })
+    </script>   
+</head>
+<body>
+    <div class="box">这是一个div元素</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+获取查询字符串的参数 get_query_argument(name,default,strip)
+                    get_query_arguments(name,strip)
+
+获取请求体的参数
+                get_body_argument(name,default,strip)
+                get_body_arguments(name,strip)  
+                对于请求体中的数据要求为字符串，且格式为表单编码格式（与url中的请求字符串格式相同），即key1=value1&key2=value2，HTTP报文头Header中的"Content-Type"为application/x-www-form-urlencoded 或 multipart/form-data。对于请求体数据为json或xml的，无法通过这两个方法获取。
+
+                get_argument(name,default,strip)
+                从请求体和查询字符串中返回指定参数name的值，如果出现多个同名参数，则返回最后一个的值。
+                default与strip同前，不再赘述
+            注意：以上方法返回的都是unicode字符串
+
+
+RequestHandler.request   封装了请求的相关信息    headers 请求的协议头，是类字典型的对象，支持关键字索引的方式获取特定协议头信息，例如：request.headers["Content-Type"]
+
+tornado.httputil.HTTPFile是接收到的文件对象
+
+
+
+write(chunk) 将chunk数据写到输出缓冲区，我们可以不用自己手动去做json序列化，当write方法检测到我们传入的chunk参数是字典类型后，会自动帮我们转换为json字符串
+write方法除了帮我们将字典转换为json字符串之外，还帮我们将Content-Type设置为application/json; charset=UTF-8
+
+set_header(name, value)  set_header(name, value)方法，可以手动设置一个名为name、值为value的响应头header字段
+
+redirect(url) 告知浏览器跳转到url。
+
+send_error(status_code=500, **kwargs)  使用send_error()方法后就不要再向输出缓冲区写内容了
+
+write_error(status_code, **kwargs)
+用来处理send_error抛出的错误信息并返回给浏览器错误信息页面。可以重写此方法来定制自己的错误显示页面。
+
+initialize() 对应每个请求的处理类Handler在构造一个实例后首先执行initialize()方法。在讲输入时提到，路由映射中的第三个字典型参数会作为该方法的命名参数传递
+
+ prepare()预处理，即在执行对应请求方式的HTTP方法（如get、post等）前先执行，注意：不论以何种HTTP方式请求，都会执行prepare()方法
+
+ on_finish() 在请求处理结束后调用，即在调用HTTP方法后调用。通常该方法用来进行资源清理释放或处理日志等。注意：请尽量不要在此方法中进行响应输出。
+
+
+
+ 正常情况未抛出错误时，调用顺序为：
+
+    1.set_defautl_headers()
+    2.initialize()
+    3.prepare()
+    4.HTTP方法
+    5.on_finish()
+
+在有错误抛出时，调用顺序为：
+
+    1.set_default_headers()
+    2.initialize()
+    3.prepare()
+    4.HTTP方法
+    5.set_default_headers()
+    6.write_error()
+    7.on_finish()
+
+
+
+
+    模板
+
+    在handler中使用render()方法来渲染模板并返回给客户端。
+    在tornado的模板中使用{{}}作为变量或表达式的占位符，使用render渲染后占位符{{}}会被替换为相应的结果值。
+
+
+

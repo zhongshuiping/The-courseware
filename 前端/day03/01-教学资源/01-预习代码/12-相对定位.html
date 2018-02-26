@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12-相对定位</title>
+
+    <style>
+        .con{
+            width: 700px;
+            height: 700px;
+            border: 1px solid black;
+        }
+
+        .box1,.box2{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+
+        .box1{
+            background-color: green;
+            /* 相对定位 参照自己原本的位置进行定位,元素原本的位置一直占有 */
+            position: relative;
+
+            /* left: 300px; */
+            /* top: 300px; */
+            /* right: 200px; */
+            /* bottom: 200px; */
+            
+        }
+    </style>
+</head>
+<body>
+
+    <div class="con">
+        <div class="box1">第一个div</div>
+        <div class="box2">第二个div</div>
+    </div>
+    
+</body>
+</html>

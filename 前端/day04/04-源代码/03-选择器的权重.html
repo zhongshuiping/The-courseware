@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-选择器的权重</title>
+    <style>
+        /* 只有用多个选择器在选择同一个标签,而且还设置的相同的属性时才需要考虑权重值的问题 */
+        /* 选择器权重值: 
+        1.标签选择器的权重值    1
+        2.类/伪类选择器权重值   10
+        3.id选择器权重值是     100
+        4.行内式写法的权重值    1000
+        5. !important;通过此属性修饰后的属性 权重为 10000
+         */
+        /* .con{
+            color: green;
+        } */
+
+        /* div{ */
+            /* color: red !important; */
+            /* background-color: gold;
+        }
+
+        .con1{
+            color: purple;
+        } */
+
+        /* #div1{
+            color: blue;
+        } */
+
+        /* 后代/层级选择器权重值会累加  20  */
+        /* .box .con{
+            color: bisque
+        }
+
+        .box #div1{    
+            color: azure;
+        } */
+
+        /* 并集/组选择器的权重值不会累加 */
+        /* .box,#div1{
+            color: red;
+        }
+
+        .con:hover{
+            color: green;
+        } */
+
+        /* 从父元素继承过来的属性权重值是0 */
+        .box{
+            color: red !important;
+        }
+
+
+        div{
+            color: green;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="con con1" id="div1">div元素</div>
+    </div>
+</body>
+</html>

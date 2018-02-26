@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-js实现左右移动无限动画</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            position: fixed;
+
+            left: 100px;
+            top: 200px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('box'),
+            iSpeed = 0;
+            iMove = 5;
+
+            setInterval(function () {
+                iSpeed+= iMove;
+
+                if (iSpeed == 600) {
+                    iMove = -5;
+                } else if (iSpeed == 0) {
+                    iMove = 5;
+                }
+                oDiv.style.left = iSpeed + 'px';
+            },30);
+        }
+    </script>
+</head>
+<body>
+    <div class="box" id="box"></div>
+</body>
+</html>

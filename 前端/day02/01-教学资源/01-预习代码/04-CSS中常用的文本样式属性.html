@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-CSS中常用的文本样式属性</title>
+
+    <style>
+        .box{
+            background-color: gold;
+
+            /* text-align: 文本水平对齐方式 此属性一般用在块元素上
+            left 默认值/缺省值
+            center 
+            right
+             */
+            /* text-align: right; */
+
+
+        }
+
+        .p1{
+            width: 200px;
+            background-color: gold;
+
+            /* text-align: center; */
+
+            /* 文字加粗 */
+            /* font-weight: bold; */
+            /* 斜体 */
+            /* font-style: italic;
+            font-size: 20px;
+            line-height: 30px;
+            font-family: "Microsoft YaHei"; */
+            /* 是否加粗  是否斜体 文字大小/行高  字体 */
+            /* font: bold italic 20px/30px "Microsoft YaHei"; */
+
+            /* 文字首行缩进 */
+            /* text-indent: 32px; */
+            /* em几个文字 */
+            text-indent: 2em;
+
+
+            
+        }
+
+        .a1{
+            background-color: gold;
+            /* 行内元素设置此属性无效果 */
+            text-align: right;
+        }
+
+        .p1 span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="box">这是一个div元素</div>
+    <p class="p1"><span>人工智能</span>（Artificial Intelligence），英文缩写为AI。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。 人工智能是计算机科学的一个分支，它企图了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等.</p>
+
+    <a href="#" class="a1">这是一个链接元素</a>
+    <a href="#" class="a1">这是一个链接元素</a>
+
+
+    
+    
+</body>
+</html>

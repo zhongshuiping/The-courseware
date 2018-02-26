@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-搜索条案例</title>
+
+    <style>
+        .searchbar {
+            width: 602px;
+            height: 42px;
+            margin: 50px auto 0;
+        }
+
+        .input_text {
+            width: 500px;
+            height: 40px;
+            border: 1px solid #10ad10;
+            /* 清除默认内边距 */
+            padding: 0px;
+            /* 清除焦点时的高亮边框 */
+            outline: none;
+            /* 文字缩进 */
+            text-indent: 10px;
+
+            font-size: 12px;
+            color: #757575;
+            font-family: "Microsoft YaHei";
+            /* 解决元素以文字基线对齐及行内元素之间的小间距问题 */
+            float: left;
+        }
+
+        .input_sub {
+            width: 100px;
+            height: 42px;
+            background-color: #10ad10;
+            /* 清除按钮的默认边框 */
+            border: 0;
+            font-size: 18px;
+            color: white;
+            font-family: "Microsoft YaHei";
+            /* 解决元素以文字基线对齐及行内元素之间的小间距问题 */
+            float: left;
+            /* 将鼠标的形状设置为小手 */
+            cursor: pointer;
+            /* 清除焦点时的高亮边框 */
+            outline: none;
+
+            /* 清除默认圆角 */
+            border-radius: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="searchbar">
+        <input type="text" class="input_text" placeholder="请输入要搜索的内容">
+        <input type="submit" value="搜 索" class="input_sub">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05-js中字符串的常用方法</title>
+    <script>
+        window.onload = function () {
+            // 1.字符串拼接 +
+            var sStr01 = '15.6';
+            var iNum01 = 5;
+            var iNum02 = 10;
+            // var fNum03 = 10.1;
+            // 字符串 + 数字时 就会变成拼接
+            var sStr = sStr01 + iNum01;
+            // console.log(sStr);
+
+            var iRe = iNum01 + iNum02;
+            // console.log(iRe);
+
+
+            // 2.字符串转换成 整数类型 parseInt() '15.6' 转换成整数时小数位会直接去掉
+            // alert(parseInt(sStr01) + iNum01);
+
+            // 3.字符串转换成 浮点 小数类型
+            // alert(parseFloat(sStr01) + iNum01);
+
+            // alert(((0.1 * 10 + 0.2 * 10) / 10));
+
+            // 4.判断字符串中是否包含某字符
+            var sStr02 = 'abc';
+            // alert(sStr02.indexOf('a'));// 字符串中有此字符时返回字符在字符串中的索引  从0开始
+            // alert(sStr02.indexOf('z')); // 字符串有没有此字符返回 -1
+
+            // 5.字符串的截取
+            // 只传一个参数时表示从第几个角标开始 包含开始角标 截取到最后
+            var sStr05 = sStr02.substring(1);
+
+            // 传两个参数 第一个表示开始索引 第二个参数表示到第几个索引,不包含结束索引
+            sStr05 = sStr02.substring(1, 2);
+            // alert(sStr05);
+
+
+            // 6.把字符串拆分成数组
+            // 如果split中不传参数就是把整个字符串变成一个元素保存到数组的0角标
+            var oList = sStr02.split();
+
+
+
+            // 参数传空字符串,会把字符串的每一个字符折分成一个元素放入数组
+            oList = sStr02.split('');
+
+            var sStr10 = '2017-10-16';
+            // 以字符串中的 - 字符来进行拆分字符串
+            // oList = sStr10.split('-');
+            // console.log(oList); 
+
+
+            var sStr11 = 'abcdef';
+            var sNowStr = sStr11.split('').reverse().join('');
+            console.log(sNowStr);
+
+
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-js的委托事件</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            // $('.list li').click(function () {
+            //     $(this).css({'color':'red'});
+            // })
+
+            // $('.list').html('<li>列表1</li><li>列表2</li>')
+
+            var $ul = $('.list');
+
+            $ul.delegate('li', 'click', function () {
+                alert($(this).html());
+            })
+
+            $ul.html('<li>列表1</li><li>列表2</li>')
+
+        })
+    </script>
+</head>
+
+<body>
+    <ul class="list">
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+        <li>列表5</li>
+        <li>列表6</li>
+        <li>列表7</li>
+        <li>列表8</li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>06-JavaScript高级</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h2 id="toc_0">06-JavaScript高级</h2>
+
+<h3 id="toc_1">00- 知识点预习</h3>
+
+<ul>
+<li>  1.数组定义及常用操作方法</li>
+<li>2.js循环语句</li>
+<li>3.数组去重</li>
+<li>4.数组数据放入到界面</li>
+<li>5.字符串常用方法</li>
+<li>6.js调试程序方法</li>
+<li>7.全局变量和局部变量</li>
+<li>8.js中的定时器及实现动画</li>
+</ul>
+
+<h3 id="toc_2">01-数组的定义</h3>
+
+<div><pre><code class="language-none">// 1.实例化对象
+var aOneArray = new Array(1,2,3,&quot;a&quot;,&quot;b&quot;);
+    
+//2.快捷创建
+var aTwoArray = [1,2,3,&quot;d&quot;,&quot;f&quot;];
+   
+//3.多维数组
+var aThreeArray = [[1,2,3],[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]];</code></pre></div>
+
+<h3 id="toc_3">02-数组的操作</h3>
+
+<ul>
+<li>  push() 在数组后面增加单个或多个元素</li>
+<li>pop()删除数组中最后一个元素</li>
+<li>aOneArray[4] = &quot;ggg&quot;; 修改数组下标为4的元素</li>
+<li>var sStr = aOneArray[4]; 获取数组中角标为4的元素</li>
+<li>splice() 删除或增加</li>
+</ul>
+
+<div><pre><code class="language-none">//第一个4表示 开始的角标包含4   2表示 删除的个数
+aOneArray.splice(4,2);
+// 1是开始角标  2是删除个数 剩下的都是新增元素
+aOneArray.splice(1,2,&quot;g&quot;,&quot;h&quot;,&quot;i&quot;);</code></pre></div>
+
+<ul>
+<li>reverse() 反转 颠倒数组中的元素</li>
+<li>join() 将数组中元素 合并成字符串</li>
+</ul>
+
+<div><pre><code class="language-none">aOneArray.join()  有逗号连接
+aOneArray.join(&#39;&#39;) 没有逗号
+aOneArray.join(&#39;_&#39;) 下划线连接</code></pre></div>
+
+<ul>
+<li>length 获取数组的元素个数</li>
+<li>indexOf()  元素在数组中第一次出现的角标
+
+<ul>
+<li>-1表示元素不存在</li>
+</ul></li>
+</ul>
+
+<h3 id="toc_4">03-循环语句</h3>
+
+<div><pre><code class="language-none">var iNum = 0;
+// 条件成立就一直循环
+while (iNum &lt; 5) {
+    iNum++;
+    console.log(iNum);
+}
+
+var oList = [1,2,3,4,5];     
+// for循环
+for (var i = 0; i &lt; 5; i++) {
+    console.log(oList[i]);
+}</code></pre></div>
+
+<h3 id="toc_5">04-数组去重</h3>
+
+<ul>
+<li>  遍历数组有序的取出每一个元素，然后再取出元素在数组中第一次出现的角标，</li>
+<li>判断当前遍历的个数索引和元素在数组中的第一次出现的角标是否一样，相同就是第一次出现，然后添加到新的数组</li>
+<li>不相同就不添加说明是重复的</li>
+</ul>
+
+<h3 id="toc_6">05-列表加载数组数据</h3>
+
+<ul>
+<li>  遍历数组取出数组中的每一个元素，把内容拼接到li标签中，</li>
+<li>再把所有的li标签包裹在ul标签中</li>
+</ul>
+
+<h3 id="toc_7">06-类型转换</h3>
+
+<ul>
+<li>parseInt转换为整形</li>
+<li>parseFloat浮点型</li>
+<li> -  * /  == 隐式转换  系统自动判断 并转换类型</li>
+</ul>
+
+<h3 id="toc_8">07-字符串操作</h3>
+
+<ul>
+<li>  字符串拼接 + </li>
+<li><p>类型转换</p>
+
+<ul>
+<li>  parseInt 将字符串转换成整数 number类型</li>
+<li>  parseFloat 转换为float 浮点型</li>
+</ul></li>
+<li><p>substring(); 截取字符串</p></li>
+</ul>
+
+<div><pre><code class="language-none">// 角标开始位置 结束位置(不包含)
+var sTwoNew =  sTwo.substring(1,4); 
+//从1开始截取到最后
+sTwoNew = sTwo.substring(1);</code></pre></div>
+
+<ul>
+<li>split(&quot;&quot;) 字符串拆分成数组</li>
+</ul>
+
+<div><pre><code class="language-none">sTwoNew.split()  整个字符串拆分成数组的一个元素
+sTwoNew.split(&#39;&#39;) 把字符串中的每个字符拆分成一个元素
+sTwoNew.split(&#39;_&#39;) 以&#39;_&#39;字符来拆分字符串</code></pre></div>
+
+<ul>
+<li>indexOf() 查找字符在字符串中的角标
+
+<ul>
+<li>如果查找的字符在字符串中不存在 返回 -1</li>
+</ul></li>
+</ul>
+
+<h3 id="toc_9">08-倒置字符串</h3>
+
+<ul>
+<li>split(&quot;&quot;) 字符串拆分成数组</li>
+<li>  reverse() 数组中的元素倒置/颠倒</li>
+<li>join(&quot;&quot;) 数组转换成字符串/把数组中的元素连接成字符串</li>
+</ul>
+
+<h3 id="toc_10">09-调试方法</h3>
+
+<ul>
+<li>alert 可以阻止程序的运行</li>
+<li>console.log 控制器输出</li>
+<li>document.title = 更改网页窗口上的标题</li>
+<li> document.write(&quot;AAAAA&quot;); body中直接写入内容</li>
+</ul>
+
+<h3 id="toc_11">10- 全局变量和局部变量</h3>
+
+<ul>
+<li>  正常情况局部变量的优先级比全局的高</li>
+<li>但在js中如果全局和局部变量重名时，局部变量定义的 大{}中 会直接屏蔽全局变量，所以在定义局部变量之前使用会出现undefined;</li>
+<li>尽量避免全局变量和局部变量同名</li>
+</ul>
+
+<h3 id="toc_12">11-定时器</h3>
+
+<ul>
+<li><p>只执行一次的定时器</p>
+
+<ul>
+<li>setTimeout(功能,时间(毫秒));</li>
+<li>clearTimeout(timer); 销毁定时器 清除</li>
+</ul></li>
+<li><p>重复执行的定时器</p>
+
+<ul>
+<li>setInterval(功能,时间(毫秒));</li>
+<li>clearInterval(repeatTimer); 销毁重复执行的定时器</li>
+</ul></li>
+</ul>
+
+<h3 id="toc_13">12-js实现左右移动无限动画</h3>
+
+<ul>
+<li>  注意赋值时不要少了单位</li>
+</ul>
+
+<h3 id="toc_14">13-无缝滚动</h3>
+
+<ul>
+<li>onmouseover 鼠标停留</li>
+<li>onmouseout 鼠标离开</li>
+</ul>
+
+
+
+
+</body>
+
+</html>

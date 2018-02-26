@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06-js获取元素</title>
+
+    <script>
+        // 当整个页面加载完之后,再执行大括号里面的代码
+        window.onload = function () {
+            // 通过id获取获取元素
+            var oDiv = document.getElementById('div1');
+            // 操作元素的样式属性 CSS
+            oDiv.style.color = 'red';
+            oDiv.style.width = '200px';
+            oDiv.style.height = '200px';
+            oDiv.style.backgroundColor = 'gold';
+            // js中操作css属性时属性名中用 - 时要去掉并把后面的转换成驼峰命名法
+            oDiv.style.fontSize = '30px';
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="div1">这是一个div元素</div>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+def log_in(request):
+    if request.method == "POST":
+        username = request.POST['user']
+        password = request.POST['pwd']
+
+        user = UserInfo.objects.filter(username=username,password=password)
+        if user:
+            request.session['is_login'] = 'true'
+            request.session['username'] = username
+
+            return redirect('/backend/')
+    return render(request,'login.html')
+
+def backend(request):
+    print(request.session)
+    print(request.COOKIES)
+   # 第二个参数必须设置为False,如果对方登陆成功,在login把is_login的值
+   改为True,反之就是False,登陆成功返回true
+    is_login = request.session.get('is_login',False) 
+    if is_login:
+        cookie_content = request.COOKIES
+        session_content = request.session
+        username = request.session['username']
+        return render(request,'backend.html',locals())
+    else:
+        return redirect('/login/') 

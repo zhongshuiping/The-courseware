@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            
+            var $Div3 = $('.box3');
+
+            // 1.prev()找到平级的上一个元素
+            // $Div3.prev().css({'color':'red'});
+
+
+            // 2.prevAll() 找到平级的上面所有元素
+            // $Div3.prevAll().css({'color':'red'});
+
+
+            // 3.next() 找到平级的下一个元素
+            // $Div3.next().css({'color':'red'});
+
+            // 4.nextAll() 找到平级的下面所有元素
+            // $Div3.nextAll().css({'color':'red'});
+
+
+            // 5.siblings()除了自己以为的其它 所有平级元素
+            // $Div3.siblings().css({'color':'red'});
+
+            // 6.parent() 转换到自己的亲爹身上
+            // $Div3.parent().css({'color':'red'});
+
+            // $('.a1').parent().css({'color':'red'});
+
+            // 7.parents() 找到以上所有爹和爹的爹 找到以上的所有父元素
+            // $('.a1').parents().css({'color':'red'});
+
+
+            // 8.children() 只能找到亲儿子
+            // $('.box5').children('span').css({'color' : 'red'});
+
+            // alert($('.box5').children().length);
+
+
+            // 9.find() 里面传要查找的后代
+            $('.box5').find('span').css({'color' : 'red'})
+        })
+    </script>
+</head>
+
+<body>
+    <div class="con">老大
+        <div class="box1" id="box1">div元素1</div>
+        <div class="box2">div元素2</div>
+        <div class="box3">div元素3</div>
+        <div class="box4">div元素4</div>
+        <div class="box5">div元素5
+            <a href="#" class="a1">a标签
+                <span>我是一个span</span>
+            </a>
+
+            <!-- <span>span</span> -->
+        </div>
+        <a href="#">a标签</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-CSS权重值计算</title>
+
+    <style>
+
+        /* 权重等级:
+        1.标签选择器         权重:1
+        2.类选择器 伪类      权重:10
+        3.id选择器            权重:100
+        4.行内式           权重:1000
+        5.!important加在属性后面  权重:10000
+         */
+        body{
+            font-size: 50px;
+        }
+
+        div{
+            color: purple !important;
+            background-color: gold;
+        }
+
+        .box{
+            color: red;
+        }
+
+        .con .box{
+            color: green;
+        }
+
+        #box01{
+            color: greenyellow;
+            background-color: burlywood;
+        }
+
+        .con:hover{
+            color: gold;
+
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="con">
+        <div class="box" id="box01" style="color:blue">权重值</div>
+        
+    </div>
+</body>
+</html>

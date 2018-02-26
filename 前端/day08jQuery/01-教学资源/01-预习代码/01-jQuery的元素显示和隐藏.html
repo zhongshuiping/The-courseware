@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-jQuery的特殊效果</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $btn = $('.btn'),
+                $div = $('.box');
+
+            $btn.click(function () {
+               
+
+                /*
+                var sDisplayValue = $div.css('display');
+                // 显示隐藏切换
+                if (sDisplayValue == 'block') {
+                    $div.css({ 'display': 'none' });
+                } else {
+                    $div.css({ 'display': 'block' });
+                }
+                */
+
+
+                 // 显示隐藏切换 简写
+                // $div.css({'display':  ($div.css('display') == 'none' ? 'block': 'none')});
+
+
+                // 元素隐藏
+                // $div.hide();
+                // 元素显示
+                // $div.show();
+                // 隐藏和显示切换
+                // $div.toggle();
+
+
+
+                
+
+
+
+
+
+                // alert($div.css('display'));
+
+            })
+        })
+    </script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            /* display: none; */
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="动画按钮" class="btn">
+    <div class="box"></div>
+    <p>段落标签</p>
+</body>
+
+</html>

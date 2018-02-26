@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-jQuery中元素卷起和展开特效</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #008000;
+            display: none;
+        }
+    </style>
+
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+    
+        $(function () {
+            // 用来标记是否正在动画中
+            var bIsSlide = false;
+            // 给按钮添加点击事件
+            $('input').click(function () {
+
+                // 如果条件成立表示上次的动画还没走完,不要再去执行动画
+                if (bIsSlide == true) {
+                    return;
+                }
+                // 只要能走到这里 说明要开始动画了
+                bIsSlide = true;
+             //  卷起
+            //    $('.box').slideUp();
+
+            // 展开
+            // $('.box').slideDown();
+
+
+            // 卷起和展开切换
+            $('.box').slideToggle(function () {
+                // 动画执行完成之后 再把标记改回来,能正常进行下一次动画
+                bIsSlide = false;
+            });
+
+            })
+        })
+    </script>
+</head>
+<body>
+    
+    <input type="button" value="动 画">
+    <div class="box"></div>
+    <p>p标签</p>
+</body>
+</html>

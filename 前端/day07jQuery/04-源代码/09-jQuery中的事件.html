@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-jQuery中的事件</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+
+        $(function () {
+            var $lis = $('.list li');
+
+            $lis.click(function () {
+                // this 表示当前触发事件的那个标签对象
+                // alert('点我了');
+
+                // this 它是一个js的原生对象
+                // this.style.color = 'red';
+                // $(this) 用$()可以把js对象转换成jQuery对象
+                $(this).css({'color': 'red'});
+                // index() 获取当前标签在它父元素中它排行第几 从0开始
+                //  index()它和嵌套有关系表示在父子级中排行第几
+                // eq()它是在选择集中的第几个 和嵌套无关
+                alert($(this).index());
+
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+    <ul class="list">
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+        <li>列表5</li>
+        <li>列表6</li>
+        <li>列表7</li>
+        <li>列表8</li>
+    </ul>
+
+    <ul class="list">
+            <li>列表1</li>
+            <li>列表2</li>
+            <li>列表3</li>
+            <li>列表4</li>
+            <li>列表5</li>
+            <li>列表6</li>
+            <li>列表7</li>
+            <li>列表8</li>
+        </ul>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animation 动画</title>
+	<style type="text/css">
+		
+		.box{
+			width:400px;
+			height:400px;
+			margin:50px auto 0;
+			background:url(images/fengche.png) no-repeat;
+			animation:moving 1s linear 0s infinite;
+		}
+
+
+
+		@keyframes moving{
+			
+			from{
+				  transform:rotate(0deg);
+			}
+
+			to{
+				transform:rotate(360deg);
+
+			}	
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

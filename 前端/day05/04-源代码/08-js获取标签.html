@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-js获取标签</title>
+    <style>
+        div {
+            color: red;
+        }
+    </style>
+
+    <script>
+        // 文档加载完成之后再去执行里面的js代码
+        // 文档加载准备
+        window.onload = function () {
+            //  通过id名字去获取指定标签对象
+            var oDiv = document.getElementById('div');
+            alert(oDiv);
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <div id="div">div元素</div>
+
+
+
+
+
+    
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+/* 头部样式 */
+
+.main_con{
+	position:absolute;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0
+}
+
+header{
+	width:100%;
+	height:50px;
+	background-color:#37ab40;
+	position:relative;
+}
+
+.logo{
+	width:88px;
+	height:35px;
+	margin:7px auto 0;
+}
+.logo img{width:100%;}
+
+.search{
+	width:28px;
+	height:26px;
+	background:url(../images/icons.png) left -639px no-repeat;
+	background-size:58px 670px;
+	display:block;
+	position:absolute;
+	right:14px;
+	top:12px;
+}
+
+footer{
+	width:100%;
+	height:50px;
+	background-color:rgba(255,255,255,0.6);
+	position:absolute;
+	left:0;
+	bottom:0;
+	z-index:10000
+}
+
+.foot_list{
+	height:50px;
+	text-align: center;
+	font-size:0px;
+}
+
+.foot_list li{width:25%; height:40px; display:inline-block;margin-top:5px}
+.foot_list li a{width:26px;height:26px;display:block;margin:0 auto;}
+.foot_list li h3{height:14px;line-height:14px;text-align:center;font-size:12px;color:#949392}
+
+
+.foot_list li:nth-child(1) a{background:url(../images/icons.png) left -579px no-repeat;background-size:58px 670px;}
+.foot_list li:nth-child(3) a{background:url(../images/icons.png) left -518px no-repeat;background-size:58px 670px;}
+.foot_list li:nth-child(2) a{background:url(../images/icons.png) left -548px no-repeat;background-size:58px 670px;}
+.foot_list li:nth-child(4) a{background:url(../images/icons.png) left -608px no-repeat;background-size:58px 670px;}
+
+
+.center_scroll{
+	position:absolute;
+	left:0;
+	top:50px;
+	right:0;
+	bottom:0;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+.slide{position:relative;}
+
+.slide_con li img{width:100%}
+
+.slide .points{width:72px;height:6px;position:absolute; right:15px;bottom:10px;font-size:0px;}
+.slide .points li{display:inline-block;width:6px;height:6px;border-radius:50%;background-color:#9f9f9f;margin:0 3px;}
+.slide .points li.active{background-color:#76e658}
+
+
+.menu{
+	margin-top:10px;	
+	background-color:#fff;
+	font-size:0;
+	padding:7px;
+	box-sizing:border-box;
+}
+
+.menu li{
+	display:inline-block;
+	width:25%;
+	height:80px;
+	margin-top:10px;
+}
+
+.menu li a{
+	width:55px;
+	height:55px;
+	display:block;
+	margin:0 auto;
+	
+}
+
+.menu li h3{
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	font-size:13px;
+	color:#666
+}
+
+.menu li:nth-child(1) a{background:url(../images/icons.png) left 0px no-repeat;background-size:58px 670px;}
+.menu li:nth-child(2) a{background:url(../images/icons.png) left -60px no-repeat;background-size:58px 670px;}
+.menu li:nth-child(3) a{background:url(../images/icons.png) left -120px no-repeat;background-size:58px 670px;}
+.menu li:nth-child(4) a{background:url(../images/icons.png) left -180px no-repeat;background-size:58px 670px;}
+.menu li:nth-child(5) a{background:url(../images/icons.png) left -240px no-repeat;background-size:58px 670px;}
+.menu li:nth-child(6) a{background:url(../images/icons.png) left -300px no-repeat;background-size:58px 670px;}
+.menu li:nth-child(7) a{background:url(../images/icons.png) left -360px no-repeat;background-size:58px 670px;}
+.menu li:nth-child(8) a{background:url(../images/icons.png) left -420px no-repeat;background-size:58px 670px;}
+
+
+
+.goods_model{
+	background-color:#fff;
+	margin:10px 0 60px;
+	box-sizing:border-box;
+	padding:15px 10px;
+
+}
+
+.goods_tilte{
+	height:18px;	
+}
+
+.goods_tilte h3{
+	border-left:5px solid #fbc83d;
+	height:18px;
+	line-height:18px;
+	font-size:15px;
+	color:#fbc83d;
+	text-indent:8px;
+}
+
+.goods_tilte a{
+	color:#7f7f7f;	
+}
+
+.goods_banner{
+	margin-top:12px;
+}
+
+.goods_banner img{width:100%}
+
+.goods_list{margin-top:10px}
+
+.goods_list li{width:33.33%;float:left;box-sizing:border-box;position:relative;}
+
+.goods_list li .goods_pic{width:80px; height:80px;margin:0 auto;}
+.goods_list li .goods_pic img{width:100%;}
+
+.goods_list li:nth-child(1){border-right:1px solid #e7e7e7}
+.goods_list li:nth-child(2){border-right:1px solid #e7e7e7}
+
+.goods_detail dt{
+	text-indent:12px;
+	font-size:15px;
+	color:#666;
+	width:90%;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;	
+}
+
+.goods_detail .goods_unit{color:#bbb;margin-top:10px;text-indent:12px;}
+.goods_detail .goods_price{color:#ff4400;margin-top:3px;text-indent:12px;}
+
+.goods_detail .add_to_cart{position:absolute;width:34px;height:34px;background:url(../images/icons.png) left -480px no-repeat;background-size:58px 670px;right:5px;bottom:0;}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>10-无缝滚动</title>
+	<style type="text/css">
+		body,ul{
+			margin:0;
+			padding:0;
+		}
+
+		.list_con{
+			
+			width:1000px;
+			height:200px;
+			border:1px solid #000;
+			margin:10px auto 0;
+			background-color:#f0f0f0;
+			position:relative;
+			overflow:hidden;
+		}
+
+		.list_con ul{
+			list-style:none;
+			width:2000px;
+			height:200px;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+
+
+		.list_con li{
+			width:180px;
+			height:180px;
+			float:left;
+			margin:10px;
+		}
+
+		.btns_con{
+			width:1000px;
+			height:30px;
+			margin:50px auto 0;
+			position:relative;
+		}
+
+		.left,.right{
+			width:30px;
+			height:30px;
+			background-color:gold;
+			position:absolute;
+			left:-40px;
+			top:124px;
+			font-size:30px;
+			line-height:30px;
+			color:#000;
+			font-family: 'Arial';
+			text-align:center;
+			cursor:pointer;
+			border-radius:15px;
+			opacity:0.5;
+		}
+		.right{
+			left:1010px;			
+			top:124px;			
+		}
+	</style>
+
+	<script>
+	
+		window.onload = function () {
+			// 1.获取相应的标签
+			var oLeftBtn = document.getElementById('btn01'),
+				oRightBtn = document.getElementById('btn02'),
+				oSlide = document.getElementById('slide'),
+				oList = document.getElementById('list'),
+				iSpeed = 0, // 当前距离
+				iMove = -5;  //  移动距离 控制方向
+
+
+				// 2.准备工作,把列表中的内容放大2倍
+				oList.innerHTML += oList.innerHTML;
+
+
+				// 3.移动
+				function fnMove() {
+					// 累加移动值
+					iSpeed += iMove;
+					// 向右走
+					if (iSpeed > 0) {
+						iSpeed = -1000;
+					} else if (iSpeed < -1000)  {// 向左走
+						iSpeed = 0;
+					}
+
+					oList.style.left = iSpeed + 'px';
+				}
+
+
+				// 4.让定时器重复执行移动功能
+			var timer = setInterval(fnMove, 30);
+
+
+				// 5.给左右两个按钮添加点击事件
+				oLeftBtn.onclick = function () {
+					iMove = -5; // 向左走
+				}
+
+				oRightBtn.onclick = function () {
+					iMove = 5; // 向右走
+				}
+
+
+				//6.鼠标事件
+				// 当鼠标摸到此元素时就会触发
+				oSlide.onmouseover = function () {
+					// 销毁定时器
+					clearInterval(timer);
+				}
+
+				oSlide.onmouseout = function () {
+					// 重新创建新的定时器
+					// 此地不能加var要用外面的全局变量 不然它会飞起来的
+					timer = setInterval(fnMove, 30);
+				}
+		}
+	</script>
+	
+</head>
+<body>
+	<div class="btns_con">
+		<div class="left" id="btn01">&lt;</div>
+		<div class="right" id="btn02">&gt;</div>
+	</div>
+	<div class="list_con" id="slide">
+		<ul id="list">
+		<li><a href=""><img src="images/goods001.jpg" alt="商品图片"></a></li>
+		<li><a href=""><img src="images/goods002.jpg" alt="商品图片"></a></li>
+		<li><a href=""><img src="images/goods003.jpg" alt="商品图片"></a></li>
+		<li><a href=""><img src="images/goods004.jpg" alt="商品图片"></a></li>
+		<li><a href=""><img src="images/goods005.jpg" alt="商品图片"></a></li>
+		
+		</ul>
+	</div>
+</body>
+</html>
+

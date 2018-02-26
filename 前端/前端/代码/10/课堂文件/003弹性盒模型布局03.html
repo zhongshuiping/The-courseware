@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹性盒模型布局</title>
+	<style type="text/css">
+		
+		ul{
+			margin:0;
+			padding:0;
+			list-style:none;
+			width:500px;
+			height:500px;
+
+			border:5px solid #000;
+			background-color:gold;
+			margin:50px auto 0;
+			
+			display:flex;
+
+			justify-content:space-between;
+
+			/* 
+				flex-start:整体垂直靠上排列;
+				flex-end:整体垂直靠下排列;
+				center：整体垂直居中排列;
+				baseline: 子元素内的文字底部对齐，如果文字大小不同，会导致子元素水平不对齐;
+				stretch:如果子元素不设置高度，高度被拉伸到和父元素高度相同（除去自身的margin）;
+
+			*/
+			align-items:stretch;
+		}
+
+		ul li{
+			width:50px;
+			/* height:50px; */
+			margin:10px;
+			line-height:50px;
+			text-align:center;
+			color:#fff;
+			background-color:green;
+		}
+
+		ul li:nth-child(2){
+			font-size:40px;
+		}
+
+
+
+	</style>
+
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+</html>

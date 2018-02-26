@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-js中数组的去重</title>
+    <script>
+    
+        window.onload = function () {
+            
+            var aList = [1,'2',1,2,3,2,4,3],
+            // 用来保存只出现一次的元素
+            aNewList = [];
+
+            // ctrl + D  可以选择同名变量
+            // for循环遍历数组有顺序的取出数组中的每一个元素
+            for (var i = 0; i < aList.length; i++) {
+
+                // 1.取出数组中的元素
+                var ele = aList[i]; 
+                // 2.再用元素去获取它在数组中第一次出现的角标
+                var iIndex = aList.indexOf(ele);
+
+                // 3.判断当前的角标 和元素在数组中第一次出现的角标是否一样
+                // 用取元素的角标和取出的元素在数组中第一次出现的下标是否一样,如果一样,就是第一次出现的元素,添加到新数组中,如果不是就不管了
+                if (i == iIndex) {
+                    aNewList.push(ele);
+                }
+            }
+
+            console.log(aNewList);
+
+            
+
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

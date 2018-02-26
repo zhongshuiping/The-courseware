@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-jQurey和原生js对比</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div');
+            // oDiv.style.color = 'red';
+
+            alert(oDiv.style.fontSize + 'js获取');
+        }
+
+/*         $(document).ready(function () {
+            var $div = $('#div');
+            $div.css({'color':'green',
+                      'backgroundColor':'gold',});
+        }) */
+
+        /* $().ready(function () {
+            var $div = $('#div');
+            $div.css({'color':'green',
+                      'backgroundColor':'gold',});
+        }); */
+
+        $(function () {
+            var $div = $('#div');
+            // $div.css({'color':'green','backgroundColor':'gold',});
+            alert($div.css('font-size') + 'jQuery获取');
+            
+        })
+    </script>
+</head>
+<body>
+    <div id="div">div元素</div>
+</body>
+</html>

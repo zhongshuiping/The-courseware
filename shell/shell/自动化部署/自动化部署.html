@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://127.0.0.1:51004/view/40 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>teach.md—C:\Users\xwp\gitproject\automation\main</title>
+    <link rel="stylesheet" type="text/css" href="./自动化部署_files/github.css">
+  </head>
+  <body>
+    <div class="container">
+      <div id="markup">
+        <article id="content" class="markdown-body">
+          <div class="toc">
+<ul>
+<li><a href="http://127.0.0.1:51004/view/40#python">传智播客python学科</a><ul>
+<li><a href="http://127.0.0.1:51004/view/40#pexpect">pexpect</a></li>
+<li><a href="http://127.0.0.1:51004/view/40#fabric">fabric</a><ul>
+<li><a href="http://127.0.0.1:51004/view/40#_1">安装</a></li>
+<li><a href="http://127.0.0.1:51004/view/40#_2">入门示例</a></li>
+<li><a href="http://127.0.0.1:51004/view/40#fabric_1">fabric常用参数</a></li>
+<li><a href="http://127.0.0.1:51004/view/40#fabricapi">fabric常用API</a></li>
+<li><a href="http://127.0.0.1:51004/view/40#fabric_2">fabric全局属性设定</a></li>
+<li><a href="http://127.0.0.1:51004/view/40#1">示例1：动态获取远程目录列表</a></li>
+<li><a href="http://127.0.0.1:51004/view/40#2">示例2：上传文件并执行</a></li>
+<li><a href="http://127.0.0.1:51004/view/40#_3">代码自动化部署</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="python">传智播客python学科</h2>
+<div class="codehilite"><pre>http://www.itcast.cn/subject/pythonzly/index.shtml
+</pre></div>
+
+
+<h3 id="pexpect">pexpect</h3>
+<p>Pexpect 是 Don Libes 的 Expect 语言的一个 Python 实现，是一个用来启动子程序，并使用正则表达式对程序输出做出特定响应，以此实现与其自动交互的 Python 模块。 Pexpect 的使用范围很广，可以用来实现与 ssh、ftp 、telnet 等程序的自动交互；可以用来自动复制软件安装包并在不同机器自动安装；还可以用来实现软件测试中与命令行交互的自动化。</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">pexpect</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">child</span> <span class="o">=</span> <span class="n">pexpect</span><span class="o">.</span><span class="n">spawn</span><span class="p">(</span><span class="s">'ssh std20@123.57.211.212'</span><span class="p">)</span>
+<span class="n">child</span><span class="o">.</span><span class="n">logfile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+<span class="c">#fout = file('mylog.txt', 'w')</span>
+<span class="c">#child.logfile = fout</span>
+<span class="n">child</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s">'password:'</span><span class="p">)</span>
+<span class="n">child</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="s">'std20'</span><span class="p">)</span>
+<span class="n">child</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s">'std20.*'</span><span class="p">)</span>
+<span class="n">child</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="s">'ls /'</span><span class="p">)</span>
+<span class="n">child</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s">'std20.*'</span><span class="p">)</span>
+<span class="n">child</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="s">'exit'</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span class="c">#coding=utf_8</span>
+
+<span class="kn">from</span> <span class="nn">pexpect</span> <span class="kn">import</span> <span class="n">pxssh</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">pxssh</span><span class="o">.</span><span class="n">pxssh</span><span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">logfile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+<span class="n">hostname</span> <span class="o">=</span> <span class="s">'123.57.211.212'</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s">'std20'</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s">'std20'</span>
+<span class="n">s</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="s">'ls /'</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">prompt</span><span class="p">()</span>  <span class="c">#匹配系统提示符</span>
+<span class="n">s</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="s">'whoami'</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">prompt</span><span class="p">()</span>  
+<span class="n">s</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
+</pre></div>
+
+
+<h3 id="fabric">fabric</h3>
+<p>项目发布和运维的工作相当机械，频率还蛮高，导致时间浪费在敲大量重复的命令上。</p>
+<p>修复bug什么的，测试，提交版本库(2分钟)，ssh到测试环境pull部署（2分钟），rsync到线上机器A,B,C,D,E（1分钟），分别ssh到ABCDE五台机器，逐一重启(8-10分钟) = 13-15分钟</p>
+<p>其中郁闷的是，每次操作都是相同的，命令一样，要命的是在多个机器上，很难在本机一个脚本搞定，主要时间都浪费在ssh，敲命令上了，写成脚本，完全可以一键执行，花两分钟看下执行结果。</p>
+<h4 id="_1">安装</h4>
+<p>pip install fabric</p>
+<h4 id="_2">入门示例</h4>
+<div class="codehilite"><pre><span class="c">#fabfile.py</span>
+<span class="kn">from</span> <span class="nn">fabric.api</span> <span class="kn">import</span> <span class="n">run</span>
+
+<span class="k">def</span> <span class="nf">host_type</span><span class="p">():</span>
+    <span class="n">run</span><span class="p">(</span><span class="s">'uname -s'</span><span class="p">)</span>
+</pre></div>
+
+
+<p>启动</p>
+<div class="codehilite"><pre>itcast@ubuntu:~/tmp/fab<span class="nv">$ </span>fab -H 127.0.0.1 host_type
+<span class="o">[</span>127.0.0.1<span class="o">]</span> Executing task <span class="s1">'host_type'</span>
+<span class="o">[</span>127.0.0.1<span class="o">]</span> run: uname -s
+<span class="o">[</span>127.0.0.1<span class="o">]</span> Login password <span class="k">for</span> <span class="s1">'itcast'</span>: 
+<span class="o">[</span>127.0.0.1<span class="o">]</span> out: Linux
+<span class="o">[</span>127.0.0.1<span class="o">]</span> out: 
+
+
+Done.
+Disconnecting from 127.0.0.1... <span class="k">done</span>.
+itcast@ubuntu:~/tmp/fab<span class="nv">$ </span>fab -H 127.0.0.1 host_type
+<span class="o">[</span>127.0.0.1<span class="o">]</span> Executing task <span class="s1">'host_type'</span>
+<span class="o">[</span>127.0.0.1<span class="o">]</span> run: uname -s
+<span class="o">[</span>127.0.0.1<span class="o">]</span> Login password <span class="k">for</span> <span class="s1">'itcast'</span>: 
+<span class="o">[</span>127.0.0.1<span class="o">]</span> out: Linux
+<span class="o">[</span>127.0.0.1<span class="o">]</span> out: 
+</pre></div>
+
+
+<h4 id="fabric_1">fabric常用参数</h4>
+<ul>
+<li>-l : 显示定义好的任务函数名</li>
+<li>-f : 指定fab入口文件，默认入口文件名为fabfile.py</li>
+<li>-H : 指定目标主机，多台主机用","号分割</li>
+</ul>
+<h4 id="fabricapi">fabric常用API</h4>
+<ul>
+<li>local : 执行本地命令，如：local('uname -s')</li>
+<li>lcd : 切换本地目录，如：lcd('/home')</li>
+<li>cd : 切换远程目录，如：cd('/etc')</li>
+<li>run : 执行远程命令，如：run('free -m')</li>
+<li>sudo : sudo方式执行远程命令，如：sudo('touch /abc')</li>
+<li>put : 上传本地文件到远程主机，如：put('/hello', '/home/itcast/hello')</li>
+<li>get : 从远程主机下载文件到本地，如：get('/home/python/world', '/home/itcast/world')</li>
+<li>reboot : 重启远程主机，如：reboot()</li>
+<li>@task : 函数装饰器，标识的函数为fab可调用的，非标记的对fab不可见，纯业务逻辑</li>
+<li>@runs_once : 函数装饰器，标识的函数只会执行一次，不受多台主机影响</li>
+</ul>
+<h4 id="fabric_2">fabric全局属性设定</h4>
+<ul>
+<li>env.host : 定义目标主机，如：env.host=['192.168.17.192', '192.168.17.193']</li>
+<li>env.user : 定义用户名，如：env.user="root"</li>
+<li>env.port : 定义目标主机端口，默认为22，如：env.port="22"</li>
+<li>env.password : 定义密码，如：env.password="chuanzhi"</li>
+<li>env.passwords : 不同的主机不同的密码，如：env.passwords={'itcast@192.168.17.192:22':'chuanzhi', 'itcast@192.168.17.193:22':'python'}</li>
+</ul>
+<h4 id="1">示例1：动态获取远程目录列表</h4>
+<div class="codehilite"><pre><span class="kn">from</span> <span class="nn">fabric.api</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">env</span><span class="o">.</span><span class="n">hosts</span><span class="o">=</span><span class="p">[</span><span class="s">'192.168.17.192'</span><span class="p">,</span> <span class="s">'192.168.17.193'</span><span class="p">]</span>
+<span class="c">#env.password='python'</span>
+<span class="n">env</span><span class="o">.</span><span class="n">passwords</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'itcast@192.168.17.192:22'</span><span class="p">:</span><span class="s">'python'</span><span class="p">,</span>
+    <span class="s">'itcast@192.168.17.193:22'</span><span class="p">:</span><span class="s">'python'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="nd">@runs_once</span>
+<span class="k">def</span> <span class="nf">input_raw</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">prompt</span><span class="p">(</span><span class="s">"please input directory name:"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">"/home"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">workask</span><span class="p">(</span><span class="n">dirname</span><span class="p">):</span>
+    <span class="n">run</span><span class="p">(</span><span class="s">'ls -l '</span> <span class="o">+</span> <span class="n">dirname</span><span class="p">)</span>
+
+<span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">go</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'start ...'</span><span class="p">)</span>
+    <span class="n">getdirname</span> <span class="o">=</span> <span class="n">input_raw</span><span class="p">()</span>
+    <span class="n">workask</span><span class="p">(</span><span class="n">getdirname</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'end ...'</span><span class="p">)</span>
+</pre></div>
+
+
+<h4 id="2">示例2：上传文件并执行</h4>
+<div class="codehilite"><pre><span class="kn">from</span> <span class="nn">fabric.api</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">env</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="s">'itcast'</span>
+<span class="n">env</span><span class="o">.</span><span class="n">hosts</span> <span class="o">=</span> <span class="p">[</span><span class="s">'192.168.17.192'</span><span class="p">,</span> <span class="s">'192.168.17.193'</span><span class="p">]</span>
+<span class="n">env</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s">'python'</span>
+
+<span class="nd">@task</span>
+<span class="nd">@runs_once</span>
+<span class="k">def</span> <span class="nf">tar_task</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">lcd</span><span class="p">(</span><span class="s">'/home/itcast/testdemo'</span><span class="p">):</span>
+        <span class="n">local</span><span class="p">(</span><span class="s">'tar zcvf demo.tar.gz demo.py'</span><span class="p">)</span>
+
+<span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">put_task</span><span class="p">():</span>
+    <span class="n">run</span><span class="p">(</span><span class="s">'mkdir -p /home/itcast/testdemo'</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">cd</span><span class="p">(</span><span class="s">'/home/itcast/testdemo'</span><span class="p">):</span>
+        <span class="n">put</span><span class="p">(</span><span class="s">'/home/itcast/testdemo/demo.tar.gz'</span><span class="p">,</span> <span class="s">'/home/itcast/testdemo/demo.tar.gz'</span><span class="p">)</span>
+
+<span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">check_task</span><span class="p">():</span>
+    <span class="n">lmd5</span> <span class="o">=</span> <span class="n">local</span><span class="p">(</span><span class="s">'md5sum /home/itcast/testdemo/demo.tar.gz'</span><span class="p">,</span> <span class="n">capture</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rmd5</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="s">'md5sum /home/itcast/testdemo/demo.tar.gz'</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">lmd5</span> <span class="o">==</span> <span class="n">rmd5</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'OK ...'</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'ERROR ...'</span><span class="p">)</span>
+
+<span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">run_task</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">cd</span><span class="p">(</span><span class="s">'/home/itcast/testdemo'</span><span class="p">):</span>
+        <span class="n">run</span><span class="p">(</span><span class="s">'tar zxvf demo.tar.gz'</span><span class="p">)</span>
+        <span class="n">run</span><span class="p">(</span><span class="s">'python demo.py'</span><span class="p">)</span>
+
+<span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">go</span><span class="p">():</span>
+    <span class="n">tar_task</span><span class="p">()</span>
+    <span class="n">put_task</span><span class="p">()</span>
+    <span class="n">check_task</span><span class="p">()</span>
+    <span class="n">run_task</span><span class="p">()</span>
+</pre></div>
+
+
+<h4 id="_3">代码自动化部署</h4>
+<div class="codehilite"><pre><span class="kn">from</span> <span class="nn">fabric.api</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">env</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="s">'itcast'</span>
+<span class="n">env</span><span class="o">.</span><span class="n">hosts</span> <span class="o">=</span> <span class="p">[</span><span class="s">'192.168.17.192'</span><span class="p">,</span> <span class="s">'192.168.17.193'</span><span class="p">]</span>
+<span class="n">env</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s">'python'</span>
+
+<span class="nd">@runs_once</span>
+<span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">local_update</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">lcd</span><span class="p">(</span><span class="s">"/home/itcast/tmp/itcasthello"</span><span class="p">):</span>
+        <span class="n">local</span><span class="p">(</span><span class="s">"git add -A"</span><span class="p">)</span>
+        <span class="n">local</span><span class="p">(</span><span class="s">"git commit -m 'update'"</span><span class="p">)</span>
+        <span class="n">local</span><span class="p">(</span><span class="s">"git pull origin master"</span><span class="p">)</span>
+        <span class="n">local</span><span class="p">(</span><span class="s">"git push origin master"</span><span class="p">)</span>
+
+
+<span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">remote_update</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">cd</span><span class="p">(</span><span class="s">"/home/itcast/tmp/itcasthello"</span><span class="p">):</span>
+        <span class="n">run</span><span class="p">(</span><span class="s">"git checkout master"</span><span class="p">)</span>
+        <span class="n">run</span><span class="p">(</span><span class="s">"git pull origin master"</span><span class="p">)</span>
+
+<span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">deploy</span><span class="p">():</span>
+    <span class="n">local_update</span><span class="p">()</span>
+    <span class="n">remote_update</span><span class="p">()</span>
+</pre></div>
+        </article>
+      </div>
+    </div>
+  
+  <script type="text/x-omnimarkup-config;executed=true">
+    window.App.Context = {
+      buffer_id: 40,
+      timestamp: '1482455890.10194',
+      revivable_key: 'QzpcVXNlcnNceHdwXGdpdHByb2plY3RcYXV0b21hdGlvblxtYWluXHRlYWNoLm1k'
+    };
+    window.App.Options = {
+      ajax_polling_interval: 500,
+      mathjax_enabled: false
+    };
+  </script>
+  <script type="text/javascript" src="./自动化部署_files/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="./自动化部署_files/imagesloaded.pkgd.min.js"></script>
+  <script type="text/javascript" src="./自动化部署_files/app.js"></script>
+
+</body></html>

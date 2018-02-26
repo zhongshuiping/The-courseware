@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10-垂直外边距合并</title>
+
+    <style>
+            .box1,.box2{
+                width: 200px;
+                height: 200px;
+                border: 10px solid #000;
+                background-color: gold;
+
+            }
+    
+            /* 当两个垂直排列的元素上在元素有底部的外边距
+            下面的元素有顶部外边距时,它们之间的间距不是相加
+            而是取两个中的较大值,当前他们的外边距就是 80px;
+
+            垂直外边距合并
+
+            如果不想它让垂直外边距合并
+            可以设置下面元素 float 浮动 不推荐
+
+            可以单独设置上面元素的底外边距或下面元素的顶部外边距 为这两个边距的和
+             */
+            .box1{
+                /* margin-bottom: 20px; */
+                /* float: left; */
+
+            }
+            .box2{
+                margin-top: 100px;
+                /* float: left; */
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </body>
+    </html>

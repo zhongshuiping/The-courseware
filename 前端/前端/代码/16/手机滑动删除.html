@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<title>zepto touch</title>
+	<style type="text/css">
+		body,ul{margin:0;padding:0}
+		.list{
+			list-style:none;
+			margin:20px auto 0;
+			width:90%;
+		}
+
+		.list li{
+			height:40px;
+			line-height:40px;
+			border-bottom:1px solid #ddd;
+			position:relative;
+			overflow:hidden;
+		}
+
+		.list li a{
+			text-decoration:none;
+			color:#333;
+			position:absolute;
+			left:0
+		}
+
+		.list li span{
+			position:absolute;
+			right:-60px;
+			background-color:red;
+			padding:0 10px;
+			color:#fff;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+
+			$('.list li').swipeLeft(function(){
+				$(this).children('a').animate({left:-60});
+				$(this).children('span').animate({right:0});
+
+			});
+
+			$('.list li').swipeRight(function(){
+				$(this).children('a').animate({left:0});
+				$(this).children('span').animate({right:-60});
+			})
+
+			$('.list span').click(function(){
+				$(this).parent().animate({height:0},function(){
+					$(this).remove();
+				})
+			});
+			
+
+
+		})
+
+	</script>
+</head>
+<body>
+	<ul class="list">
+		<li><a href="#">新闻标题111111</a><span>删除</span></li>
+		<li><a href="#">新闻标题222222</a><span>删除</span></li>
+		<li><a href="#">新闻标题333333</a><span>删除</span></li>
+		<li><a href="#">新闻标题444444</a><span>删除</span></li>
+		<li><a href="#">新闻标题555555</a><span>删除</span></li>
+	</ul>
+</body>
+</html>

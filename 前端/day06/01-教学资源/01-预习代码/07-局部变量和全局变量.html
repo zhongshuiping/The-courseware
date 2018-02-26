@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-局部变量和全局变量</title>
+    <script>
+        window.onload = function () {
+            var iNum = 10;
+
+            function fnTest() {
+                alert(iNum);
+                var iNum = 5;
+            }
+
+            fnTest();
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

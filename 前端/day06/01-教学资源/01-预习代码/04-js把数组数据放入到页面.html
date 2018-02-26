@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-js把数组数据放入到页面</title>
+    <script>
+        window.onload = function () {
+            var oList = ['战狼','金刚狼','毒狼','狼图腾','狼行天下吃肉'],
+            oUl = document.getElementById('list'),
+            sStr = '';
+
+            for (var i = 0; i < oList.length; i++) {
+                var element = oList[i];
+
+                sStr += '<li>' + element + '</li>';
+
+            }
+
+            // 修改标签中包裹的内容
+            oUl.innerHTML = sStr;
+
+
+
+        }
+    </script>
+
+    <style>
+        .list{
+            width: 400px;
+            list-style: none;
+            padding: 0px;
+            margin: 50px auto 0px;
+            font-size: 25px;
+        }
+
+        .list li{
+            line-height: 60px;
+            border-bottom: 1px dotted black;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list" id="list">
+        <li>电影排名1</li>
+        <li>电影排名2</li>
+        <li>电影排名3</li>
+        <li>电影排名4</li>
+        <li>电影排名5</li>
+    </ul>
+</body>
+</html>

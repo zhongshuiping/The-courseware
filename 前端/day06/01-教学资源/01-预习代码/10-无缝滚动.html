@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>10-无缝滚动</title>
+	<style type="text/css">
+		body,ul{
+			margin:0;
+			padding:0;
+		}
+
+		.list_con{
+			
+			width:1000px;
+			height:200px;
+			border:1px solid #000;
+			margin:10px auto 0;
+			background-color:#f0f0f0;
+			position:relative;
+			overflow:hidden;
+		}
+
+		.list_con ul{
+			list-style:none;
+			width:2000px;
+			height:200px;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+
+
+		.list_con li{
+			width:180px;
+			height:180px;
+			float:left;
+			margin:10px;
+		}
+
+		.btns_con{
+			width:1000px;
+			height:30px;
+			margin:50px auto 0;
+			position:relative;
+		}
+
+		.left,.right{
+			width:30px;
+			height:30px;
+			background-color:gold;
+			position:absolute;
+			left:-40px;
+			top:124px;
+			font-size:30px;
+			line-height:30px;
+			color:#000;
+			font-family: 'Arial';
+			text-align:center;
+			cursor:pointer;
+			border-radius:15px;
+			opacity:0.5;
+		}
+		.right{
+			left:1010px;			
+			top:124px;			
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var oDiv = document.getElementById('slide'),
+			oUl = document.getElementById('list');
+			oLeftBtn = document.getElementById('btn01'),
+			oRightBtn = document.getElementById('btn02');
+
+			// 1.动画准备 把内容 增加一份
+			oUl.innerHTML += oUl.innerHTML;
+
+			var iSpeed = 0,
+			iMove = 5;
+
+			function fnMove() {
+				iSpeed+= iMove;
+
+				if (iSpeed < -1000) {
+					iSpeed = 0;
+				} else if (iSpeed > 0) {
+					iSpeed = -1000;
+				}
+
+				oUl.style.left = iSpeed + 'px';
+			}
+
+			var oTimer = setInterval(fnMove,30);
+
+			oLeftBtn.onclick = function () {
+				iMove = -5;
+			}
+
+			oRightBtn.onclick = function () {
+				iMove = 5;
+			}
+
+			oDiv.onmouseover = function () {
+				clearInterval(oTimer);
+			}
+
+			oDiv.onmouseout = function () {
+				oTimer = setInterval(fnMove,30);
+			}
+
+
+		}
+	</script>
+</head>
+<body>
+	<div class="btns_con">
+		<div class="left" id="btn01">&lt;</div>
+		<div class="right" id="btn02">&gt;</div>
+	</div>
+	<div class="list_con" id="slide">
+		<ul id="list">
+		<li><a href=""><img src="images/goods001.jpg" alt="商品图片"></a></li>
+		<li><a href=""><img src="images/goods002.jpg" alt="商品图片"></a></li>
+		<li><a href=""><img src="images/goods003.jpg" alt="商品图片"></a></li>
+		<li><a href=""><img src="images/goods004.jpg" alt="商品图片"></a></li>
+		<li><a href=""><img src="images/goods005.jpg" alt="商品图片"></a></li>
+		</ul>
+	</div>
+</body>
+</html>
+

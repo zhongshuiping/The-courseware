@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-网页换肤</title>
+    <link rel="stylesheet" href="./css/skin01.css" id="link01">
+    <script>
+        window.onload = function () {
+            var oLink = document.getElementById('link01'),
+            oBtn01 = document.getElementById('btn01'),
+            oBtn02 = document.getElementById('btn02');
+
+            oBtn01.onclick = function () {
+                oLink.href = 'css/skin01.css';
+            }
+
+            oBtn02.onclick = function () {
+                oLink.href = 'css/skin02.css';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>网页换肤的网页</h1>
+    <input type="button" value="皮肤一" id="btn01">
+    <input type="button" value="皮肤二" id="btn02">
+</body>
+</html>

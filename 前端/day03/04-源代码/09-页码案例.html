@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>09-页码案例</title>
+
+    <style>
+        .page{
+            width: 960px;
+            height: 40px;
+            border: 1px solid #d1d1d1;
+            margin: 50px auto 0px;
+
+            padding: 0px;
+            list-style: none;
+
+            text-align: center;
+
+            font-size: 0px;
+            
+        }
+        .page li{
+            /* 把li标签转换成行内块 让它们排在一行 */
+            display: inline-block;
+
+            margin: 0px 5px;
+            line-height: 40px;
+        }
+        .page a{
+            text-decoration: none;
+            font-size: 12px;
+            font-family: 'Microsoft Yahei';
+            color: #393c35;
+
+            background-color: gold;
+
+            display: inline-block;
+            height: 26px;
+            line-height: 26px;
+            padding: 0px 10px;
+        }
+
+        .page span{
+            font-size: 12px;
+            font-family: 'Microsoft Yahei';
+            color: #393c35;
+        }
+
+        .page a:hover{
+            color: white;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- ul.page>(li>a[href="#"]{$})*20 -->
+    <ul class="page">
+        <li><a href="#">上一页</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><span>...</span></li>
+        <li><a href="#">17</a></li>
+        <li><a href="#">18</a></li>
+        <li><a href="#">19</a></li>
+        <li><a href="#">20</a></li>
+        <li><a href="#">下一页</a></li>
+    </ul>
+</body>
+</html>
